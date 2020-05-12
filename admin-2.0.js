@@ -22,6 +22,9 @@
           }else if ( checkUser.innerText == "jiangtiantian@jikeyin.com"){
             console.log(2222);
                  fn_nav();
+          }else if ( checkUser.innerText == "yanghao@giikin.com"){
+            console.log(2222);
+                 fn_nav();
           }else if ( checkUser.innerText == "yangzhiyu@jikeyin.com"){
             console.log(2222);
                  fn_nav();
