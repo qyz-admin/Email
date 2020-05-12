@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
 // @name         admin-6.15
 // @namespace    http://tampermonkey.net/
-// @version      6.17
+// @version      6.18
 // @description  港台审核-以待审核、待发货、客服查询、界面為主
 // @author       You
 // @match        http://13.229.176.203/admin/index/index.html
