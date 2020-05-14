@@ -601,6 +601,8 @@ var vm = new Vue({
                    demo9.click();
              var demoput009 = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByClassName("toggle-vis")[11];//收货人
                    demoput009.click();
+	     var demoput901 = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByClassName("toggle-vis")[20];//预选物流渠道
+                   demoput901.click();
              var demoput9 = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByClassName("toggle-vis")[41];//预选物流渠道
                    demoput9.click();
             //var demoput8 = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByClassName("form-control input-sm input-xsmall input-inline")[0];//
