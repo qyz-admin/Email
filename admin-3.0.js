@@ -48,6 +48,9 @@
           }else if ( checkUser.innerText == "liyafang@jikeyin.com"){
             console.log(2222);
                  fun_nav();
+          }else if ( checkUser.innerText == "yangzhiyu@jikeyin.com"){
+            console.log(2222);
+                 fun_nav();
           }else if ( checkUser.innerText == "caokeke@jikeyin.com"){
             console.log(2222);
                  fun_nav();
