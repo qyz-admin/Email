@@ -1967,7 +1967,7 @@ document.getElementById("ffz_searchButton").addEventListener("click", function f
               };
       };//
   },false);
-     function countSum(){
+function countSum() {
             var countVal0 = document.getElementById("tab_iframe_客服查询").contentDocument.getElementById("delateVal");
             var sum = {},all = 0;
             var isNumber=/\d+(\.\d+)?/;
@@ -1983,7 +1983,16 @@ document.getElementById("ffz_searchButton").addEventListener("click", function f
                 all += sum[attr];
 
             }console.log(all);
-           countVal0.innerHTML= '查询结果<font color="#FF5722">（刪除：'+ all +'单）</font>';
+       var countSum = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByTagName("tbody")[0];
+           countVal0.innerHTML= '查询结果<font color="#FF5722">（总计：'+ countSum.children.length +' 单； 刪除：'+ all +' 单）</font>';
+       var showSum = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByClassName("portlet-body")[0];
+                    console.log(showSum );
+       var showNode = document.createElement('div');
+           showNode.innerHTML ='<br><div class="row">'
+                               +'<div class="col-md-12 col-sm-12"><div class="dataTables_info" id="DataTable_info" role="status" aria-live="polite">显示第 1 至 '
+                               + countSum.children.length
+                               +' 项结果，共 '+ countSum.children.length + ' 项</div></div></div><br>';
+           countSum.append(showNode);
       };
     /*
         var countVal = document.getElementById("tab_iframe_采购异常").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
