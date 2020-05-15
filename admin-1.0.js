@@ -34,7 +34,7 @@
           }else if ( checkUser.innerText == "yangjiayi@jikeyin.com"){
             console.log(2222);
                  fn_nav();
-          }else if ( checkUser.innerText == "xuwenjiang@jikeyin.com"){
+          }else if ( checkUser.innerText == "xuwenjian@jikeyin.com"){
             console.log(2222);
                  fn_nav();
           }else if ( checkUser.innerText == "qukaituo@jikeyin.com"){
