@@ -668,10 +668,12 @@ var vm = new Vue({
                       if (ip_val[i].innerText == "拉黑率") {
                             console.log(i);
                       for (var j = 0; j < cout; j++) {
-                       var iptxt = countVal.rows[j].cells[i].innerHTML;
-                        var dataneme = countVal.rows[j].cells[1].innerHTML;
-                            data = data + dataneme +";-----" + iptxt +";-----           " + "\n" + "\n";
+                           var iptxt = countVal.rows[j].cells[i].innerHTML;
+                           var iptx = countVal.rows[j].cells[i-1].innerHTML;
+                       //  var dataneme = countVal.rows[j].cells[1].innerHTML;
+                        //    data = data + dataneme +";-----" + iptxt + iptx +"\n" + "\n";
                                       //  alert(iptxt);
+                       data = data + iptx +";-----" + iptxt +"\n" + "\n";
                       }
                }
           };
