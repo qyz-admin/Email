@@ -1719,7 +1719,7 @@ document.getElementById("ffz_searchButton").addEventListener("click", function f
    function getImg(){
 	    if(currentIndex >= item_arr.length){
            wxcx.value = "";
-           show_nav();
+         //  show_nav();显示隐藏列
            layer.msg("已全部查詢完了", {icon: 6},{time: 500});
             dcountSum();
             // cx.click();
