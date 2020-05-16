@@ -270,6 +270,7 @@ var vm = new Vue({
      <input type="button" value="I P " class="btn yellow-gold" id="ip_search" >\
      <input type="button" value="S K U " class="btn yellow-gold" id="sku_search" >&nbsp&nbsp&nbsp&nbsp\
 <input type="button" value="待发货设置 &nbsp " class="btn yellow" id="DFH_search" >&nbsp&nbsp\
+<input type="button" value="拆 单 " class="btn yellow" id="chai_search" >&nbsp\
 <input type="button" value="姓 名 " class="btn yellow" id="Dname_search" >&nbsp\
 <input type="button" value="电 话 " class="btn yellow" id="Dphone_search" >&nbsp\
 <input type="button" value="拉黑率 " class="btn yellow" id="Dblack_search" >&nbsp\
@@ -614,6 +615,31 @@ var vm = new Vue({
           demo9.click();
 
 },false);
+	  document.getElementById("chai_search").addEventListener("click", function fnn() { // 拆单筛选
+             var countVal = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+             var cout= countVal.rows.length;
+                 console.log(cout);
+             var ip_val = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByTagName("th");
+                 console.log(ip_val.length);
+        //     var data = 0 + "\n";//换行
+             var data ="";
+             for (var i = 0, ii = ip_val.length; i < ii; i++) {
+                      if (ip_val[i].innerText == "订单编号") {
+                            console.log(i);
+                      for (var j = 0; j < cout; j++) {
+                           var iptxt = countVal.rows[j].cells[i].innerHTML;
+		                   var iptxn = countVal.rows[j].cells[5].innerHTML;
+                          //  var dataneme = countVal.rows[j].cells[1].innerHTML;
+                             //   data = data + dataneme +";-----" + iptxt +";-----           " + "\n" + "\n";
+                                      //  alert(iptxt);
+                                         if (iptxt.indexOf("NA") != -1) {
+                                               data = data +";---" + iptxt +";---" + iptxn + "\n" + "\n";
+                                         }
+                      }
+               }
+          };
+            alert(data);
+ },false);
      document.getElementById("Dname_search").addEventListener("click", function fnn() { // 姓名筛选
              var countVal = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
 
