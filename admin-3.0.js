@@ -628,9 +628,11 @@ var vm = new Vue({
                             console.log(i);
                       for (var j = 0; j < cout; j++) {
                        var iptxt = countVal.rows[j].cells[i].innerHTML;
-                        var dataneme = countVal.rows[j].cells[1].innerHTML;
-                            data = data + dataneme +";-----" + iptxt +";-----           " + "\n" + "\n";
+		       var iptxn = countVal.rows[j].cells[i+1].innerHTML;
+                       var dataneme = countVal.rows[j].cells[1].innerHTML;
+                         //   data = data + dataneme +";-----" + iptxt +";-----           " + "\n" + "\n";
                                       //  alert(iptxt);
+			       data = data + dataneme +";---" + iptxt +";---" + iptxn + "\n" + "\n";
                       }
                }
           };
