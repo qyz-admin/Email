@@ -621,8 +621,8 @@ var vm = new Vue({
                  console.log(cout);
              var ip_val = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByTagName("th");
                  console.log(ip_val.length);
-        //     var data = 0 + "\n";//换行
-             var data ="";
+             var data = 0 + "\n";//换行
+         //    var data ="";
              for (var i = 0, ii = ip_val.length; i < ii; i++) {
                       if (ip_val[i].innerText == "订单编号") {
                             console.log(i);
