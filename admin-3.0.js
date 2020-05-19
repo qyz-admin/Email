@@ -261,7 +261,10 @@ var vm = new Vue({
                                  <input value="查詢-補發" class="btn default showcol" id="wxz_searchButton" type="hidden">\
                    <input type="hidden" value="信息表显示" class="btn green" id="xxb_searchButton">\
                    <input type="hidden" value="open订单窗口" class="btn green" id="test_searchButton">&nbsp&nbsp\
-     <input type="button" value="待审核设置 &nbsp " class="btn yellow-gold" id="demo_search" >&nbsp\
+      <input type="button" value="待审核设置" class="btn yellow-gold" id="demo_search" >&nbsp\
+<input type="button" value="重复 " class="btn purple" id="cf_search" >&nbsp\
+<input type="button" value="拉黑率 " class="btn purple" id="lhl_search" >&nbsp\
+<input type="button" value="IP " class="btn purple" id="ipcf_search" >\
      <input type="button" value="姓 名 " class="btn yellow-gold" id="name_search" >\
      <input type="button" value="地 址 " class="btn yellow-gold" id="address_search" >\
      <input type="button" value="邮 箱 " class="btn yellow-gold" id="email_search" >\
@@ -269,16 +272,16 @@ var vm = new Vue({
      <input type="button" value="留 言 " class="btn yellow-gold" id="liuyan_search" >&nbsp&nbsp&nbsp\
      <input type="button" value="I P " class="btn yellow-gold" id="ip_search" >\
      <input type="button" value="S K U " class="btn yellow-gold" id="sku_search" >&nbsp&nbsp&nbsp&nbsp\
-<input type="button" value="待发货设置 &nbsp " class="btn yellow" id="DFH_search" >&nbsp&nbsp\
+<input type="button" value="待发货设置" class="btn yellow" id="DFH_search" >&nbsp&nbsp\
 <input type="button" value="拆 单 " class="btn yellow" id="chai_search" >&nbsp\
 <input type="button" value="姓 名 " class="btn yellow" id="Dname_search" >&nbsp\
 <input type="button" value="电 话 " class="btn yellow" id="Dphone_search" >&nbsp\
 <input type="button" value="拉黑率 " class="btn yellow" id="Dblack_search" >&nbsp\
-<input type="button" value="森鸿自发 &nbsp " class="tool-action btn yellow" id="T_search" >&nbsp&nbsp\
+<input type="hidden" value="森鸿自发 &nbsp " class="tool-action btn yellow" id="T_search" >\
                                  <input value="信息55" class="btn green" id="xxbb_searchButton" type="hidden">\
       &nbsp &nbsp\
-     <input type="button" value="筛选" class="btn green" id="xx_searchButton" >&nbsp\
-                   <input type="button" value="导 出" class="tool-action btn yellow" id="save_searchButton">\
+     <input type="hidden" value="|" class="btn green" id="xx_searchButton" >\
+                   <input type="button" value="导 出" class="btn green" id="save_searchButton">\
                    <input type="hidden" value="退 货" class="btn yellow-gold" id="th_searchButton">\
                    <input type="hidden" value="换 货" class="btn yellow-gold" id="hh_searchButton">\
                    <input type="hidden" value="补 发" class="btn yellow-gold" id="bf_searchButton"> \
@@ -441,6 +444,91 @@ var vm = new Vue({
           };
             alert(data);
     */
+	  document.getElementById("cf_search").addEventListener("click", function fnn() { // 重复订单
+             var countVal = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+             var cout= countVal.rows.length;
+                 console.log(cout);
+             var ip_val = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByTagName("th");
+                 console.log(ip_val.length);
+            // var data ="";
+             var data = 0 + "\n";//换行
+             for (var i = 0, ii = ip_val.length; i < ii; i++) {
+                      if (ip_val[i].innerText == "收货人") {
+                            console.log(i);
+                      for (var j = 0; j < cout; j++) {
+                       var iptxt = countVal.rows[j].cells[i+1].innerHTML;
+                       var iptxtt = countVal.rows[j].cells[i];
+                       var dataneme = countVal.rows[j].cells[1].innerHTML;
+                           // data = data + dataneme +";-----" + iptxt +";-----           " + "\n" + "\n";
+                                      //  alert(iptxt);
+                           if(iptxtt.style.backgroundColor=="rgb(248, 140, 142)"){
+                              //  console.log(iptxt);
+                               data = data + dataneme +";-----电话：" + iptxt +";-----           " + "\n" + "\n";
+                           }else{
+                               console.log(11);
+                           }
+                      }
+               }
+          };
+          alert(data);
+ },false);
+      document.getElementById("lhl_search").addEventListener("click", function fnn() { // 拉黑率
+             var countVal = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+             var cout= countVal.rows.length;
+                 console.log(cout);
+             var ip_val = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByTagName("th");
+                 console.log(ip_val.length);
+          //   var data ="";
+           var data = 0 + "\n";//换行
+             for (var i = 0, ii = ip_val.length; i < ii; i++) {
+                      if (ip_val[i].innerText == "配送地址") {
+                            console.log(i);
+                      for (var j = 0; j < cout; j++) {
+                       var iptxt = countVal.rows[j].cells[i-3].innerHTML;//电话
+                       var iptxtval = countVal.rows[j].cells[i-2].innerHTML;//拉黑率
+                       var iptxtt = countVal.rows[j].cells[i];
+                       var dataneme = countVal.rows[j].cells[1].innerHTML;
+                           // data = data + dataneme +";-----" + iptxt +";-----           " + "\n" + "\n";
+                                      //  alert(iptxt);
+                           if(iptxtt.style.backgroundColor=="rgb(245, 69, 69)"){
+                              //  console.log(iptxt);
+                               data = data + dataneme +";-----拉黑率：" + iptxtval +";-----电话："+ iptxt +";-----           " + "\n" + "\n";
+                           }else{
+                               console.log(11);
+                           }
+                      }
+               }
+          };
+          alert(data);
+ },false);
+      document.getElementById("ipcf_search").addEventListener("click", function fnn() { // ip重复订单
+     var countVal = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+             var cout= countVal.rows.length;
+                 console.log(cout);
+             var ip_val = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByTagName("th");
+                 console.log(ip_val.length);
+            // var data ="";
+           var data = 0 + "\n";//换行
+             for (var i = 0, ii = ip_val.length; i < ii; i++) {
+                      if (ip_val[i].innerText == "IP") {
+                            console.log(i);
+                      for (var j = 0; j < cout; j++) {
+                       var iptxt = countVal.rows[j].cells[i].innerHTML; var iptxtval = countVal.rows[j].cells[i-8].innerHTML;
+                       var iptxtt = countVal.rows[j].cells[i];
+                       var dataneme = countVal.rows[j].cells[1].innerHTML;
+                           // data = data + dataneme +";-----" + iptxt +";-----           " + "\n" + "\n";
+                                      //  alert(iptxt);
+                           if(iptxtt.style.backgroundColor=="rgb(249, 211, 78)"){
+                              //  console.log(iptxt);
+                               data = data + dataneme +";-----电话：" + iptxtval +";-----IP："+ iptxt +";-----           " + "\n" + "\n";
+                           }else{
+                               console.log(11);
+                           }
+                      }
+               }
+          };
+          alert(data);
+ },false);
  document.getElementById("name_search").addEventListener("click", function fnn() { // 姓名筛选
              var countVal = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
 
