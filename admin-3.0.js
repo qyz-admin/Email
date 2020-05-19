@@ -627,12 +627,10 @@ var vm = new Vue({
                       if (ip_val[i].innerText == "订单编号") {
                             console.log(i);
                       for (var j = 0; j < cout; j++) {
-                           var iptxt = countVal.rows[j].cells[i].innerHTML;
+                                   var iptxt = countVal.rows[j].cells[i].innerHTML;
 		                   var iptxn = countVal.rows[j].cells[5].innerHTML;
-                          //  var dataneme = countVal.rows[j].cells[1].innerHTML;
-                             //   data = data + dataneme +";-----" + iptxt +";-----           " + "\n" + "\n";
-                                      //  alert(iptxt);
-                                         if (iptxt.indexOf("NA") != -1) {
+                              if (iptxt.indexOf("NR") == "-1"&&iptxn.indexOf("#") != "-1") {
+                                      //    if (iptxt.indexOf("NR") == -1) {备用
                                                data = data +";---" + iptxt +";---" + iptxn + "\n" + "\n";
                                          }
                       }
@@ -682,6 +680,17 @@ var vm = new Vue({
                }
           };
             alert(data);
+    var textArea01 = document.createElement('textarea');
+        textArea01.value = data;
+      document.body.appendChild(textArea01);
+      //  textArea.style.display = "none";
+        textArea01.select();
+       // document.execCommand('copy', false);
+      document.execCommand('copy');
+       layer.msg('Hello 复制成功', {icon: 6});
+         setTimeout(function () {
+            document.body.removeChild(textArea01);
+        }, 100);
  },false);
          document.getElementById("Dblack_search").addEventListener("click", function fnn() { // 拉黑率筛选
              var countVal = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
@@ -696,12 +705,12 @@ var vm = new Vue({
                       if (ip_val[i].innerText == "拉黑率") {
                             console.log(i);
                       for (var j = 0; j < cout; j++) {
-                           var iptxt = countVal.rows[j].cells[i].innerHTML;
+                           var iptxtval = countVal.rows[j].cells[i].innerHTML;
+                           var iptxt = countVal.rows[j].cells[i].childNodes.length;
                            var iptx = countVal.rows[j].cells[i-1].innerHTML;
-                       //  var dataneme = countVal.rows[j].cells[1].innerHTML;
-                        //    data = data + dataneme +";-----" + iptxt + iptx +"\n" + "\n";
-                                      //  alert(iptxt);
-                       data = data + iptx +";-----" + iptxt +"\n" + "\n";
+                                 if (iptxt==1) {
+                                         data = data + iptx +";-----" + iptxtval+"\n" + "\n";
+                                }
                       }
                }
           };
