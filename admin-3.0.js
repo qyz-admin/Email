@@ -260,7 +260,7 @@ var vm = new Vue({
                                  <input value="显示/隐藏列" class="btn purple" id="wxcd_searchButton" type="hidden">\
                                  <input value="查詢-補發" class="btn default showcol" id="wxz_searchButton" type="hidden">\
                    <input type="hidden" value="信息表显示" class="btn green" id="xxb_searchButton">\
-                   <input type="hidden" value="open订单窗口" class="btn green" id="test_searchButton">&nbsp&nbsp\
+                   <input type="button" value="open订单窗口" class="btn green" id="test_searchButton">&nbsp&nbsp\
       <input type="button" value="待审核设置" class="btn yellow-gold" id="demo_search" >&nbsp\
 <input type="button" value="重复 " class="btn purple" id="cf_search" >&nbsp\
 <input type="button" value="拉黑率 " class="btn purple" id="lhl_search" >&nbsp\
@@ -922,7 +922,7 @@ var vm = new Vue({
                 + "<td>" + xhrVal.split("<td>")[21].split("</td>")[0] + "</td>";
                   //  thNode1.append(thNode2);
                     thNode111.append(thNode2);
-                 window.open('https://goms.giikin.com/admin/order/' + splitVal20, 'newwindow', 'height=750, width=1150, top=50, left=250, toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, status=yes');
+                 window.open('https://goms.giikin.com/admin/order/' + splitVal20, 'newwindow', 'height=950, width=1350, top=50, left=250, toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, status=yes');
                 getImg();//?代
                  }
               };
