@@ -717,7 +717,7 @@ var vm = new Vue({
                       for (var j = 0; j < cout; j++) {
                                    var iptxt = countVal.rows[j].cells[i].innerHTML;
 		                   var iptxn = countVal.rows[j].cells[5].innerHTML;
-                              if (iptxt.indexOf("NR") == "-1"&&iptxn.indexOf("#") != "-1") {
+                              if (iptxt.indexOf("NR") == "-1") {
                                       //    if (iptxt.indexOf("NR") == -1) {备用
                                                data = data +";---" + iptxt +";---" + iptxn + "\n" + "\n";
                                          }
