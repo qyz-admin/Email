@@ -744,7 +744,7 @@ var vm = new Vue({
                        var dataneme = countVal.rows[j].cells[1].innerHTML;
                          //   data = data + dataneme +";-----" + iptxt +";-----           " + "\n" + "\n";
                                       //  alert(iptxt);
-			       data = data + dataneme +";---" + iptxt +";---" + iptxn + "\n" + "\n";
+			      data = data + iptxn +";------" + iptxt +";------" + dataneme + "\n" + "\n";
                       }
                }
           };
