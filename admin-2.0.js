@@ -2387,7 +2387,7 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
                                           + "<td>" + splitVal13 + "</td>"
                                           + "<td>" + splitVal14 + "</td>"
                                           + "<td>" + splitVal8 + " </td>"//规格
-                                          + "<td>s少發(原訂單號：" + split1 + ")</td>" //备注
+                                          + "<td>少發(原訂單號：" + split1 + ")</td>" //备注
                                           + "<td>" + splitVal18 + " </td>"//地址
                 + "<td>  </td>"
                 + "<td>  </td>"
