@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-6.20-
+// @name         admin-6.21-
 // @namespace    http://tampermonkey.net/
-// @version      6.20
+// @version      6.21
 // @description  港台审核-以待审核、待发货、客服查询、界面為主
 // @author       You
 // @match        http://13.229.176.203/admin/index/index.html
@@ -248,7 +248,7 @@ var vm = new Vue({
     var wxzSearchBarNode = document.createElement('div');
         wxzSearchBarNode.setAttribute('class','header-wxzbar header-info');
         wxzSearchBarNode.setAttribute('id','header-nav');
-        wxzSearchBarNode.style = "position: absolute;float: left;top: 10px; left: 235px;width:1625px;text-align: center;";//left:235
+        wxzSearchBarNode.style = "position: absolute;float: left;top: 10px; left: 235px;width:1665px;text-align: center;";//left:235
         wxzSearchBarNode.innerHTML =
       '<input placeholder=" 輸入--（編號）" class="search-button" id="wxz_input" type="hidden">\
                    <input type="button" value="关闭" class="btn default showcol" id="close_searchButton">\
