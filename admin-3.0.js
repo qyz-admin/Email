@@ -255,7 +255,7 @@ var vm = new Vue({
        &nbsp &nbsp\
                                  <input value="GO-客服" class="btn default showcol" id="wxcx_searchButton" type="hidden">\
                    <input type="button" value="批量查询" class="btn green" id="w_searchButton" >\
-                   <input type="button" value="运单号查询" class="btn default showcol" id="waybill_searchButton" >\
+                   <input type="button" value="运单号" class="btn default showcol" id="waybill_searchButton" >\
                    <input type="button" value="金額查询" class="btn green" id="cd_searchButton" >\
                                  <input value="显示/隐藏列" class="btn purple" id="wxcd_searchButton" type="hidden">\
                                  <input value="查詢-補發" class="btn default showcol" id="wxz_searchButton" type="hidden">\
