@@ -1176,11 +1176,11 @@ function xxbTb() {
                    demoput4.click();
              var demoput5 = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("toggle-vis")[34];//改派商品
                    demoput5.click();
-             var demoput60 = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("toggle-vis")[36];//是否发送邮件
+             var demoput60 = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("toggle-vis")[37];//是否发送邮件
                    demoput60.click();
-          var demoput61 = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("toggle-vis")[39];//IP
+          var demoput61 = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("toggle-vis")[40];//IP
                    demoput61.click();
-          var demoput6 = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("toggle-vis")[40];//备注
+          var demoput6 = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("toggle-vis")[41];//备注
                    demoput6.click();
              var demoput7 = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("btn default showcol")[0];//
                    demoput7.click();
