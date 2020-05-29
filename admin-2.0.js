@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-5.26
+// @name         admin-5.27
 // @namespace    http://tampermonkey.net/
-// @version      5.26
+// @version      5.27
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -1777,6 +1777,7 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
     + "<th> 配送方式 </th>"
     + "<th> 電子郵件 </th>"
     + "<th> 客戶留言 </th>"
+    + "<th> 超商 </th>"
     + "<th> 操作   </th>"
                                    + "</tr>";
                     thNode101.append(thNode202);
@@ -1871,22 +1872,28 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
             if(xhrVal0.readyState==4 && xhrVal0.status==200){
                 var hehe=xhrVal0.responseText;
              console.log(xhrVal0.responseText);
-
                 var split0="";
+                var split50="";
                 var split1=hehe.split("</td>")[2].split('class="td-text">')[1];//订单编号2
                 var split2=hehe.split("</td>")[10].split('class="td-text">')[1];//订单金额7-16
                 var split3=hehe.split("</td>")[18].split('class="td-text">')[1];//支付方式21
                 var split4=hehe.split("</td>")[22].split('class="td-text">')[1];//派送方式18
                 var split40=hehe.split("</td>")[37].split('class="td-text">')[1];
                 var split400=hehe.split("</td>")[45].split('class="td-text">')[1];//客戶留言
+                var split500=hehe.split("</td>")[47].split('class="td-label">')[1];//超商
+                if( split500.indexOf("超商类别") != -1){
+                   split50=hehe.split("</td>")[48].split('class="td-text">')[1];;
+                   }else if( split500.indexOf("暂无超商信息【点击添加】") != -1){
+                   split50 = split500;
+                   };
                 if( split4.indexOf("易速配") != -1){
                    split0="";
                    }else {
                    split0 += "4103173926";
                    };
                 var split5=hehe.split("</td>")[32].split('class="td-text">')[1];//站點ID24
-                var split6=hehe.split("商品清單")[1].split("<td>")[4].split("</td>")[0];//站點ID24
-                    console.log(split6);
+               // var split6=hehe.split("商品清單")[1].split("<td>")[4].split("</td>")[0];//站點ID24
+               //     console.log(split6);
                 //var split77=hehe.split("</td>")[32].split('class="td-text">')[1];//金额
                  var dd = document.getElementById("djr").value;//登记人
 
@@ -1962,6 +1969,7 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
                 + "<td>" + split4 + "</td>" //地址
                 + "<td>" + split40 + "</td>"
                 + "<td>" + split400 + "</td>"
+                + "<td>" + split50 + "</td>"
                 + "<td>" + splitVal21 + "</td>"
                 thNode111.appendChild(thNode222);
               //  var thNodeVal0 = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByTagName("thead")[0];
