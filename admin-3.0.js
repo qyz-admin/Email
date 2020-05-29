@@ -2181,6 +2181,7 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
     + "<th> 配送方式 </th>"
     + "<th> 電子郵件 </th>"
     + "<th> 客戶留言 </th>"
+    + "<th> 超商 </th>"
     + "<th> 操作   </th>"
                                    + "</tr>";
                     thNode101.append(thNode202);
@@ -2197,6 +2198,7 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
    function getImg(){
 	    if(currentIndex >= item_arr.length){
            wxcx.value = "";
+           // countSumm();
            layer.msg("已全部查詢完了", {icon: 6},{time: 500});
             // cx.click();
 		  return;
@@ -2214,6 +2216,7 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
             if(xhr.readyState==4 && xhr.status==200){
                 currentIndex++;
                 console.log(xhr.responseText);
+                 try{
                       var xhrVal = xhr.responseText;
                 /*      var splitVal1 = xhrVal.split("<td>")[1].split("</td>")[0];//订单号
                           console.log(splitVal1);
@@ -2254,8 +2257,11 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
                    getValue(splitVal0,xhrVal);//查詢網址
                             getImg();//?代
                  }
+                 catch(err){
+                          getImg();
+                      }
             };
-         };
+      };
           function getValue(splitVal0,xhrVal){//查詢網址
              var djTime = new Date().toLocaleString() + ' 星期'+'日一二三四五六'.charAt(new Date().getDay());
              var xhrVal0;
@@ -2270,22 +2276,28 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
             if(xhrVal0.readyState==4 && xhrVal0.status==200){
                 var hehe=xhrVal0.responseText;
              console.log(xhrVal0.responseText);
-
                 var split0="";
+                var split50="";
                 var split1=hehe.split("</td>")[2].split('class="td-text">')[1];//订单编号2
                 var split2=hehe.split("</td>")[10].split('class="td-text">')[1];//订单金额7-16
                 var split3=hehe.split("</td>")[18].split('class="td-text">')[1];//支付方式21
                 var split4=hehe.split("</td>")[22].split('class="td-text">')[1];//派送方式18
                 var split40=hehe.split("</td>")[37].split('class="td-text">')[1];
                 var split400=hehe.split("</td>")[45].split('class="td-text">')[1];//客戶留言
+                var split500=hehe.split("</td>")[47].split('class="td-label">')[1];//超商
+                if( split500.indexOf("超商类别") != -1){
+                   split50=hehe.split("</td>")[48].split('class="td-text">')[1];;
+                   }else if( split500.indexOf("暂无超商信息【点击添加】") != -1){
+                   split50 = split500;
+                   };
                 if( split4.indexOf("易速配") != -1){
                    split0="";
                    }else {
                    split0 += "4103173926";
                    };
                 var split5=hehe.split("</td>")[32].split('class="td-text">')[1];//站點ID24
-                var split6=hehe.split("商品清單")[1].split("<td>")[4].split("</td>")[0];//站點ID24
-                    console.log(split6);
+               // var split6=hehe.split("商品清單")[1].split("<td>")[4].split("</td>")[0];//站點ID24
+               //     console.log(split6);
                 //var split77=hehe.split("</td>")[32].split('class="td-text">')[1];//金额
                  var dd = document.getElementById("djr").value;//登记人
 
@@ -2361,6 +2373,7 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
                 + "<td>" + split4 + "</td>" //地址
                 + "<td>" + split40 + "</td>"
                 + "<td>" + split400 + "</td>"
+                + "<td>" + split50 + "</td>"
                 + "<td>" + splitVal21 + "</td>"
                 thNode111.appendChild(thNode222);
               //  var thNodeVal0 = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByTagName("thead")[0];
@@ -2372,7 +2385,35 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
          xhrVal0.open("GET",xhrVal_ur,true);
          xhrVal0.send();
        };
+   }
  },false);
+         function countSumm() {
+            var countVal0 = document.getElementById("tab_iframe_客服查询").contentDocument.getElementById("delateVal");
+            var sum = {},all = 0;
+            var isNumber=/\d+(\.\d+)?/;
+            var countVal = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+             //   console.log(countVal.rows.item(2).cells[8].innerHTML);
+           for (var i = 1, ii = countVal.rows.length; i < ii; i++) {
+                 if (isNumber.test(countVal.rows[i].cells[8].innerHTML)) {
+                      sum[i] = (sum[i] || 0) + parseFloat(countVal.rows[i].cells[8].innerHTML);
+                         //   console.log(sum[i]);
+               }
+          };
+           for (var attr in sum) {
+                all += sum[attr];
+
+            }console.log(all);
+       var countSum = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByTagName("tbody")[0];
+       //    countVal0.innerHTML= '查询结果<font color="#FF5722">（总计：'+ countSum.children.length +' 单； 刪除：'+ all +' 单）</font>';
+       var showSum = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByClassName("portlet-body")[0];
+                    console.log(showSum );
+       var showNode = document.createElement('div');
+           showNode.innerHTML ='<br><div class="row">'
+                               +'<div class="col-md-12 col-sm-12"><div class="dataTables_info" id="DataTable_info" role="status" aria-live="polite">显示第 1 至 '
+                               + countSum.children.length
+                               +' 项结果，共 '+ countSum.children.length + ' 项</div></div></div><br>';
+           countSum.append(showNode);
+      };
  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     document.getElementById("wxz_searchButton").addEventListener("click", function fn() {//客服-批量查詢-補發
              var xhr;
