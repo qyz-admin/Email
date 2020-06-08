@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-6.23-
+// @name         admin-6.24-
 // @namespace    http://tampermonkey.net/
-// @version      6.23
+// @version      6.24
 // @description  港台审核-以待审核、待发货、客服查询、界面為主
 // @author       You
 // @match        http://13.229.176.203/admin/index/index.html
@@ -52,6 +52,12 @@
             console.log(2222);
                  fun_nav();
           }else if ( checkUser.innerText == "caokeke@jikeyin.com"){
+            console.log(2222);
+                 fun_nav();
+          }else if ( checkUser.innerText == "wujingjing@jikeyin.com"){
+            console.log(2222);
+                 fun_nav();
+          }else if ( checkUser.innerText == "zhouhaodi@jikeyin.com"){
             console.log(2222);
                  fun_nav();
           }else{
