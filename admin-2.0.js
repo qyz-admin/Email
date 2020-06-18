@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-5.28
+// @name         admin-5.29
 // @namespace    http://tampermonkey.net/
-// @version      5.28
+// @version      5.29
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -1783,6 +1783,8 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
     + "<th> 配送方式 </th>"
     + "<th> 電子郵件 </th>"
     + "<th> 客戶留言 </th>"
+    + "<th> 退貨原因 </th>"
+    + "<th> 问题类型 </th>"
     + "<th> 超商 </th>"
     + "<th> 操作   </th>"
                                    + "</tr>";
@@ -1884,6 +1886,8 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
                 var split2=hehe.split("</td>")[10].split('class="td-text">')[1];//订单金额7-16
                 var split3=hehe.split("</td>")[18].split('class="td-text">')[1];//支付方式21
                 var split4=hehe.split("</td>")[22].split('class="td-text">')[1];//派送方式18
+                var split94=hehe.split("</td>")[26].split('class="td-text">')[1];//派送方式18
+                var split994=hehe.split("</td>")[30].split('class="td-text">')[1];//派送方式18
                 var split40=hehe.split("</td>")[37].split('class="td-text">')[1];
                 var split400=hehe.split("</td>")[45].split('class="td-text">')[1];//客戶留言
                 var split500=hehe.split("</td>")[47].split('class="td-label">')[1];//超商
@@ -1975,6 +1979,8 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
                 + "<td>" + split4 + "</td>" //地址
                 + "<td>" + split40 + "</td>"
                 + "<td>" + split400 + "</td>"
+	        + "<td>" + split94 + "</td>"
+                + "<td>" + split994 + "</td>"
                 + "<td>" + split50 + "</td>"
                 + "<td>" + splitVal21 + "</td>"
                 thNode111.appendChild(thNode222);
