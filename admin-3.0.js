@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-6.24-
+// @name         admin-6.26-
 // @namespace    http://tampermonkey.net/
-// @version      6.24
+// @version      6.26
 // @description  港台审核-以待审核、待发货、客服查询、界面為主
 // @author       You
 // @match        http://13.229.176.203/admin/index/index.html
@@ -254,7 +254,7 @@ var vm = new Vue({
     var wxzSearchBarNode = document.createElement('div');
         wxzSearchBarNode.setAttribute('class','header-wxzbar header-info');
         wxzSearchBarNode.setAttribute('id','header-nav');
-        wxzSearchBarNode.style = "position: absolute;float: left;top: 10px; left: 235px;width:1665px;text-align: center;";//left:235
+        wxzSearchBarNode.style = "position: absolute;float: left;top: 10px; left: 235px;width:1705px;text-align: center;";//left:235
         wxzSearchBarNode.innerHTML =
       '<input placeholder=" 輸入--（編號）" class="search-button" id="wxz_input" type="hidden">\
                    <input type="button" value="关闭" class="btn default showcol" id="close_searchButton">\
@@ -266,7 +266,7 @@ var vm = new Vue({
                                  <input value="显示/隐藏列" class="btn purple" id="wxcd_searchButton" type="hidden">\
                                  <input value="查詢-補發" class="btn default showcol" id="wxz_searchButton" type="hidden">\
                    <input type="hidden" value="信息表显示" class="btn green" id="xxb_searchButton">\
-                   <input type="button" value="open订单窗口" class="btn green" id="test_searchButton">&nbsp&nbsp\
+                   <input type="hidden" value="open订单窗口" class="btn green" id="test_searchButton">&nbsp&nbsp\
       <input type="button" value="待审核设置" class="btn yellow-gold" id="demo_search" >&nbsp\
 <input type="button" value="重复 " class="btn purple" id="cf_search" >&nbsp\
 <input type="button" value="拉黑率 " class="btn purple" id="lhl_search" >&nbsp\
@@ -277,7 +277,8 @@ var vm = new Vue({
      <input type="button" value="金 额 " class="btn yellow-gold" id="jine_search" >\
      <input type="button" value="留 言 " class="btn yellow-gold" id="liuyan_search" >&nbsp&nbsp&nbsp\
      <input type="button" value="I P " class="btn yellow-gold" id="ip_search" >\
-     <input type="button" value="S K U " class="btn yellow-gold" id="sku_search" >&nbsp&nbsp&nbsp&nbsp\
+     <input type="button" value="S K U " class="btn yellow-gold" id="sku_search" >&nbsp&nbsp\
+     <input type="button" value="留言修改 " class="btn yellow-gold" id="xiugai_search" >&nbsp&nbsp&nbsp&nbsp&nbsp\
 <input type="button" value="待发货设置" class="btn yellow" id="DFH_search" >&nbsp&nbsp\
 <input type="button" value="拆 单 " class="btn yellow" id="chai_search" >&nbsp\
 <input type="button" value="姓 名 " class="btn yellow" id="Dname_search" >&nbsp\
@@ -383,7 +384,37 @@ var vm = new Vue({
              var demoput10 = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("order_search form-control input-sm input-inline")[0];//
                    demoput10.click();//选择搜索
 
-},false)
+},false);
+ document.getElementById("xiugai_search").addEventListener("click", function fnn() { // 修改操作按钮
+             var countVal = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+
+             var cout= countVal.rows.length;
+                 console.log(cout);
+             var ip_val = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByTagName("th");
+                 console.log(ip_val.length);
+        //     var data = 0 + "\n";//换行
+             var data ="";
+             for (var i = 0, ii = ip_val.length; i < ii; i++) {
+                      if (ip_val[i].innerText == "操作") {
+                            console.log(i);
+                      for (var j = 1; j < cout; j++) {
+                      // var iptxt = countVal.rows[j].cells[i].children[1].href;
+                 var iptxt = countVal.rows[j].cells[i].children[1]
+                 var ip =  iptxt.href;
+                      // var iptxtVal = iptxt.attributes("href");
+                       // var dataneme = countVal.rows[j].cells[1].innerHTML;
+                        //    data = data + dataneme +";-----" + iptxt +";-----           " + "\n" + "\n";
+                                      //  alert(iptxt);
+                          console.log(iptxt); console.log(ip);
+                          var vraa=document.createElement('a');
+                              vraa.target='_blank';
+                              vraa.href=ip;
+                           document.body.appendChild(vraa);
+                              vraa.click();
+                      }
+               }
+          };
+},false);
  document.getElementById("ip_search").addEventListener("click", function fnn() { // ip筛选
              var countVal = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
              var myAarry= new Array("106.107.251.46","123.193.134.179","123.241.109.171","42.77.190.145","223.136.23.172","36.229.132.64","1.175.2.75","1.173.60.30","110.28.194.201","1.173.48.155","114.41.0.86","114.25.81.248","10.210.44.58","123.192.51.182","101.14.130.79","1.200.35.118");
