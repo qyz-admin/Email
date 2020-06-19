@@ -518,7 +518,7 @@ var vm = new Vue({
                               // data = data + dataneme +";-----电话：" + iptxt +";-----           " + "\n" + "\n";
                                data = data + dataneme +","
                            }else{
-                               layer.msg("重复订单哦", {icon: 6},{time: 500});
+                               layer.msg("正在加載---重复订单哦", {icon: 6},{time: 500});
                            }
                       }
                }
@@ -553,7 +553,7 @@ var vm = new Vue({
                               // data = data + dataneme +";-----拉黑率：" + iptxtval +";-----电话："+ iptxt +";-----           " + "\n" + "\n";
                                 data = data + dataneme +","
                            }else{
-                              layer.msg("拉黑订单哦", {icon: 6},{time: 500});
+                              layer.msg("正在加載---拉黑订单哦", {icon: 6},{time: 500});
                            }
                       }
                }
@@ -587,7 +587,7 @@ var vm = new Vue({
                              //  data = data + dataneme +";-----电话：" + iptxtval +";-----IP："+ iptxt +";-----           " + "\n" + "\n";
                                 data = data + dataneme +","
                            }else{
-                              layer.msg("ip重复订单哦", {icon: 6},{time: 500});
+                              layer.msg("正在加載---ip重复订单哦", {icon: 6},{time: 500});
                            }
                       }
                }
