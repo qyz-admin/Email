@@ -432,7 +432,7 @@ var vm = new Vue({
 },false);
  document.getElementById("ip_search").addEventListener("click", function fnn() { // ip筛选
              var countVal = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
-             var myAarry= new Array("106.107.251.46","123.193.134.179","123.241.109.171","42.77.190.145","223.136.23.172","36.229.132.64","1.175.2.75","1.173.60.30","110.28.194.201","1.173.48.155","114.41.0.86","114.25.81.248","10.210.44.58","123.192.51.182","101.14.130.79","1.200.35.118");
+             var myAarry= new Array("106.107.251.46","123.193.134.179","114.26.41.106","123.241.109.171","42.77.190.145","223.136.23.172","36.229.132.64","1.175.2.75","1.173.60.30","110.28.194.201","1.173.48.155","114.41.0.86","114.25.81.248","10.210.44.58","123.192.51.182","101.14.130.79","1.200.35.118");
              var cout= countVal.rows.length;
                  console.log(cout);
              var ip_val = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByTagName("th");
