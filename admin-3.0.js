@@ -967,6 +967,40 @@ var vm = new Vue({
           };
             alert(data);
  },false);
+	/*
+     var countVal = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+             var cout= countVal.rows.length;
+                 console.log(cout);
+             var ip_val = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByTagName("th");
+                 console.log(ip_val.length);
+        //     var data = 0 + "\n";//换行
+             function op(iptxthref){
+                 var newwin;
+                 newwin=window.open(iptxthref);
+                        setTimeout(function(){
+                                     newwin.close();
+                        },3000);
+                };
+             var data ="联系电话;-----"+"拉黑率"+ "\n"+ "\n";
+             for (var i = 0, ii = ip_val.length; i < ii; i++) {
+                      if (ip_val[i].innerText == "拉黑率") {
+                            console.log(i);
+                      for (var j = 1; j < cout; j++) {
+                           var iptxtval = countVal.rows[j].cells[i].innerHTML;
+                           var iptxt = countVal.rows[j].cells[i].childNodes.length;
+                           var iptx = countVal.rows[j].cells[i-1].innerHTML;
+                                 if (iptxt==1) {
+                                         data = data + iptx +";-----" + iptxtval+"\n" + "\n"; 
+                      console.log(countVal.rows[j].cells[i-1].innerHTML);
+                      console.log(countVal.rows[j].cells[i+9].children[1].href);
+                                       var lhlhref = countVal.rows[j].cells[i+9].children[1].href;
+                                      op(lhlhref);
+                                }
+                      }
+               }
+          };
+            alert(data);
+	*/
      document.getElementById("test_searchButton").addEventListener("click", function fn() {//test显示  tanchuang
    var wxcxTable = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByTagName("tbody")[0];
               wxcxTable.parentNode.removeChild(wxcxTable);
