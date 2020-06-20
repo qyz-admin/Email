@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-6.28-
+// @name         admin-6.29-
 // @namespace    http://tampermonkey.net/
-// @version      6.28
+// @version      6.29
 // @description  港台审核-以待审核、待发货、客服查询、界面為主
 // @author       You
 // @match        http://13.229.176.203/admin/index/index.html
@@ -431,7 +431,7 @@ var vm = new Vue({
                }
           };
 },false);
-	     document.getElementById("back_search").addEventListener("click", function fnn() { // 反审核
+ document.getElementById("back_search").addEventListener("click", function fnn() { // 反审核
              function sleep(n) {
                var start=new Date().getTime();
                 while (true) {
@@ -469,6 +469,8 @@ var vm = new Vue({
                    }
                }
           };
+	// var searchval = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByName("search")[0];
+         //       searchval.click();
          //   alert(data);
           /*
              var newwin;
