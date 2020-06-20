@@ -928,7 +928,7 @@ var vm = new Vue({
                       }
                }
           };
-            alert(data);
+            //alert(data);
     var textArea01 = document.createElement('textarea');
         textArea01.value = data;
       document.body.appendChild(textArea01);
