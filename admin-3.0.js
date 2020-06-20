@@ -286,6 +286,7 @@ var vm = new Vue({
 <input type="button" value="电 话 " class="btn yellow" id="Dphone_search" >&nbsp\
 <input type="button" value="拉黑率 " class="btn yellow" id="Dblack_search" >&nbsp\
 <input type="hidden" value="森鸿自发 &nbsp " class="tool-action btn yellow" id="T_search" >\
+<input type="button" value="反审核 " class="btn default showcol" id="back_search" >&nbsp\
                                  <input value="信息55" class="btn green" id="xxbb_searchButton" type="hidden">\
       &nbsp &nbsp\
      <input type="hidden" value="|" class="btn green" id="xx_searchButton" >\
@@ -429,6 +430,94 @@ var vm = new Vue({
                       }
                }
           };
+},false);
+	     document.getElementById("back_search").addEventListener("click", function fnn() { // 反审核
+             function sleep(n) {
+               var start=new Date().getTime();
+                while (true) {
+                  var time=new Date().getTime();
+                  if(time - start>n) {
+                      break;
+                    }
+                 }
+            };
+             function op(iptxthref){
+                 var newwin;
+                 newwin=window.open(iptxthref);
+                        setTimeout(function(){
+                                     newwin.close();
+                        },3000);
+                }
+          //  function co(){
+           //     newwin.close();
+               // setTimeout("op();",1000);
+           //    }
+            var countVal = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+             var cout= countVal.rows.length;
+                 console.log(cout);
+             var ip_val = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByTagName("th");
+                 console.log(ip_val.length);
+             var data = 0 + "\n";//换行
+             for (var i = 0, ii = ip_val.length; i < ii; i++) {
+                      if (ip_val[i].innerText == "操作") {
+                            console.log(i);
+                      for (var j = 1; j < cout; j++) {
+                               var iptxt = countVal.rows[j].cells[i];
+                                    console.log(iptxt.children[1].href);
+                               var iptxthref = iptxt.children[1].href;
+                         op(iptxthref);
+                   }
+               }
+          };
+         //   alert(data);
+          /*
+             var newwin;
+             function op(){
+                 newwin=window.open(iptxt.children[1].href);
+                       // setTimeout("co();",7000);
+                }
+            function co(){
+                newwin.close();
+                setTimeout("op();",1000);
+               }
+         */
+         /*
+                      for (var i = 0, ii = ip_val.length; i < ii; i++) {
+                      if (ip_val[i].innerText == "操作") {
+                            console.log(i);
+                      for (var j = 1; j < cout; j++) {
+                               var iptxt = countVal.rows[j].cells[i];
+                          console.log(iptxt.children[1].href);
+                // var downloadA = document.createElement('a');
+                 //   downloadA.href = iptxt.children[1].href;
+                 //   downloadA.target='_blank';
+                  //  downloadA.click(); // 点我，点我，快点我
+                  newwin = window.open(iptxt.children[1].href);//打开一个新的窗口
+                      // sleep(100);
+                      setTimeout(function () {
+                      //    newwin = window.open(iptxt.children[1].href);//打开一个新的窗口
+                           newwin.close();
+                        },3000);
+                          // newwin.close();
+                  // setTimeout(co(),1000);//设置1秒后关闭新窗口
+                  //  function co(){
+                  //     newwin.close();//关闭新窗口
+                  // setTimeout("op();",1000);//过1秒再次打开新窗口
+                   //    };
+                   //  window.close();
+                   }
+               }
+          };
+             var newwin;
+             function op(){
+                 newwin=window.open('http://heisetoufa.iteye.com');
+                        setTimeout("co();",7000);
+                }
+            function co(){
+                newwin.close();
+                setTimeout("op();",1000);
+               }
+         */
 },false);
  document.getElementById("ip_search").addEventListener("click", function fnn() { // ip筛选
              var countVal = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
