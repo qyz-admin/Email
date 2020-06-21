@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-5.13--
+// @name         admin-5.15--
 // @namespace    http://tampermonkey.net/
-// @version      5.14
+// @version      5.15
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -46,9 +46,11 @@
           }else if ( checkUser.innerText == "yangzhiyu@jikeyin.com"){
             console.log(2222);
                  fn_nav();
+          }else if ( checkUser.innerText == "yanghao@giikin.com"){
+            console.log(2222);
+                 fn_nav();
           }else if ( checkUser.innerText == "caokeke@jikeyin.com"){
             console.log(2222);
-
                  fn_nav();
           }else{
             var navTable = document.getElementById("header-nav");
