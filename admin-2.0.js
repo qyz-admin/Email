@@ -52,7 +52,7 @@
           }else if ( checkUser.innerText == "caokeke@jikeyin.com"){
             console.log(2222);
                  fn_nav();
-          }else if ( checkUser.innerText == "yanghao@jikeyin.com"){
+          }else if ( checkUser.innerText == "yanghao@giikin.com"){
             console.log(2222);
                  fn_nav();
           }else if ( checkUser.innerText == "wujingjing@jikeyin.com"){
