@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-5.30
+// @name         admin-5.31
 // @namespace    http://tampermonkey.net/
-// @version      5.30
+// @version      5.31
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -114,13 +114,13 @@
                    <input type="hidden" value="信息表显示" class="btn green btn-sm" id="xxb_searchButton">\
                    <input type="button" value="open订单窗口" class="btn green btn-sm" id="test_searchButton">\
                                  <input value="信息55" class="btn green btn-sm" id="xxbb_searchButton" type="hidden">\
-   <input type="button" value="待审核設置 &nbsp " class="btn yellow-gold btn-sm" id="demo_search" >\
-   <input type="button" value="重复订单 " class="btn purple btn-sm" id="cf_search" >&nbsp\
-   <input type="button" value="拉黑率 " class="btn purple btn-sm" id="lhl_search" >&nbsp\
-   <input type="button" value="IP重复 " class="btn purple btn-sm" id="ipcf_search" >\
+   <input type="hidden" value="待审核設置 &nbsp " class="btn yellow-gold btn-sm" id="demo_search" >\
+   <input type="hidden" value="重复订单 " class="btn purple btn-sm" id="cf_search" >&nbsp\
+   <input type="hidden" value="拉黑率 " class="btn purple btn-sm" id="lhl_search" >&nbsp\
+   <input type="hidden" value="IP重复 " class="btn purple btn-sm" id="ipcf_search" >\
    <input type="hidden" value="姓 名 " class="btn yellow-gold btn-sm" id="name_search" >\
-   <input type="button" value="电 话 " class="btn yellow-gold btn-sm" id="Dphone_search" >\
-   <input type="button" value="金 额 " class="btn yellow-gold btn-sm" id="jine_search" >\
+   <input type="hidden" value="电 话 " class="btn yellow-gold btn-sm" id="Dphone_search" >\
+   <input type="hidden" value="金 额 " class="btn yellow-gold btn-sm" id="jine_search" >\
     &nbsp &nbsp\
                    <input type="button" value="导 出" class="btn green btn-sm" id="save_searchButton">\
                    <input type="button" value="退 货" class="btn yellow-gold btn-sm" id="th_searchButton">\
