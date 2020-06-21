@@ -128,6 +128,7 @@
                    <input type="button" value="补 发" class="btn yellow-gold btn-sm" id="bf_searchButton"> \
                    <input value="点击复制" class="btn green btn-sm" id="fz_searchButton" type="hidden">\
      <input type="button" value="点击复制  退 换 补" class="tool-action btn yellow btn-sm" id="ffz_searchButton">\
+ &nbsp\
                 <select name="djr" id= "djr">\
                     <option value="0">---登记人---</option>\
 					<option value="齊元章">齊元章</option>\
@@ -141,6 +142,7 @@
                     <option value="袁焕欣">袁焕欣</option>\
                     <option value="杨  昊">杨  昊</option>\
                     <option value="客诉件">客诉件</option>\
+	            <option value="电话客服">\电话客服</option>\
                     </select>\
                 <select name="tigong" id= "tigong">\
                     <option value="運費0">-----備註-----</option>\
@@ -148,8 +150,8 @@
 					<option value="運費99">運費99</option>\
                     <option value="運費一半">退一半不取件</option>\
                     </select>\
-                <select name="thvalue" id= "thvalue" style = "width:115px;">\
-                    <option value="">---退貨原因---</option>\
+                <select name="thvalue" id= "thvalue" style = "width:145px;">\
+                    <option value="">------退貨原因------</option>\
 					<option value="與產品網頁不符">與產品網頁不符</option>\
 					<option value="质量差">质量差</option>\
                     <option value="大小不合适">大小不合适</option>\
@@ -162,8 +164,8 @@
                     <option value="问题件">问题件</option>\
                     <option value="发错商品，少发">发错商品，少发</option>\
                     </select>\
-            <select name="hhvalue" id= "hhvalue" style = "width:115px;">\
-                     <option value="">---換貨原因---</option>\
+            <select name="hhvalue" id= "hhvalue" style = "width:145px;">\
+                     <option value="">------換貨原因------</option>\
 					 <option value="换大，仓库发错">换大，仓库发错</option>\
 					 <option value="换小，仓库发错">换小，仓库发错</option>\
                      <option value="换颜色，仓库发错">换颜色，仓库发错</option>\
