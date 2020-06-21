@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-5.15--
+// @name         admin-5.16--
 // @namespace    http://tampermonkey.net/
-// @version      5.15
+// @version      5.16
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -121,6 +121,7 @@
                     <option value="李亞芳">李亞芳</option>\
 <option value="杨昊">杨昊</option>\
 <option value="客訴件">客訴件</option>\
+<option value="电话客服">电话客服</option>\
                     </select>\
                 <select name="tigong" id= "tigong">\
                     <option value="運費0">-----備註-----</option>\
