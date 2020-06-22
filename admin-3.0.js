@@ -257,7 +257,7 @@ var vm = new Vue({
     var wxzSearchBarNode = document.createElement('div');
         wxzSearchBarNode.setAttribute('class','header-wxzbar header-info');
         wxzSearchBarNode.setAttribute('id','header-nav');
-        wxzSearchBarNode.style = "position: absolute;float: left;top: 10px; left: 235px;width:1705px;text-align: center;";//left:235
+        wxzSearchBarNode.style = "position: absolute;float: left;top: 10px; left: 235px;width:1545px;text-align: center;";//left:235
         wxzSearchBarNode.innerHTML =
       '<input placeholder=" 輸入--（編號）" class="search-button btn-sm" id="wxz_input" type="hidden">\
                    <input type="button" value="关闭" class="btn default showcol btn-sm" id="close_searchButton">\
