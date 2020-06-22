@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-6.30-
+// @name         admin-6.31-
 // @namespace    http://tampermonkey.net/
-// @version      6.30
+// @version      6.31
 // @description  港台审核-以待审核、待发货、客服查询、界面為主
 // @author       You
 // @match        http://13.229.176.203/admin/index/index.html
@@ -259,46 +259,46 @@ var vm = new Vue({
         wxzSearchBarNode.setAttribute('id','header-nav');
         wxzSearchBarNode.style = "position: absolute;float: left;top: 10px; left: 235px;width:1705px;text-align: center;";//left:235
         wxzSearchBarNode.innerHTML =
-      '<input placeholder=" 輸入--（編號）" class="search-button" id="wxz_input" type="hidden">\
-                   <input type="button" value="关闭" class="btn default showcol" id="close_searchButton">\
+      '<input placeholder=" 輸入--（編號）" class="search-button btn-sm" id="wxz_input" type="hidden">\
+                   <input type="button" value="关闭" class="btn default showcol btn-sm" id="close_searchButton">\
        &nbsp &nbsp\
-                                 <input value="GO-客服" class="btn default showcol" id="wxcx_searchButton" type="hidden">\
-                   <input type="button" value="批量查询" class="btn green" id="w_searchButton" >\
-                   <input type="button" value="运单号" class="btn default showcol" id="waybill_searchButton" >\
-                   <input type="button" value="金額查询" class="btn green" id="cd_searchButton" >\
-                                 <input value="显示/隐藏列" class="btn purple" id="wxcd_searchButton" type="hidden">\
-                                 <input value="查詢-補發" class="btn default showcol" id="wxz_searchButton" type="hidden">\
-                   <input type="hidden" value="信息表显示" class="btn green" id="xxb_searchButton">\
-                   <input type="hidden" value="open订单窗口" class="btn green" id="test_searchButton">&nbsp&nbsp\
-      <input type="button" value="待审核设置" class="btn yellow-gold" id="demo_search" >&nbsp\
-<input type="button" value="重复 " class="btn purple" id="cf_search" >&nbsp\
-<input type="button" value="拉黑率 " class="btn purple" id="lhl_search" >&nbsp\
-<input type="button" value="IP " class="btn purple" id="ipcf_search" >&nbsp\
-<input type="button" value="重置" class="btn default showcol" id="huifuButton" >&nbsp\
+                                 <input value="GO-客服" class="btn default showcol btn-sm" id="wxcx_searchButton" type="hidden">\
+                   <input type="button" value="批量查询" class="btn green btn-sm" id="w_searchButton" >\
+                   <input type="button" value="运单号" class="btn default showcol btn-sm" id="waybill_searchButton" >\
+                   <input type="button" value="金額查询" class="btn green btn-sm" id="cd_searchButton" >\
+                                 <input value="显示/隐藏列" class="btn purple btn-sm" id="wxcd_searchButton" type="hidden">\
+                                 <input value="查詢-補發" class="btn default showcol btn-sm" id="wxz_searchButton" type="hidden">\
+                   <input type="hidden" value="信息表显示" class="btn green btn-sm" id="xxb_searchButton">\
+                   <input type="hidden" value="open订单窗口" class="btn green btn-sm" id="test_searchButton">&nbsp&nbsp\
+      <input type="button" value="待审核设置" class="btn yellow-gold btn-sm" id="demo_search" >&nbsp\
+<input type="button" value="重复 " class="btn purple btn-sm" id="cf_search" >&nbsp\
+<input type="button" value="拉黑率 " class="btn purple btn-sm" id="lhl_search" >&nbsp\
+<input type="button" value="IP " class="btn purple btn-sm" id="ipcf_search" >&nbsp\
+<input type="button" value="重置" class="btn default showcol btn-sm" id="huifuButton" >&nbsp\
      <input type="button" value="姓 名 " class="btn yellow-gold" id="name_search" >\
      <input type="button" value="地 址 " class="btn yellow-gold" id="address_search" >\
      <input type="button" value="邮 箱 " class="btn yellow-gold" id="email_search" >\
-     <input type="button" value="金 额 " class="btn yellow-gold" id="jine_search" >\
      <input type="button" value="留 言 " class="btn yellow-gold" id="liuyan_search" >&nbsp&nbsp&nbsp\
+     <input type="button" value="金 额 " class="btn yellow-gold" id="jine_search" >\
      <input type="button" value="I P " class="btn yellow-gold" id="ip_search" >\
      <input type="hidden" value="S K U " class="btn yellow-gold" id="sku_search" >&nbsp&nbsp\
      <input type="button" value="留言修改 " class="btn yellow-gold" id="xiugai_search" >&nbsp&nbsp&nbsp&nbsp&nbsp\
-<input type="button" value="待发货设置" class="btn yellow" id="DFH_search" >&nbsp&nbsp\
-<input type="button" value="拆 单 " class="btn yellow" id="chai_search" >&nbsp\
-<input type="button" value="姓 名 " class="btn yellow" id="Dname_search" >&nbsp\
-<input type="button" value="电 话 " class="btn yellow" id="Dphone_search" >&nbsp\
-<input type="button" value="拉黑率 " class="btn yellow" id="Dblack_search" >&nbsp\
-<input type="hidden" value="森鸿自发 &nbsp " class="tool-action btn yellow" id="T_search" >\
-<input type="button" value="反审核 " class="btn default showcol" id="back_search" >&nbsp\
-                                 <input value="信息55" class="btn green" id="xxbb_searchButton" type="hidden">\
+<input type="button" value="待发货设置" class="btn yellow btn-sm" id="DFH_search" >&nbsp&nbsp\
+<input type="button" value="拆 单 " class="btn yellow btn-sm" id="chai_search" >&nbsp\
+<input type="button" value="姓 名 " class="btn yellow btn-sm" id="Dname_search" >&nbsp\
+<input type="button" value="电 话 " class="btn yellow btn-sm" id="Dphone_search" >&nbsp\
+<input type="button" value="拉黑率 " class="btn yellow btn-sm" id="Dblack_search" >&nbsp\
+<input type="hidden" value="森鸿自发 &nbsp " class="tool-action btn yellow btn-sm" id="T_search" >\
+<input type="button" value="反审核 " class="btn default showcol btn-sm" id="back_search" >&nbsp\
+                                 <input value="信息55" class="btn green btn-sm" id="xxbb_searchButton" type="hidden">\
       &nbsp &nbsp\
-     <input type="hidden" value="|" class="btn green" id="xx_searchButton" >\
-                   <input type="button" value="导 出" class="btn green" id="save_searchButton">\
-                   <input type="hidden" value="退 货" class="btn yellow-gold" id="th_searchButton">\
-                   <input type="hidden" value="换 货" class="btn yellow-gold" id="hh_searchButton">\
-                   <input type="hidden" value="补 发" class="btn yellow-gold" id="bf_searchButton"> \
-                   <input value="点击复制" class="btn green" id="fz_searchButton" type="hidden">\
-     <input type="hidden" value="点击复制  退 换 补" class="tool-action btn yellow" id="ffz_searchButton">\
+     <input type="hidden" value="|" class="btn green btn-sm" id="xx_searchButton" >\
+                   <input type="button" value="导 出" class="btn green btn-sm" id="save_searchButton">\
+                   <input type="hidden" value="退 货" class="btn yellow-gold btn-sm" id="th_searchButton">\
+                   <input type="hidden" value="换 货" class="btn yellow-gold btn-sm" id="hh_searchButton">\
+                   <input type="hidden" value="补 发" class="btn yellow-gold btn-sm" id="bf_searchButton"> \
+                   <input value="点击复制" class="btn green" id="fz_searchButton btn-sm" type="hidden">\
+     <input type="hidden" value="点击复制  退 换 补" class="tool-action btn yellow btn-sm" id="ffz_searchButton">\
      &nbsp  &nbsp  &nbsp &nbsp\
                 <select name="djr" id= "djr" style = "display:none">\
                     <option value="0">---登记人---</option>\
