@@ -274,7 +274,8 @@ var vm = new Vue({
 <input type="button" value="重复 " class="btn purple btn-sm" id="cf_search" >&nbsp\
 <input type="button" value="拉黑率 " class="btn purple btn-sm" id="lhl_search" >&nbsp\
 <input type="button" value="IP " class="btn purple btn-sm" id="ipcf_search" >&nbsp\
-<input type="button" value="重置" class="btn default showcol btn-sm" id="huifuButton" >&nbsp\
+<input type="hidden" value="重置" class="btn default showcol btn-sm" id="huifuButton" >&nbsp\
+<input type="button" value="重置" class="btn default showcol btn-sm" id="de1_searchButton" >&nbsp\
      <input type="button" value="姓 名 " class="btn yellow-gold btn-sm" id="name_search" >\
      <input type="button" value="地 址 " class="btn yellow-gold btn-sm" id="address_search" >\
      <input type="button" value="邮 箱 " class="btn yellow-gold btn-sm" id="email_search" >\
@@ -390,7 +391,7 @@ var vm = new Vue({
                    demoput10.click();//选择搜索
 
 },false);
-      document.getElementById("huifuButton").addEventListener("click", function fnn() { // 重置订单列表
+      document.getElementById("huifuButton").addEventListener("click", function fnn() { // 待審核重置
              var orderVal = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByTagName("input");
                console.log(orderVal.length);
              var orderVall = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByTagName("input")[46];
@@ -404,6 +405,40 @@ var vm = new Vue({
             var searchval = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByName("search")[0];
                 searchval.click();
  },false);
+ document.getElementById("de1_searchButton").addEventListener("click", function fn() { //重置订单列表
+          var deput = document.getElementsByClassName("nav nav-tabs")[0].children;//2
+             for(var i = 0;i < deput.length;i++ ){
+                  var dd = document.getElementsByClassName("nav nav-tabs")[0].children[i];
+                  var dd1 = dd.getAttribute("iframe")
+                  if ( dd1 == "tab_iframe_待审核"){
+                        var orderVal = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByTagName("input");
+                              console.log(orderVal.length);
+                       var orderVall = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByTagName("input")[46];
+                            console.log(orderVall.type);
+                         // console.log(orderVal.value="");
+                    for(var ii=44;ii<52;ii++){
+                        if(orderVal[ii].type=="text"){
+                           orderVal[ii].value=""
+                             };
+                        }
+                    var searchval = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByName("search")[0];
+                        searchval.click();
+                  } else if ( dd1 == "tab_iframe_待发货"){
+                        var orderVal0 = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByTagName("input");
+                              console.log(orderVal0.length);
+                       var orderVall0 = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByTagName("input")[46];
+                            console.log(orderVall0.type);
+                         // console.log(orderVal0.value="");
+                    for(var iii=51;iii<57;iii++){
+                        if(orderVal0[iii].type=="text"){
+                           orderVal0[iii].value=""
+                             };
+                        }
+                    var searchval0 = document.getElementById("tab_iframe_待发货").contentDocument.getElementsByName("search")[0];
+                        searchval0.click();
+                  }
+             };
+},false);
  document.getElementById("xiugai_search").addEventListener("click", function fnn() { // 修改操作按钮
              var countVal = document.getElementById("tab_iframe_待审核").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
 
