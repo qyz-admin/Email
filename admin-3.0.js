@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-6.32-
+// @name         admin-6.34-
 // @namespace    http://tampermonkey.net/
-// @version      6.32
+// @version      6.34
 // @description  港台审核-以待审核、待发货、客服查询、界面為主
 // @author       You
 // @match        http://13.229.176.203/admin/index/index.html
@@ -2079,6 +2079,7 @@ document.getElementById("ffz_searchButton").addEventListener("click", function f
           console.log(item_arr);
         var currentIndex = 0;
         var count = 0;
+	    layer.alert("正在查询中哦，请勿刷新！！！");
            getImg();
    function getImg(){
 	    if(currentIndex >= item_arr.length){
@@ -2241,6 +2242,7 @@ document.getElementById("ffz_searchButton").addEventListener("click", function f
           console.log(item_arr);
         var currentIndex = 0;
         var count = 0;
+	 layer.alert("正在查询中哦，请勿刷新！！！");
            getImg();
    function getImg(){
 	    if(currentIndex >= item_arr.length){
@@ -2431,6 +2433,7 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
         var item_arr = wxcx_value.split(/[\n\s+,，；;]/g);
           console.log(item_arr);
         var currentIndex = 0;
+	layer.alert("正在查询中哦，请勿刷新！！！");
            getImg();
    function getImg(){
 	    if(currentIndex >= item_arr.length){
@@ -3071,11 +3074,13 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
         var item_arr = wxcx_value.split(/[\n\s+,，；;]/g);
           console.log(item_arr);
         var currentIndex = 0;
+	 layer.alert("正在查询中哦，请勿刷新！！！");
            getImg();
    function getImg(){
 	    if(currentIndex >= item_arr.length){
            wxcx.value = "";
             // cx.click();
+		    layer.msg("已全部查詢完了", {icon: 6},{time: 500});
 		  return;
         };
        var currentData = item_arr[currentIndex];console.log(currentIndex);
@@ -3274,11 +3279,13 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
         var item_arr = wxcx_value.split(/[\n\s+,，；;]/g);
           console.log(item_arr);
         var currentIndex = 0;
+	 layer.alert("正在查询中哦，请勿刷新！！！");
            getImg();
    function getImg(){
 	    if(currentIndex >= item_arr.length){
            wxcx.value = "";
             // cx.click();
+		    layer.msg("已全部查詢完了", {icon: 6},{time: 500});
 		  return;
         };
        var currentData = item_arr[currentIndex];console.log(currentIndex);
@@ -3497,11 +3504,13 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
         var item_arr = wxcx_value.split(/[\n\s+,，；;]/g);
           console.log(item_arr);
         var currentIndex = 0;
+	    layer.alert("正在查询中哦，请勿刷新！！！");
            getImg();
    function getImg(){
 	    if(currentIndex >= item_arr.length){
            wxcx.value = "";
             // cx.click();
+		     layer.msg("已全部查詢完了", {icon: 6},{time: 500});
 		  return;
         };
        var currentData = item_arr[currentIndex];console.log(currentIndex);
