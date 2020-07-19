@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-5.19--
+// @name         admin-5.20--
 // @namespace    http://tampermonkey.net/
-// @version      5.19
+// @version      5.20
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -1233,9 +1233,9 @@ document.getElementById("ffz_searchButton").addEventListener("click", function f
    function getImg(){
 	    if(currentIndex >= item_arr.length){
            wxcx.value = "";
-           show_nav();
+          // show_nav();
+		                countSum();
            layer.msg("已全部查詢完了", {icon: 6},{time: 500});
-            countSum();
             // cx.click();
 		  return;
         };
