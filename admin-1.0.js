@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-5.18--
+// @name         admin-5.19--
 // @namespace    http://tampermonkey.net/
-// @version      5.18
+// @version      5.19
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -1223,11 +1223,12 @@ document.getElementById("ffz_searchButton").addEventListener("click", function f
           console.log(item_arr);
         var currentIndex = 0;
         var count = 0;
-  layer.msg("正在查询中哦，请勿刷新！！！", {
-         icon: 16,
-         time:2000000,
-         shade: 0.5
-       });
+//   layer.msg("正在查询中哦，请勿刷新！！！", {
+//          icon: 16,
+//          time:2000000,
+//          shade: 0.5
+//        });
+	 layer.alert("正在查询中哦，请勿点击确定！！！");
            getImg();
    function getImg(){
 	    if(currentIndex >= item_arr.length){
@@ -1430,11 +1431,12 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
         var item_arr = wxcx_value.split(/[\n\s+,，；;]/g);
           console.log(item_arr);
         var currentIndex = 0;
-	   	   layer.msg("正在查询中哦，请勿刷新！！！", {
-         icon: 16,
-         time:2000000,
-         shade: 0.5
-       });
+//   layer.msg("正在查询中哦，请勿刷新！！！", {
+//          icon: 16,
+//          time:2000000,
+//          shade: 0.5
+//        });
+	 layer.alert("正在查询中哦，请勿点击确定！！！");
            getImg();
    function getImg(){
 	    if(currentIndex >= item_arr.length){
@@ -2075,12 +2077,13 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
             //console.log(item);
         var item_arr = wxcx_value.split(/[\n\s+,，；;]/g);
           console.log(item_arr);
-        var currentIndex = 0;
-	   	   layer.msg("正在查询中哦，请勿刷新！！！", {
-         icon: 16,
-         time:2000000,
-         shade: 0.5
-       });
+	       var currentIndex = 0;
+//   layer.msg("正在查询中哦，请勿刷新！！！", {
+//          icon: 16,
+//          time:2000000,
+//          shade: 0.5
+//        });
+	 layer.alert("正在查询中哦，请勿点击确定！！！");
            getImg();
    function getImg(){
 	    if(currentIndex >= item_arr.length){
@@ -2285,11 +2288,12 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
         var item_arr = wxcx_value.split(/[\n\s+,，；;]/g);
           console.log(item_arr);
         var currentIndex = 0;
-		   layer.msg("正在查询中哦，请勿刷新！！！", {
-         icon: 16,
-         time:2000000,
-         shade: 0.5
-       });
+//   layer.msg("正在查询中哦，请勿刷新！！！", {
+//          icon: 16,
+//          time:2000000,
+//          shade: 0.5
+//        });
+	 layer.alert("正在查询中哦，请勿点击确定！！！");
            getImg();
    function getImg(){
 	    if(currentIndex >= item_arr.length){
@@ -2514,11 +2518,12 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
         var item_arr = wxcx_value.split(/[\n\s+,，；;]/g);
           console.log(item_arr);
         var currentIndex = 0;
-	    	   layer.msg("正在查询中哦，请勿刷新！！！", {
-         icon: 16,
-         time:2000000,
-         shade: 0.5
-       });
+//   layer.msg("正在查询中哦，请勿刷新！！！", {
+//          icon: 16,
+//          time:2000000,
+//          shade: 0.5
+//        });
+	 layer.alert("正在查询中哦，请勿点击确定！！！");
            getImg();
    function getImg(){
 	    if(currentIndex >= item_arr.length){
