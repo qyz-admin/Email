@@ -139,7 +139,7 @@
     function show() {
         var xhr;
         var intData = document.getElementsByClassName("form-control input-inline input-medium")[0].value;
-        var strData ="_user=1343&_token=04a9a626b06bad84065adf093b52bf5&dorderPrefix="+intData;
+        var strData ="_user=1343&_token=04a9a626b06bad84065adf093b52bf5&orderPrefix="+intData;
         var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";
             if( window.XMLHttpRequest ){
                 xhr=new XMLHttpRequest();
