@@ -154,7 +154,8 @@
              }
            };
         xhr.open("post",xhr_url,true);
-        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+       // xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	    xhr.setRequestHeader("Referer","http://gsso.giikin.com/admin/index/index.html");
         xhr.send(strData);
 
 }
