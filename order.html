@@ -83,7 +83,7 @@
                                                 <!--<input type="text" class="form-control input-inline input-small" name="goods_id" placeholder="请输入产品ID">-->
                                                 <button type="submit" class="btn green">查询</button>
 						<input type="button" class="btn green" id="test_searchButton"  value="弹窗" onclick="show()">
-                                             // <button type="submit" class="btn green" onclick="show()">显示</button>
+                                             // <button type="button" class="btn green" onclick="show()">显示</button>
                                             </div>
                                         </form>
                                     </div>
@@ -138,27 +138,41 @@
 <script  type="text/javascript">
 
     function show() {
-        var xhr;
-        var intData = document.getElementsByClassName("form-control input-inline input-medium")[0].value;
-        var strData ="_user=1343&_token=04a9a626b06bad84065adf093b52bf5&orderPrefix="+intData;
-        var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";
-            if( window.XMLHttpRequest ){
-                xhr=new XMLHttpRequest();
+//         var xhr;
+//         var intData = document.getElementsByClassName("form-control input-inline input-medium")[0].value;
+//         var strData ="_user=1343&_token=04a9a626b06bad84065adf093b52bf5&orderPrefix="+intData;
+//         var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";
+//             if( window.XMLHttpRequest ){
+//                 xhr=new XMLHttpRequest();
+//             }else{
+//                 xhr = new ActiveXObject("Microsoft.XMLHTTP");
+//             };
+//            xhr.onreadystatechange=function(){
+//              if( xhr.readyState==4 && xhr.status==200){
+//                  console.log(xhr.responseText);//返回json字符串
+//             var resVal = eval("("+ this.responseText +")");//json转化为js对象
+//                  console.log(resVal);// console.log(mp3.code); //console.log(mp3.data.list);
+//              }
+//            };
+//         xhr.open("post",xhr_url,true);
+//        // xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+// 	    xhr.setRequestHeader("Referer","http://gsso.giikin.com/admin/index/index.html");
+//         xhr.send(strData);
+	    
+       var xhr;
+       if(window.XMLHttpRequest){
+               xhr=new XMLHttpRequest();
             }else{
-                xhr = new ActiveXObject("Microsoft.XMLHTTP");
-            };
-           xhr.onreadystatechange=function(){
-             if( xhr.readyState==4 && xhr.status==200){
-                 console.log(xhr.responseText);//返回json字符串
-            var resVal = eval("("+ this.responseText +")");//json转化为js对象
-                 console.log(resVal);// console.log(mp3.code); //console.log(mp3.data.list);
-             }
-           };
-        xhr.open("post",xhr_url,true);
-       // xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	    xhr.setRequestHeader("Referer","http://gsso.giikin.com/admin/index/index.html");
-        xhr.send(strData);
-
+               xhr=new ActiveXObject("Microsoft.XMLHTTP");
+                 };
+         xhr.open("post","https://goms.giikin.com/admin/order/orderquery.html",true);
+         xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+         xhr.send("order_number=NR007311326091024");
+         xhr.onreadystatechange = function(){
+            if(xhr.readyState==4 && xhr.status==200){
+                console.log(xhr.responseText);
+               }
+         };
 }
 
 
