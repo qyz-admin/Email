@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-5.37
+// @name         admin-5.38
 // @namespace    http://tampermonkey.net/
-// @version      5.37
+// @version      5.38
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -2486,7 +2486,7 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
             }else{
                xhr=new ActiveXObject("Microsoft.XMLHTTP");
                  };
-         xhr.open("post","https://goms.giikin.com/admin/order/orderquery.html",false);
+         xhr.open("post","https://goms.giikin.com/admin/order/orderquery.html",true);
          xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
          xhr.send("order_number=" + currentData);
          xhr.onreadystatechange = function(){
@@ -2696,7 +2696,7 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
             }else{
                xhr=new ActiveXObject("Microsoft.XMLHTTP");
                  };
-         xhr.open("post","https://goms.giikin.com/admin/order/orderquery.html",false);
+         xhr.open("post","https://goms.giikin.com/admin/order/orderquery.html",true);
          xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
          xhr.send("order_number=" + currentData);
          xhr.onreadystatechange = function(){
@@ -2926,7 +2926,7 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
             }else{
                xhr=new ActiveXObject("Microsoft.XMLHTTP");
                  };
-         xhr.open("post","https://goms.giikin.com/admin/order/orderquery.html",false);
+         xhr.open("post","https://goms.giikin.com/admin/order/orderquery.html",true);
          xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
          xhr.send("order_number=" + currentData);
          xhr.onreadystatechange = function(){
