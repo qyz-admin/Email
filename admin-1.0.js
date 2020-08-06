@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-5.22--
+// @name         admin-5.23--
 // @namespace    http://tampermonkey.net/
-// @version      5.22
+// @version      5.23
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
