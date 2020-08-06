@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-5.20--
+// @name         admin-5.22--
 // @namespace    http://tampermonkey.net/
-// @version      5.20
+// @version      5.22
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -2236,7 +2236,7 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
                //     thNodeVal1.setAttribute("style","display:none");
                  }
                }
-         xhrVal0.open("GET",xhrVal_ur,true);
+         xhrVal0.open("GET",xhrVal_ur,false);
          xhrVal0.send();
        };
  },false);
@@ -2463,7 +2463,7 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
                //     thNodeVal1.setAttribute("style","display:none");
                  }
                }
-         xhrVal0.open("GET",xhrVal_ur,true);
+         xhrVal0.open("GET",xhrVal_ur,false);
          xhrVal0.send();
        };
  },false);
@@ -2702,7 +2702,7 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
                //     thNodeVal1.setAttribute("style","display:none");
                  }
                }
-         xhrVal0.open("GET",xhrVal_ur,true);
+         xhrVal0.open("GET",xhrVal_ur,false);
          xhrVal0.send();
        };
  },false);
