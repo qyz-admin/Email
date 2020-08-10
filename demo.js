@@ -37,7 +37,7 @@ function showw(){
                                             +'<th> 站点ID </th>'
                                             +'<th> 审核方式 </th>'
                                             +'<th> 操作00 </th>'
-                                        +'</tr>;'
+                                        +'</tr>'
                 console.log(xhr.responseText);
           var mp3 = eval("("+ this.responseText +")");
                 console.log(mp3);
