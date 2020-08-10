@@ -10,7 +10,7 @@ function showw(){
           xhr.onreadystatechange=function(){
             if( xhr.readyState==4 && xhr.status==200){
               var hhNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];
-                  hhNode.firstChild.innerHTML ="<tr>'
+                  hhNode.firstChild.innerHTML ='"<tr>'
                                               +'<td>"+listVal.orderNumber+"</td>'
                                               +'<td>"+listVal.orderStatus+"</td>'
                                               +'<td>"+listVal.wayBillNumber+"</td>'
