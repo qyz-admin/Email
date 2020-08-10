@@ -10,7 +10,7 @@ function showw(){
           xhr.onreadystatechange=function(){
             if( xhr.readyState==4 && xhr.status==200){
               var hhNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];
-                  hhNode.firstChild.innerHTML ='"<tr>'
+                  hhNode.firstChild.innerHTML ='<tr>'
                                             +'<th> 订单号 </th>'
                                             +'<th> 订单状态 </th>'
                                             +'<th> 物流单号 </th>'
@@ -37,7 +37,7 @@ function showw(){
                                             +'<th> 站点ID </th>'
                                             +'<th> 审核方式 </th>'
                                             +'<th> 操作00 </th>'
-                                        +'</tr>";'
+                                        +'</tr>;'
                 console.log(xhr.responseText);
           var mp3 = eval("("+ this.responseText +")");
                 console.log(mp3);
