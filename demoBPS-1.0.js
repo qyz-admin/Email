@@ -1,6 +1,8 @@
 function showw(){
        var xhr;
-       var strHtml ="orderPrefix=NR007311326091024&_user=1343&_token=2808f4bc7e60b89ca3fc0b93cd3997ec";
+       var form = document.getElementsByClassName("form-control input-inline input-medium")[0].value;
+       var strHtml ="_user=1343&_token=50b94b8a7357a458668946983d37ae40&" + "orderPrefix=" + form;
+      // var strHtml ="orderPrefix=NR007311326091024&_user=1343&_token=50b94b8a7357a458668946983d37ae40";
        var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";
            if( window.XMLHttpRequest ){
               xhr=new XMLHttpRequest();
