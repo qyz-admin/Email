@@ -40,15 +40,18 @@ function showw(){
     };
 //獲取form表格的值
      function formVal(){
-            var form = document.getElementsByClassName("form-control input-inline input-medium")[0].value;
+           var form = document.getElementsByClassName("form-control input-inline input-medium")[0].value;
            var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2].value;
+	   var orderValue="";
             if(form == undefined && form2 == undefined){
                 alert("請輸入訂單編號");
 		        return;
               }else if(form == undefined && form2 != undefined){
-                 formValue(form2);
+                orderValue = formValue(form2);
+		      return  orderValue;
               }else if(form != undefined && form2 == undefined){
-                 formValue(form);
+                orderValue = formValue(form);
+		      return  orderValue;
              }
          };
     function formValue(val){
