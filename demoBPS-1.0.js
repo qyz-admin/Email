@@ -52,7 +52,7 @@ function showw(){
              }
          };
     function formValue(val){
-         var item_arr = val.split(/[\\n\\s+,，；;]/g);
+         var item_arr = val.split(/[\n\s+,，；;]/g);
                console.log(item_arr);
         var orderValue="";
         for (var i=0;i<item_arr.length;i++){
