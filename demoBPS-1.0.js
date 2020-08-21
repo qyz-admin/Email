@@ -47,9 +47,11 @@ function showw(){
                 alert("請輸入訂單編號");
 		        return;
               }else if(form == undefined && form2 != undefined){
+		       console.log(form2);
                 orderValue = formValue(form2);
 		      return  orderValue;
               }else if(form != undefined && form2 == undefined){
+		       console.log(form);
                 orderValue = formValue(form);
 		      return  orderValue;
              }
