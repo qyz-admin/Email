@@ -3,7 +3,7 @@ function showw(){
        
        var strHtml ="_user=1343&_token="+ getCookie("token") + "&orderPrefix=" + formVal();
 
-       var strHtml ="_user=1343&_token=50b94b8a7357a458668946983d37ae40&" + "orderPrefix=" + form;
+     //  var strHtml ="_user=1343&_token=50b94b8a7357a458668946983d37ae40&" + "orderPrefix=" + form;
       // var strHtml ="orderPrefix=NR007311326091024&_user=1343&_token=50b94b8a7357a458668946983d37ae40";
        var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";
            if( window.XMLHttpRequest ){
