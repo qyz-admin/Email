@@ -1,6 +1,8 @@
 function showw(){
        var xhr;
-       var form = document.getElementsByClassName("form-control input-inline input-medium")[0].value;
+       
+       var strHtml ="_user=1343&_token="+ getCookie("token") + "&orderPrefix=" + formVal();
+
        var strHtml ="_user=1343&_token=50b94b8a7357a458668946983d37ae40&" + "orderPrefix=" + form;
       // var strHtml ="orderPrefix=NR007311326091024&_user=1343&_token=50b94b8a7357a458668946983d37ae40";
        var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";
@@ -25,7 +27,40 @@ function showw(){
         xhr.send(strHtml);
 };
 
-         
+    //   var arr;
+     //  var reg = new RegExp("(^| )token=([^;]*)(;|$)");
+    //       arr = document.cookie.match(reg);
+     //          console.log(arr[2]);
+//獲取token值函數
+   function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+            arr = document.cookie.match(reg);
+         console.log(arr[2]);
+           return arr[2]
+    };
+//獲取form表格的值
+     function formVal(){
+            var form = document.getElementsByClassName("form-control input-inline input-medium")[0].value;
+           var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2].value;
+            if(form == undefined && form2 == undefined){
+                alert("請輸入訂單編號");
+		        return;
+              }else if(form == undefined && form2 != undefined){
+                 formValue(form2);
+              }else if(form != undefined && form2 == undefined){
+                 formValue(form);
+             }
+         };
+    function formValue(val){
+         var item_arr = val.split(/[\\n\\s+,，；;]/g);
+               console.log(item_arr);
+        var orderValue="";
+        for (var i=0;i<item_arr.length;i++){
+             orderValue+= item_arr[i]+","
+            }
+            return orderValue
+     };
+//信息詳情函數    
 function product(mp3Val){
     for(var i=0;i<mp3Val.length;i++){
      var listVal = mp3Val[i];
