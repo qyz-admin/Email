@@ -1,3 +1,13 @@
+//导出
+function daochu(){
+                var exportFileContent = document.getElementsByClassName("table table-striped table-bordered table-hover")[0].outerHTML;
+                var downloadA = document.createElement("a");
+                var blob = new Blob([exportFileContent], {type: "text/plain;charset=utf-8"});
+                    downloadA.href = window.URL.createObjectURL(blob);
+                    downloadA.download = "数据下载.xlsx";
+                    downloadA.click(); 
+               };
+//查询
 function showw(){
        var xhr;
        
