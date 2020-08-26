@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-6.39-
+// @name         admin-6.40-
 // @namespace    http://tampermonkey.net/
-// @version      6.39
+// @version      6.40
 // @description  港台审核-以待审核、待发货、客服查询、界面為主
 // @author       You
 // @match        http://13.229.176.203/admin/index/index.html
@@ -3719,13 +3719,20 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
                  var tc = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByClassName("table table-striped table-bordered table-hover")[0];
                          console.log(tc);
                      tc.setAttribute('id','tc-info');
-                 var exportFileContent = document.getElementById("tab_iframe_客服查询").contentDocument.getElementById("tc-info").outerHTML;
-                 var downloadA = document.createElement('a');
-                 var blob = new Blob([exportFileContent], {type: "text/plain;charset=utf-8"});
 
+    var exportFileContent = document.getElementById("tab_iframe_客服查询").contentDocument.getElementById("tc-info").outerHTML;
+	var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office"xmlns:x="urn:schemas-microsoft-com:office:excel"xmlns="http://www.w3.org/TR/REC-html40">'+
+        '<head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>'+
+        '<x:Name>worksheet</x:Name>'+
+        '<x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>'+
+        '</x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]-->'+
+        '</head><body><table>'+exportFileContent+'</table></body></html>';
+
+                var downloadA = document.createElement("a");
+                var blob = new Blob([template], {type: "text/plain;charset=utf-8"});
                     downloadA.href = window.URL.createObjectURL(blob);
-                    downloadA.download = '数据下载.xlsx';
-                    downloadA.click(); // 点我，点我，快点我
+                    downloadA.download = "数据下载.xlsx";
+                    downloadA.click();
 
    /*       var wxcx = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByClassName("form-control input-inline input-medium")[0];
           var wxcx_value=wxcx.value;
