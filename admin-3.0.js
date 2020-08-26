@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-6.40-
+// @name         admin-6.41-
 // @namespace    http://tampermonkey.net/
-// @version      6.40
+// @version      6.41
 // @description  港台审核-以待审核、待发货、客服查询、界面為主
 // @author       You
 // @match        http://13.229.176.203/admin/index/index.html
@@ -3726,7 +3726,7 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
         '<x:Name>worksheet</x:Name>'+
         '<x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>'+
         '</x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]-->'+
-        '</head><body><table>'+exportFileContent+'</table></body></html>';
+        '</head><body>'+exportFileContent+'</body></html>';
 
                 var downloadA = document.createElement("a");
                 var blob = new Blob([template], {type: "text/plain;charset=utf-8"});
