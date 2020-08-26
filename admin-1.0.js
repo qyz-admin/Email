@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-5.24--
+// @name         admin-5.25--
 // @namespace    http://tampermonkey.net/
-// @version      5.24
+// @version      5.25
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -2718,7 +2718,7 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
         '<x:Name>worksheet</x:Name>'+
         '<x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>'+
         '</x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]-->'+
-        '</head><body><table>'+exportFileContent+'</table></body></html>';
+        '</head><body>'+exportFileContent+'</body></html>';
 
                 var downloadA = document.createElement("a");
                 var blob = new Blob([template], {type: "text/plain;charset=utf-8"});
