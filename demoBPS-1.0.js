@@ -87,8 +87,8 @@ function showw(){
      };
 //信息詳情product函數    
 function product(mp3Val){
+    var tableValue="";
     for(var i=0;i<mp3Val.length;i++){
-	   var tableValue="";
            var listVal = mp3Val[i];
            var autolist = listVal.autoVerify;
               function autoReason(autolist){
