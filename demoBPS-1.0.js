@@ -128,34 +128,32 @@ function product(mp3Val){
                      }
                      return  this.clone;
                };
-                            tableValue +="<tr>'
-                                              +'<td>'+listVal.orderNumber+'</td>'
-                                              +'<td>'+listVal.orderStatus+'</td>'
-                                              +'<td>'+listVal.wayBillNumber+'</td>'
-                                              +'<td>'+listVal.befrom+'</td>'
-                                              +'<td>'+saleReason(chanlist)+'</td>'
-                                              +'<td>'+listVal.isSecondSend+'</td>'
-                                              +'<td>'+cloneReason(clonelist)+'</td>'
-                                              +'<td>'+specReason(chanlist)+'</td>'
-                                                 +'<td>'+listVal.befrom+'</td>'
-                                              +'<td>'+listVal.currency+'</td>'
-                                              +'<td>'+listVal.amount+'</td>'
-                                              +'<td>'+listVal.payType+'</td>'
-                                              +'<td>'+linkReason(chanlist)+'</td>'
-                                              +'<td>'+listVal.addTime+'</td>'
-                                              +'<td>'+listVal.shipInfo.shipName+'</td>'
-                                              +'<td>'+listVal.shipInfo.shipPhone+'</td>'
-                                              +'<td>'+listVal.befrom+'</td>'
-                                              +'<td>'+listVal.weight+'</td>'
-                                              +'<td>'+listVal.logisticsStatus+'</td>'
-                                              +'<td>'+listVal.logisticsUpdateTime+'</td>'
-                                              +'<td>'+listVal.logisticsName+'</td>'
-                                              +'<td>'+listVal.shipInfo.shipAddress+'</td>'
-                                              +'<td>'+listVal.ip+'</td>'
-                                              +'<td>'+listVal.collId+'</td>'
-                                              +'<td>'+autoReason(autolist)+'</td>'
-                                                 +'<td>'+listVal.befrom+'</td>'
-                                              +'<tr>"
+                           tableValue +="<tr><td>"+listVal.orderNumber+"</td><td>"
+				                  +listVal.orderStatus+"</td><td>"
+				                  +listVal.wayBillNumber+"</td><td>"
+				                  +listVal.befrom+"</td><td>"
+				                  +saleReason(chanlist)+"</td><td>"
+				                  +listVal.isSecondSend+"</td><td>"
+				                  +cloneReason(clonelist)+"</td><td>"
+				                  +specReason(chanlist)+"</td><td>"
+				                  +listVal.befrom+"</td><td>"
+				                  +listVal.currency+"</td><td>"
+				                  +listVal.amount+"</td><td>"
+				                  +listVal.payType+"</td><td>"
+				                  +linkReason(chanlist)+"</td><td>"
+				                  +listVal.addTime+"</td><td>"
+				                  +listVal.shipInfo.shipName+"</td><td>"
+				                  +listVal.shipInfo.shipPhone+"</td><td>"
+				                  +listVal.befrom+"</td><td>"
+				                  +listVal.weight+"</td><td>"
+				                  +listVal.logisticsStatus+"</td><td>"
+				                  +listVal.logisticsUpdateTime+"</td><td>"
+				                  +listVal.logisticsName+"</td><td>"
+				                  +listVal.shipInfo.shipAddress+"</td><td>"
+				                  +listVal.ip+"</td><td>"
+				                  +listVal.collId+"</td><td>"
+				                  +autoReason(autolist)+"</td><td>"
+				                  +listVal.befrom+"</td><tr>"
           console.log(listVal.addTime);
           console.log(listVal.amount);
           console.log(listVal.area);
