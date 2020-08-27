@@ -88,7 +88,7 @@ function showw(){
 //信息詳情product函數    
 function product(mp3Val){
     for(var i=0;i<mp3Val.length;i++){
-	   var order = "";
+	   var tableValue="";
            var listVal = mp3Val[i];
            var autolist = listVal.autoVerify;
               function autoReason(autolist){
@@ -128,8 +128,7 @@ function product(mp3Val){
                      }
                      return  this.clone;
                };
-   //  var showNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];
-                             order +='<tr>'
+                            tableValue +="<tr>'
                                               +'<td>'+listVal.orderNumber+'</td>'
                                               +'<td>'+listVal.orderStatus+'</td>'
                                               +'<td>'+listVal.wayBillNumber+'</td>'
@@ -156,7 +155,7 @@ function product(mp3Val){
                                               +'<td>'+listVal.collId+'</td>'
                                               +'<td>'+autoReason(autolist)+'</td>'
                                                  +'<td>'+listVal.befrom+'</td>'
-                                              +'<tr>'
+                                              +'<tr>"
           console.log(listVal.addTime);
           console.log(listVal.amount);
           console.log(listVal.area);
