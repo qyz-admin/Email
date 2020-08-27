@@ -82,6 +82,7 @@ function showw(){
         for (var i=0;i<item_arr.length;i++){
              orderValue+= item_arr[i]+","
             }
+            console.log(orderValue);
             return orderValue
      };
 //信息詳情product函數    
