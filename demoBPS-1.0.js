@@ -14,7 +14,35 @@ function daochu1(){
                     downloadA.download = "数据下载.xlsx";
                     downloadA.click(); 
                };
-
+//----------------------------------------------------------------------------------复制---------------------------------------------------------------------------
+       function fuzhii(){ 
+             var thNode111 = document.getElementsByTagName("tbody")[0]; 
+             var thNodeLen = thNode111.children.length; 
+              if(thNodeLen == 1){ 
+             var text= document.getElementsByTagName("tbody")[0].innerText; 
+             var textArea = document.createElement("input"); 
+                 textArea.value = text; 
+               document.body.appendChild(textArea); 
+                 textArea.select(); 
+                 document.execCommand("copy"); 
+               layer.msg("Hello 复制成功", {icon: 6}); 
+                  setTimeout(function () { 
+                     document.body.removeChild(textArea); 
+                 }, 100); 
+           }else{ 
+             var text0= document.getElementsByTagName("tbody")[0].innerText; 
+                    console.log(text0); 
+             var textArea0 = document.createElement("textarea"); 
+                 textArea0.value = text0; 
+               document.body.appendChild(textArea0); 
+                 textArea0.select(); 
+               document.execCommand("copy"); 
+                layer.msg("Hello 复制成功", {icon: 6}); 
+                  setTimeout(function () { 
+                     document.body.removeChild(textArea0); 
+                 }, 100) 
+           }; 
+      }; 
 //------------------------------------------------------------------------------------查询-------------------------------------------------------------------------
 function showw(){
        var xhr;
