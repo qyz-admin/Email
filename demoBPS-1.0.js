@@ -57,20 +57,22 @@ function showw(){
     };
 //獲取form表格的值
      function formVal(){
+           var orderValue="";
            var form = document.getElementsByClassName("form-control input-inline input-medium")[0].value;
            var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2].value;
-	   var orderValue="";
-            if(form == undefined && form2 == undefined){
+            if(form == "" && form2 == ""){
                 alert("請輸入訂單編號");
 		        return;
-              }else if(form == undefined && form2 != undefined){
-		       console.log(form2);
+              }else if(form != "" && form2 != ""){
+		        alert("請选择一个选项");
+              }else if(form == "" && form2 != ""){
+		        console.log(22);
                 orderValue = formValue(form2);
-		      return  orderValue;
-              }else if(form != undefined && form2 == undefined){
-		       console.log(form);
+		              return  orderValue;
+              }else if(form != "" && form2 == ""){
+		        console.log(00);
                 orderValue = formValue(form);
-		      return  orderValue;
+		             return  orderValue;
              }
          };
     function formValue(val){
