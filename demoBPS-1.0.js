@@ -1,4 +1,4 @@
-//导出
+//----------------------------------------------------------------------------------导出---------------------------------------------------------------------------
 function daochu1(){
         var exportFileContent = document.getElementsByClassName("table table-striped table-bordered table-hover")[0].outerHTML;
 	var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office"xmlns:x="urn:schemas-microsoft-com:office:excel"xmlns="http://www.w3.org/TR/REC-html40">'+
@@ -14,13 +14,13 @@ function daochu1(){
                     downloadA.download = "数据下载.xlsx";
                     downloadA.click(); 
                };
-//查询
+
+//------------------------------------------------------------------------------------查询-------------------------------------------------------------------------
 function showw(){
        var xhr;
-       
        var strHtml ="_user=1343&_token="+ getCookie("token") + "&orderPrefix=" + formVal();
 
-     //  var strHtml ="_user=1343&_token=50b94b8a7357a458668946983d37ae40&" + "orderPrefix=" + form;
+      // var strHtml ="_user=1343&_token=50b94b8a7357a458668946983d37ae40&" + "orderPrefix=" + form;
       // var strHtml ="orderPrefix=NR007311326091024&_user=1343&_token=50b94b8a7357a458668946983d37ae40";
        var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";
            if( window.XMLHttpRequest ){
@@ -43,7 +43,7 @@ function showw(){
         xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xhr.send(strHtml);
 };
-
+//------------------------------------------------------------------------------------begain(公用)---------------------------------------------------------------------
     //   var arr;
      //  var reg = new RegExp("(^| )token=([^;]*)(;|$)");
     //       arr = document.cookie.match(reg);
@@ -84,11 +84,12 @@ function showw(){
             }
             return orderValue
      };
-//信息詳情函數    
+//信息詳情product函數    
 function product(mp3Val){
     for(var i=0;i<mp3Val.length;i++){
-     var listVal = mp3Val[i];
-             var autolist = listVal.autoVerify;
+	   var order = "";
+           var listVal = mp3Val[i];
+           var autolist = listVal.autoVerify;
               function autoReason(autolist){
                    for(var i=0;i<autolist.length;i++){
                          this.autoVal = autolist[i];
@@ -126,8 +127,8 @@ function product(mp3Val){
                      }
                      return  this.clone;
                };
-     var showNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];
-         showNode.lastElementChild.innerHTML ='<tr>'
+   //  var showNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+                             order +='<tr>'
                                               +'<td>'+listVal.orderNumber+'</td>'
                                               +'<td>'+listVal.orderStatus+'</td>'
                                               +'<td>'+listVal.wayBillNumber+'</td>'
@@ -239,4 +240,7 @@ function product(mp3Val){
        console.log(listVal.wayBillNumber);
        console.log(listVal.weight);
     }
+     var showNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+         showNode.lastElementChild.innerHTML =order;
 };
+//------------------------------------------------------------------------------------end------------------------------------------------------------------------------------
