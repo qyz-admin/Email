@@ -167,7 +167,7 @@ function product(mp3Val){
 				                  +listVal.befrom+"</td><td>"
 				                  +listVal.currency+"</td><td>"
 				                  +listVal.amount+"</td><td>"
-				                  +listVal.payType+"</td><td><a href="+linkReason(chanlist)+'target="_blank">'
+				                  +listVal.payType+"</td><td><a href="+linkReason(chanlist)+'  target="_blank">'
 				                  +linkReason(chanlist)+"</a></td><td>"
 				                  +listVal.addTime+"</td><td>"
 				                  +listVal.shipInfo.shipName+"</td><td>"
