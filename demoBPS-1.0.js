@@ -239,6 +239,6 @@ function product(mp3Val){
        console.log(listVal.weight);
     }
      var showNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];
-         showNode.lastElementChild.innerHTML =order;
+         showNode.lastElementChild.innerHTML = tableValue;
 };
 //------------------------------------------------------------------------------------end------------------------------------------------------------------------------------
