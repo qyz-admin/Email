@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         BPS-1.0
+// @name         BPS-1.05
 // @namespace    http://tampermonkey.net/
-// @version      1.01
+// @version      1.05
 // @description  try to take over the world!
 // @author       qyz
 // @match        http://gimp.giikin.com/front/*
@@ -20,92 +20,146 @@
 
 (function() {
     'use strict';
-       var scriptNode = document.createElement('script');//js¼Óİd
+//--------------------------------------------------------è·å–tokenå–å€¼-----------------------------------------------------------------------------------------
+      var xhr_urlll = "http://gsso.giikin.com/admin/login/index.html?_system=18&_url=http://gimp.giikin.com/admin/index/home.html"
+      GM_xmlhttpRequest({
+                method: "get",
+                   url: xhr_urlll,
+               headers: {
+                        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+                      },
+                //  data:orderVall,
+                onload: function(response){
+                        console.log("è¯·æ±‚æˆåŠŸ");
+                       console.log(response);
+                        console.log(response.finalUrl);
+                    var urlToken = response.finalUrl.split("_token=")[1].split("&_url=")[0];
+                        console.log(urlToken);
+                    document.cookie="token=" + urlToken ;
+                 },
+               onerror: function(response){
+                    console.log("è¯·æ±‚å¤±è´¥");
+                }
+
+       });
+   function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+            arr = document.cookie.match(reg);
+     //   console.log(arr[2]);
+    }
+
+   getCookie("token");
+
+//layerå½ˆçª—åŠ è¼‰
+/*    var scriptNode1110 = document.createElement('script');//demo.jsåŠ è¼‰
+        scriptNode1110.setAttribute('type','text/javascript');
+        scriptNode1110.setAttribute('src','https:/gsso.giikin.com/static/admin/js/jquery.min.js');
+        document.querySelector('body').appendChild(scriptNode1110);
+
+    var scriptNode1111 = document.createElement('script');//demo.jsåŠ è¼‰
+        scriptNode1111.setAttribute('type','text/javascript');
+        scriptNode1111.setAttribute('src','https://goms.giikin.com/static/layui/layui.js');
+        document.querySelector('body').appendChild(scriptNode1111);
+
+    var stNode1112 = document.createElement('div');
+        stNode1112.style = "display: none;";
+        stNode1112 .innerHTML = 'layui.use(["layer", "form"], function(){'
+                       +'var layer = layui.layer'
+                         +',form = layui.form;'
+                      +'});'
+       document.querySelector('body').appendChild(stNode1112);
+       */
+//--------------------------------------------------åˆ†å‰²ç·š-----------------------------------------------------------
+       var scriptNode = document.createElement('script');//jsåŠ è¼‰
         scriptNode.setAttribute('type','text/javascript');
         scriptNode.setAttribute('src',' https://gsso.giikin.com/static/admin/js/tabs.js');
-    document.querySelector('body').appendChild(scriptNode);
-//--------------------------------------------------·Ö¸î¾€-----------------------------------------------------------
+       document.querySelector('body').appendChild(scriptNode);
+/*
+        var scriptNode12 = document.createElement('script');//demo.jsåŠ è¼‰
+        scriptNode12.setAttribute('type','text/javascript');
+        scriptNode12.setAttribute('src','https://qyz-admin.github.io/Email/demoBPS-1.0.js');
+        document.querySelector('body').appendChild(scriptNode12);
+         */
+//--------------------------------------------------åˆ†å‰²ç·š-----------------------------------------------------------
     fun_nav();
-   function fun_nav() {//µ¼º½¼ÓÔØ
-//--------------------------------------------------·Ö¸î¾€-----------------------------------------------------------
+   function fun_nav() {//å¯¼èˆªåŠ è½½
     var nav = document.getElementsByClassName("hor-menu   hidden-sm hidden-xs")[1];
              console.log(nav);
       var targNav = document.createElement('div');
-       // targNav.setAttribute('class','classic-menu-dropdown');
-          targNav.setAttribute('id','header-nav');
+       // targNav.setAttribute('class','classic-menu-dropdown ');
+          targNav.setAttribute('id','header-Nav');
           targNav.style = "position: relative;float: left;top: -50px; left: 135px;width:100%;";
-          targNav.innerHTML = '<input type="button" class="btn green" id="test_search"  value="ÏÔÊ¾´°¿Ú" style = "height:50px;"> &nbsp'
-                             +'<input type="text" placeholder=" ¶©µ¥±àºÅ " class="search-button" id="order_input" style = "height:35px;"> &nbsp&nbsp'
-                             +'<input type="hidden" class="btn default showcol" id="close99_searchButton" value="¿ª¹Ø" onclick="add()"> &nbsp;'
-                             +'<input type="hidden" class="btn default showcol" id="order_search"  value="GO-¿Í·ş" > &nbsp'
-                             +'<input type="hidden" class="btn default showcol" id="w_searchButton"  value="´Ùµ¥²éÑ¯"> &nbsp'
-                             +'<input type="hidden" class="btn default showcol" id="cd_searchButton"  value="½ğî~²éÑ¯"> &nbsp'
-                             +'<input type="hidden" class="btn default showcol" id="wxz_searchButton" value="²éÔƒ-Ña°l"> &nbsp'
-                             +'<input type="hidden" class="btn purple" id="wxcd_searchButton" value="ÏÔÊ¾/Òş²ØÁĞ"> &nbsp'
-                             +'<input type="button" class="btn green" id="xxb_searchButton"  value="ĞÅÏ¢±íÏÔÊ¾"> &nbsp'
-                             +'<input type="hidden" class="btn green" id="tt_searchButton"  value="²âÊÔ">'
-                             +'<input type="hidden" class="btn green" id="test_searchButton"  value="µ¯´°">'
-                             +'<button class="btn btn-primary" data-target="#mymodal" data-toggle="modal">¿ªÊ¼ÑİÊ¾</button>'
+          targNav.innerHTML = '&nbsp<input type="button" class="btn green" id="test_search"  value="æ˜¾ç¤ºçª—å£" style = "height:50px;"> &nbsp'
+                             +'<input type="hidden" placeholder=" è®¢å•ç¼–å· " class="search-button" id="order_input" style = "height:35px;"> &nbsp&nbsp'
+                             +'<input type="hidden" class="btn default showcol" id="close99_searchButton" value="å¼€å…³" onclick="add()"> &nbsp;'
+                             +'<input type="hidden" class="btn default showcol" id="order_search"  value="GO-å®¢æœ" > &nbsp'
+                             +'<input type="hidden" class="btn default showcol" id="w_searchButton"  value="ä¿ƒå•æŸ¥è¯¢"> &nbsp'
+                             +'<input type="hidden" class="btn default showcol" id="cd_searchButton"  value="é‡‘é¡æŸ¥è¯¢"> &nbsp'
+                             +'<input type="hidden" class="btn default showcol" id="wxz_searchButton" value="æŸ¥è©¢-è£œç™¼"> &nbsp'
+                             +'<input type="hidden" class="btn purple" id="wxcd_searchButton" value="æ˜¾ç¤º/éšè—åˆ—"> &nbsp'
+                             +'<input type="hidden" class="btn green" id="xxb_searchButton"  value="ä¿¡æ¯è¡¨æ˜¾ç¤º"> &nbsp'
+                             +'<input type="hidden" class="btn green" id="tt_searchButton"  value="æµ‹è¯•">'
+                             +'<input type="hidden" class="btn green" id="test_searchButton"  value="å¼¹çª—">'
+                             +'<button class="btn btn-primary" data-target="#mymodal" data-toggle="modal">å¼€å§‹æ¼”ç¤º</button>'
      nav.appendChild( targNav);
     var navheight =document.getElementsByClassName("hor-menu   hidden-sm hidden-xs")[1];
         navheight.style.height=0
         console.log(navheight.style.height=0)
-//--------------------------------------------------·Ö¸î¾€-----------------------------------------------------------
+//--------------------------------------------------åˆ†å‰²ç·š-----------------------------------------------------------
     var targNode = document.getElementsByClassName("page-sidebar-menu  page-header-fixed ")[0];
     var BarNode = document.createElement('li');
         BarNode.setAttribute('class','nav-item');
-        BarNode.setAttribute('id','header-nav');
+        BarNode.setAttribute('id','nav-header');
      //   BarNode.style = "position: absolute;float: left;top: 10px; left: 235px;width:1545px;/*text-align: center;*/";//left:235
         BarNode.innerHTML =
                 '<a href="javascript:;" class="nav-link nav-toggle">'
-                           +'<i class="icon-social-dribbble"></i> ²»ÕıÊ½¹ÜÀí<span class="arrow open"></span>'
+                           +'<i class="icon-social-dribbble"></i> ä¸æ­£å¼ç®¡ç†<span class="arrow open"></span>'
                     +'</a>'
                     +'<ul class="sub-menu" style="display: block;">'
                            +'<li class="nav-item">'
-                               +'<a href="https://qyz-admin.github.io/Email/admin-index.html" class="nav-link"  target="view_window"><i class="icon-bulb"></i>³£ÓÃĞÅÏ¢±í</a>'
+                               +'<a href="https://qyz-admin.github.io/Email/admin-index.html" class="nav-link"  target="view_window"><i class="icon-bulb"></i>å¸¸ç”¨ä¿¡æ¯è¡¨</a>'
                            +'</li>'
                            +'<li class="nav-item">'
-                               +'<a href="https://qyz-admin.github.io/Email/orderquery.html" class="nav-link"  target="view_window"><i class="icon-bulb"></i>µÇ¼Ç±í</a>'
+                               +'<a href="https://qyz-admin.github.io/Email/orderquery.html" class="nav-link"  target="view_window"><i class="icon-bulb"></i>ç™»è®°è¡¨</a>'
                            +'</li>'
-                           +'<li class="nav-item">'
-                               +'<a href="" id="demo_tab1"  class="nav-link"  target="view_window"><i class="icon-bulb"></i>ÏÔÊ¾±í</a>'
+                           +'<li class="nav-item" type="hidden">'
+                               +'<a href="" id="demo_tab1"  class="nav-link"  target="view_window"><i class="icon-bulb"></i>æ˜¾ç¤ºè¡¨</a>'
                            +'</li>'
-                   +'</ul>;'
+                   +'</ul>'
       targNode.appendChild(BarNode);
   };
-//--------------------------------------------------·Ö¸î¾€-----------------------------------------------------------
-    document.getElementById("test_search").addEventListener("click", function fn() {//ĞÅÏ¢±í
+//--------------------------------------------------åˆ†å‰²ç·š-----------------------------------------------------------
+    document.getElementById("test_search").addEventListener("click", function fn() {//ä¿¡æ¯è¡¨
       var xxb = document.getElementById("demo_tab1");
           xxb.click()
          console.log( xxb)
 //function fn() {
-   var xxbdemo= document.getElementById("tab_iframe_ÏÔÊ¾±í").contentDocument.getElementsByTagName("head")[0];
+   var xxbdemo= document.getElementById("tab_iframe_æ˜¾ç¤ºè¡¨").contentDocument.getElementsByTagName("head")[0];
        xxbdemo.innerHTML =
             '<meta charset="utf-8">'
-           +'<title>¼ª¿ÍÓ¡¡¾ÕıÊ½¡¿ºóÌ¨</title>'
+           +'<title>å‰å®¢å°ã€æ­£å¼ã€‘åå°</title>'
            +'<meta http-equiv="X-UA-Compatible" content="IE=edge">'
            +'<meta content="width=device-width, initial-scale=1" name="viewport" />'
            +'<meta content="" name="description" />'
            +'<meta content="" name="author">'
            +'<meta http-equiv="Access-Control-Allow-Origin" content="*">'
            +'<!-- BEGIN GLOBAL STYLES -->'
-           +'<link href="/static/admin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />'
-           +'<link href="/static/admin/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />'
-           +'<link href="/static/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />'
-           +'<link href="/static/admin/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />'
+           +'<link href="https://gsso.giikin.com/static/admin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />'
+
+           +'<link href="https://gsso.giikin.com/static/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />'
+           +'<link href="https://gsso.giikin.com/static/admin/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />'
            +'<!-- BEGIN THIS PAGE -->'
 
            +'<!-- BEGIN GLOBAL STYLES -->'
-           +'<link href="/static/admin/css/components.min.css" rel="stylesheet" type="text/css" />'
-           +'<link href="/static/admin/css/plugins.min.css" rel="stylesheet" type="text/css" />'
+           +'<link href="https://gsso.giikin.com/static/admin/css/components.min.css" rel="stylesheet" type="text/css" />'
+           +'<link href="https://gsso.giikin.com/static/admin/css/plugins.min.css" rel="stylesheet" type="text/css" />'
            +'<!-- BEGIN THEME GLOBAL STYLES -->'
-           +'<link href="/static/admin/css/layout.min.css" rel="stylesheet" type="text/css" />'
-           +'<link href="/static/admin/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />'
-           +'<link rel="shortcut icon" href="../static/admin/img/favicon.ico" />'
-      +'<link rel="stylesheet" href="/static/layui/css/layui.css" media="all">'
-      +'<link id="layuicss-skinlayercss" rel="stylesheet" href="https://goms.giikin.com/static/layui/css/modules/layer/default/layer.css?v=3.0.3303" media="all">'
-            +'<link rel="shortcut icon" href="/static/admin/img/favicon.ico">'
-     //   xxbdemo.appendChild(stNode12);
+           +'<link href="https://gsso.giikin.com/static/admin/css/layout.min.css" rel="stylesheet" type="text/css" />'
+           +'<link href="https://gsso.giikin.com/static/admin/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />'
+           +'<link rel="shortcut icon" href="https://gsso.giikin.com/static/admin/img/favicon.ico" />'
+           +'<link rel="stylesheet" href="https://gsso.giikin.com/static/layui/css/layui.css" media="all">'
+           +'<link id="layuicss-skinlayercss" rel="stylesheet" href="https://gsso.giikin.com/static/layui/css/modules/layer/default/layer.css?v=3.0.3303" media="all">'
+           +'<link rel="shortcut icon" href="https://gsso.giikin.com/static/admin/img/favicon.ico">'
   +'<style>'
    +'.page-content-wrapper .page-content {'
         +'margin-top: -10;'
@@ -117,27 +171,68 @@
    +'.page-bar{'
         +'display:none;}'
  +'</style>'
++'<script src="https://gsso.giikin.com/static/admin/js/jquery.min.js" type="text/javascript"></script>'
++'<script src="https://gsso.giikin.com/static/admin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>'
++'<script src="https://gsso.giikin.com/static/admin/js/js.cookie.min.js" type="text/javascript"></script>'
++'<script src="https://gsso.giikin.com/static/admin/js/jquery.slimscroll.min.js" type="text/javascript"></script>'
++'<script src="https://gsso.giikin.com/static/admin/js/jquery.blockui.min.js" type="text/javascript"></script>'
++'<script src="https://gsso.giikin.com/static/admin/js/app.min.js" type="text/javascript"></script>'
++'<script src="https://gsso.giikin.com/static/admin/js/layout.min.js" type="text/javascript"></script>'
++'<script src="https://gsso.giikin.com/static/admin/js/demo.min.js" type="text/javascript"></script>'
++'<script src="https://gsso.giikin.com/static/admin/js/quick-sidebar.min.js" type="text/javascript"></script>'
++'<script src="https://qyz-admin.github.io/Email/demoBPS-1.0.js" type="text/javascript"></script>'
 
-    var xxbdemo1= document.getElementById("tab_iframe_ÏÔÊ¾±í").contentDocument.getElementsByTagName("body")[0];
-        xxbdemo1.setAttribute('class','page-header-fixed page-sidebar-closed-hide-logo page-content-white');
-        xxbdemo1.setAttribute('style','zoom: 1;');
-    var stNode10 = document.createElement('script');
-        stNode10 .src ="https://libs.baidu.com/jquery/1.9.0/jquery.js"
-        xxbdemo1.appendChild(stNode10);
-/*
-    var stNode1100 = document.createElement('script');
-        stNode1100.setAttribute('type','text/javascript');
-        stNode1100.setAttribute('src','https://goms.giikin.com/static/layui/layui.js');
+  var xxbdemo1= document.getElementById("tab_iframe_æ˜¾ç¤ºè¡¨").contentDocument.getElementsByTagName("body")[0];
+      xxbdemo1.setAttribute('class','page-header-fixed page-sidebar-closed-hide-logo page-content-white');
+      xxbdemo1.setAttribute('style','zoom: 1;');
+
+  var stNode10 = document.createElement('script');
+      stNode10.setAttribute('type','text/javascript');
+      stNode10.setAttribute('src',"https://qyz-admin.github.io/Email/jquery.min.js")
+      xxbdemo1.appendChild(stNode10);
+ /* var stNode11001 = document.createElement('script');
+      stNode11001.setAttribute('type','text/javascript');
+      stNode11001.setAttribute('src','https://qyz-admin.github.io/Email/layui.all.js');
+      stNode11001.setAttribute('charset','utf-8');
+      xxbdemo1.appendChild(stNode11001);*/
+  var scriptNode121 = document.createElement('script');//demo.jsåŠ è¼‰
+       scriptNode121.setAttribute('type','text/javascript');
+       scriptNode121.setAttribute('src','https://qyz-admin.github.io/Email/layer.js');
+       xxbdemo1.appendChild(scriptNode121);
+
+  /*var stNode100 = document.createElement('script');
+      stNode100.setAttribute('type','text/javascript');
+      stNode100.setAttribute('src',"https://qyz-admin.github.io/Email/jquery.js");
+      xxbdemo1.appendChild(stNode100);*/
+
+
+  var stNode1100 = document.createElement('link');
+        stNode1100.setAttribute('id','layuicss-skinlayercss');
+        stNode1100.setAttribute('rel','stylesheet');
+        stNode1100.setAttribute('src','https://qyz-admin.github.io/Email/css/layui.css');
         stNode1100.setAttribute('charset','utf-8');
-        xxbdemo.appendChild(stNode1100);
-*/
-   //   https://heerey525.github.io/layui-v2.4.3/layui-v2.4.5/layui.js      https://goms.giikin.com/static/layui/layui.js
-    var stNode11001 = document.createElement('script');
+    xxbdemo.appendChild(stNode1100);
+  /*
+   //  https://heerey525.github.io/layui-v2.4.3/layui-v2.4.5/layui.js      https://goms.giikin.com/static/layui/layui.js
+   var stNode11001 = document.createElement('script');
         stNode11001.setAttribute('type','text/javascript');
-        stNode11001.setAttribute('src','https://goms.giikin.com/static/layui/lay/modules/layer.js');
+        stNode11001.setAttribute('src','https://gsso.giikin.com/static/layui/layui.js');
         stNode11001.setAttribute('charset','utf-8');
         xxbdemo1.appendChild(stNode11001);
+*/
+   var scriptNode1 = document.createElement('script');//demo.jsåŠ è¼‰
+       scriptNode1.setAttribute('type','text/javascript');
+       scriptNode1.setAttribute('src','https://qyz-admin.github.io/Email/demoBPS-1.0.js');
+       xxbdemo1.appendChild(scriptNode1);
 
+ /*
+     var stNode1221 = document.createElement('script');
+        stNode1221 .innerHTML =
+                  'layui.use(["layer", "form"], function(){\n'
+                       +'var layer = layui.layer ,form = layui.form;\n'
+                      +'});\n'
+       xxbdemo1.appendChild(stNode1221);
+*/
     var xxbNode2 = document.createElement('div');
         xxbNode2.setAttribute('class','page-wrapper');
         xxbNode2.innerHTML ='<div class="clearfix"> </div>'
@@ -153,7 +248,7 @@
                             +'<i class="fa fa-circle"></i>'
                         +'</li>'
                         +'<li>'
-                            +'<span> ¿Í·ş²éÑ¯ </span>'
+                            +'<span> å®¢æœæŸ¥è¯¢ </span>'
                         +'</li>'
                     +'</ul>'
                 +'</div>'
@@ -163,79 +258,85 @@
                     +'<div class="col-md-12">'
                         +'<div class="portlet box green">'
                             +'<div class="portlet-title">'
-                                +'<div class="caption">'
-                                    +'<i class="fa icon-settings"></i>¿Í·ş²éÑ¯</div>'
+                                  +'<div class="caption">'
+                                       +'<i class="fa icon-settings"></i>å®¢æœæŸ¥è¯¢'
+                                  +'</div>'
+                                  +'<div class="actions">'
+                                              +'<select name="djr" id= "djr" style="height: 30px;">'
+                                                   +'<option value="0">---ç™»è®°äºº---</option>'
+					                               +'<option value="é½Šå…ƒç« ">é½Šå…ƒç« </option>'
+					                               +'<option value="æ¥Šå˜‰å„€">æ¥Šå˜‰å„€</option>'
+                                                   +'<option value="å¾æ–‡å»º">å¾æ–‡å»º</option>'
+                                                   +'<option value="æè‹¥è˜­">æè‹¥è˜­</option>'
+                                                   +'<option value="æ›¹  å¯">æ›¹  å¯</option>'
+                                                   +'<option value="æ›²é–‹æ‹“">æ›²é–‹æ‹“</option>'
+                                                   +'<option value="æäºèŠ³">æäºèŠ³</option>'
+                                                   +'<option value="è¢ç„•æ¬£">è¢ç„•æ¬£</option>'
+                                                   +'<option value="æ¨  æ˜Š">æ¨  æ˜Š</option>'
+                                                   +'<option value="å®¢è¯‰ä»¶">å®¢è¯‰ä»¶</option>'
+                                                   +'<option value="ç”µè¯å®¢æœ">\ç”µè¯å®¢æœ</option>'
+                                                +'</select>'
+                                                +'<select name="tigong" id= "tigong" style="height: 30px;">'
+                                                   +'<option value="é‹è²»0">-----å‚™è¨»-----</option>'
+					                               +'<option value="é‹è²»300">é‹è²»300</option>'
+					                               +'<option value="é‹è²»99">é‹è²»99</option>'
+                                                   +'<option value="é‹è²»ä¸€åŠ">é€€ä¸€åŠä¸å–ä»¶</option>'
+                                               +'</select>'
+                                               +'<select name="thvalue" id= "thvalue" style = "width:150px;height: 30px;">'
+                                                   +'<option value="">------é€€è²¨åŸå› ------</option>'
+					                               +'<option value="èˆ‡ç”¢å“ç¶²é ä¸ç¬¦">èˆ‡ç”¢å“ç¶²é ä¸ç¬¦</option>'
+					                               +'<option value="è´¨é‡å·®">è´¨é‡å·®</option>'
+                                                   +'<option value="å¤§å°ä¸åˆé€‚">å¤§å°ä¸åˆé€‚</option>'
+                                                   +'<option value="æœªè®¢è´­">æœªè®¢è´­</option>'
+                                                   +'<option value="éæ­£å“è¦æ±‚é€€è²¨">éæ­£å“è¦æ±‚é€€è²¨</option>'
+                                                   +'<option value="ä¸é€‚ç”¨ï¼Œä¸å–œæ¬¢ï¼Œä¸æƒ³è¦">ä¸é€‚ç”¨ï¼Œä¸å–œæ¬¢ï¼Œä¸æƒ³è¦</option>'
+                                                   +'<option value="å•†å“æœ‰ç‘•ç–µï¼Œæå£">å•†å“æœ‰ç‘•ç–µï¼Œæå£</option>'
+                                                   +'<option value="åˆ°è´§ä¸èƒ½ä½¿ç”¨">åˆ°è´§ä¸èƒ½ä½¿ç”¨</option>'
+                                                   +'<option value="å“è³ªä¸ç¬¦é æœŸ">å“è³ªä¸ç¬¦é æœŸ</option>'
+                                                   +'<option value="é—®é¢˜ä»¶">é—®é¢˜ä»¶</option>'
+                                                   +'<option value="å‘é”™å•†å“ï¼Œå°‘å‘">å‘é”™å•†å“ï¼Œå°‘å‘</option>'
+                                              +'</select>'
+                                              +'<select name="hhvalue" id= "hhvalue" style = "width:150px;height: 30px;">'
+                                                   +'<option value="">------æ›è²¨åŸå› ------</option>'
+					                               +'<option value="æ¢å¤§ï¼Œä»“åº“å‘é”™">æ¢å¤§ï¼Œä»“åº“å‘é”™</option>'
+					                               +'<option value="æ¢å°ï¼Œä»“åº“å‘é”™">æ¢å°ï¼Œä»“åº“å‘é”™</option>'
+                                                   +'<option value="æ¢é¢œè‰²ï¼Œä»“åº“å‘é”™">æ¢é¢œè‰²ï¼Œä»“åº“å‘é”™</option>'
+                                                   +'<option value="æ¢å¤§ï¼Œå®¢æˆ·è‡ªå·±é€‰é”™">æ¢å¤§ï¼Œå®¢æˆ·è‡ªå·±é€‰é”™</option>'
+                                                   +'<option value="æ¢å°ï¼Œå®¢æˆ·è‡ªå·±é€‰é”™">æ¢å°ï¼Œå®¢æˆ·è‡ªå·±é€‰é”™</option>'
+                                                   +'<option value="æ¢å¤§ï¼Œäº§å“å°ºç ä¸æ­£å¸¸">æ¢å¤§ï¼Œäº§å“å°ºç ä¸æ­£å¸¸</option>'
+                                                   +'<option value="æ¢å°ï¼Œäº§å“å°ºç ä¸æ­£å¸¸">æ¢å°ï¼Œäº§å“å°ºç ä¸æ­£å¸¸</option>'
+                                                   +'<option value="æ¢é¢œè‰²ï¼Œäº§å“é¢œè‰²ä¸ç½‘ç«™ä¸ç¬¦">æ¢é¢œè‰²ï¼Œäº§å“é¢œè‰²ä¸ç½‘ç«™ä¸ç¬¦</option>'
+                                                   +'<option value="å‘é”™ï¼Œæ¢æ–°ï¼Œå®¢æˆ·è‡ªå·±é€‰é”™">å‘é”™ï¼Œæ¢æ–°ï¼Œå®¢æˆ·è‡ªå·±é€‰é”™</option>'
+                                                   +'<option value="å‘é”™ï¼Œæ¢æ–°ï¼Œä»“åº“å‘é”™">å‘é”™ï¼Œæ¢æ–°ï¼Œä»“åº“å‘é”™</option>'
+                                                   +'<option value="ç‘•ç–µï¼Œæ¢æ–°">ç‘•ç–µï¼Œæ¢æ–°</option>'
+                                                   +'<option value="æŸåï¼Œæ¢æ–°">æŸåï¼Œæ¢æ–°</option>'
+                                                   +'<option value="åˆ°è´§ä¸æ»¡æ„ï¼Œä¸ç½‘ç«™ä¸ç¬¦ï¼Œæ¢æ–°">åˆ°è´§ä¸æ»¡æ„ï¼Œä¸ç½‘ç«™ä¸ç¬¦ï¼Œæ¢æ–°</option>'
+                                                   +'<option value="æ›ç”¢å“è£œå·®åƒ¹ï¼Œäº§å“ä¸æ»¡æ„">æ›ç”¢å“è£œå·®åƒ¹ï¼Œäº§å“ä¸æ»¡æ„</option>'
+                                                   +'<option value="æ›ç”¢å“è£œå·®åƒ¹ï¼Œä¸ç½‘ç«™ä¸ç¬¦">æ›ç”¢å“è£œå·®åƒ¹ï¼Œä¸ç½‘ç«™ä¸ç¬¦</option>'
+                                                   +'<option value="ç™¼éŒ¯è²¨ï¼ŒäºŒæ¬¡æ›è²¨ï¼Œä»“åº“å‘é”™">ç™¼éŒ¯è²¨ï¼ŒäºŒæ¬¡æ›è²¨ï¼Œä»“åº“å‘é”™</option>'
+                                                   +'<option value="ç™¼éŒ¯è²¨ï¼ŒäºŒæ¬¡æ›è²¨ï¼Œå®¢æˆ·è‡ªå·±æä¾›é”™">ç™¼éŒ¯è²¨ï¼ŒäºŒæ¬¡æ›è²¨ï¼Œå®¢æˆ·è‡ªå·±æä¾›é”™</option>'
+                                                   +'<option value="æ¢äº§å“">æ¢äº§å“</option>'
+                                                   +'<option value="ç„¡æ³•ä½¿ç”¨ï¼Œæ›æ–°">ç„¡æ³•ä½¿ç”¨ï¼Œæ›æ–°</option>'
+                                                +'</select>'
+                                  +'</div>'
                             +'</div>'
                             +'<div class="portlet-body">'
                                 +'<div class="row" style="margin-bottom:10px;">'
                                     +'<div class="col-md-12 col-sm-10">'
                                         +'<form class="form-horizontal" role="form" id="formdata" method="post" action="">'
             +'<div class="table-group-actions pull-left"  style="width:auto;">'
-                                                +'<input type="text" class="form-control input-inline input-medium" name="order_number" placeholder="ÇëÊäÈë¶©µ¥ºÅ">'
-                                                +'<input type="text" class="form-control input-inline input-medium" name="phone" placeholder="ÇëÊäÈëµç»°ºÅÂë">'
-                                                +'<input type="text" class="form-control input-inline input-medium" name="waybill_number" placeholder="ÇëÊäÈëÎïÁ÷µ¥ºÅ">'
-                                                +'<button type="button" class="btn green" onclick="show()">²éÑ¯</button>&nbsp'
-                                                +'<button type="button" class="btn yellow-gold " onclick="tuohuo()">ÍË»õ</button>&nbsp'
-                                                +'<button type="button" class="btn yellow-gold " onclick="huanhuo()">»»»õ</button>&nbsp'
-                                                +'<button type="button" class="btn yellow-gold " onclick="bufa()">²¹·¢</button>&nbsp'
-                                                +'<button type="button" class="tool-action btn yellow " onclick="copy()">µã»÷¸´ÖÆ  ÍË »» ²¹</button>&nbsp&nbsp'
-                                                +'<select name="djr" id= "djr" style="height: 30px;">'
-                                                   +'<option value="0">---µÇ¼ÇÈË---</option>'
-					                               +'<option value="ıRÔªÕÂ">ıRÔªÕÂ</option>'
-					                               +'<option value="—î¼Îƒx">—î¼Îƒx</option>'
-                                                   +'<option value="ĞìÎÄ½¨">ĞìÎÄ½¨</option>'
-                                                   +'<option value="ÀîÈôÌm">ÀîÈôÌm</option>'
-                                                   +'<option value="²Ü  ¿É">²Ü  ¿É</option>'
-                                                   +'<option value="Çúé_ÍØ">Çúé_ÍØ</option>'
-                                                   +'<option value="½ªÌğÌğ">½ªÌğÌğ</option>'
-                                                   +'<option value="Àî†·¼">Àî†·¼</option>'
-                                                   +'<option value="Ô¬»ÀĞÀ">Ô¬»ÀĞÀ</option>'
-                                                   +'<option value="Ñî  ê»">Ñî  ê»</option>'
-                                                   +'<option value="¿ÍËß¼ş">¿ÍËß¼ş</option>'
-                                                   +'<option value="µç»°¿Í·ş">\µç»°¿Í·ş</option>'
-                                                +'</select>'
-                                                +'<select name="tigong" id= "tigong" style="height: 30px;">'
-                                                   +'<option value="ß\ÙM0">-----‚äÔ]-----</option>'
-					                               +'<option value="ß\ÙM300">ß\ÙM300</option>'
-					                               +'<option value="ß\ÙM99">ß\ÙM99</option>'
-                                                   +'<option value="ß\ÙMÒ»°ë">ÍËÒ»°ë²»È¡¼ş</option>'
-                                               +'</select>'
-                                               +'<select name="thvalue" id= "thvalue" style = "width:150px;height: 30px;">'
-                                                   +'<option value="">------ÍËØ›Ô­Òò------</option>'
-					                               +'<option value="Åc®aÆ·¾Wí“²»·û">Åc®aÆ·¾Wí“²»·û</option>'
-					                               +'<option value="ÖÊÁ¿²î">ÖÊÁ¿²î</option>'
-                                                   +'<option value="´óĞ¡²»ºÏÊÊ">´óĞ¡²»ºÏÊÊ</option>'
-                                                   +'<option value="Î´¶©¹º">Î´¶©¹º</option>'
-                                                   +'<option value="·ÇÕıÆ·ÒªÇóÍËØ›">·ÇÕıÆ·ÒªÇóÍËØ›</option>'
-                                                   +'<option value="²»ÊÊÓÃ£¬²»Ï²»¶£¬²»ÏëÒª">²»ÊÊÓÃ£¬²»Ï²»¶£¬²»ÏëÒª</option>'
-                                                   +'<option value="ÉÌÆ·ÓĞè¦´Ã£¬“p‰Ä">ÉÌÆ·ÓĞè¦´Ã£¬“p‰Ä</option>'
-                                                   +'<option value="µ½»õ²»ÄÜÊ¹ÓÃ">µ½»õ²»ÄÜÊ¹ÓÃ</option>'
-                                                   +'<option value="Æ·Ù|²»·ûîAÆÚ">Æ·Ù|²»·ûîAÆÚ</option>'
-                                                   +'<option value="ÎÊÌâ¼ş">ÎÊÌâ¼ş</option>'
-                                                   +'<option value="·¢´íÉÌÆ·£¬ÉÙ·¢">·¢´íÉÌÆ·£¬ÉÙ·¢</option>'
-                                              +'</select>'
-                                              +'<select name="hhvalue" id= "hhvalue" style = "width:150px;height: 30px;">'
-                                                   +'<option value="">------“QØ›Ô­Òò------</option>'
-					                               +'<option value="»»´ó£¬²Ö¿â·¢´í">»»´ó£¬²Ö¿â·¢´í</option>'
-					                               +'<option value="»»Ğ¡£¬²Ö¿â·¢´í">»»Ğ¡£¬²Ö¿â·¢´í</option>'
-                                                   +'<option value="»»ÑÕÉ«£¬²Ö¿â·¢´í">»»ÑÕÉ«£¬²Ö¿â·¢´í</option>'
-                                                   +'<option value="»»´ó£¬¿Í»§×Ô¼ºÑ¡´í">»»´ó£¬¿Í»§×Ô¼ºÑ¡´í</option>'
-                                                   +'<option value="»»Ğ¡£¬¿Í»§×Ô¼ºÑ¡´í">»»Ğ¡£¬¿Í»§×Ô¼ºÑ¡´í</option>'
-                                                   +'<option value="»»´ó£¬²úÆ·³ßÂë²»Õı³£">»»´ó£¬²úÆ·³ßÂë²»Õı³£</option>'
-                                                   +'<option value="»»Ğ¡£¬²úÆ·³ßÂë²»Õı³£">»»Ğ¡£¬²úÆ·³ßÂë²»Õı³£</option>'
-                                                   +'<option value="»»ÑÕÉ«£¬²úÆ·ÑÕÉ«ÓëÍøÕ¾²»·û">»»ÑÕÉ«£¬²úÆ·ÑÕÉ«ÓëÍøÕ¾²»·û</option>'
-                     +                             +'<option value="·¢´í£¬»»ĞÂ£¬¿Í»§×Ô¼ºÑ¡´í">·¢´í£¬»»ĞÂ£¬¿Í»§×Ô¼ºÑ¡´í</option>'
-                                                   +'<option value="·¢´í£¬»»ĞÂ£¬²Ö¿â·¢´í">·¢´í£¬»»ĞÂ£¬²Ö¿â·¢´í</option>'
-                                                   +'<option value="è¦´Ã£¬»»ĞÂ">è¦´Ã£¬»»ĞÂ</option>'
-                                                   +'<option value="Ëğ»µ£¬»»ĞÂ">Ëğ»µ£¬»»ĞÂ</option>'
-                                                   +'<option value="µ½»õ²»ÂúÒâ£¬ÓëÍøÕ¾²»·û£¬»»ĞÂ">µ½»õ²»ÂúÒâ£¬ÓëÍøÕ¾²»·û£¬»»ĞÂ</option>'
-                                                   +'<option value="“Q®aÆ·Ña²îƒr£¬²úÆ·²»ÂúÒâ">“Q®aÆ·Ña²îƒr£¬²úÆ·²»ÂúÒâ</option>'
-                                                   +'<option value="“Q®aÆ·Ña²îƒr£¬ÓëÍøÕ¾²»·û">“Q®aÆ·Ña²îƒr£¬ÓëÍøÕ¾²»·û</option>'
-                                                   +'<option value="°låeØ›£¬¶ş´Î“QØ›£¬²Ö¿â·¢´í">°låeØ›£¬¶ş´Î“QØ›£¬²Ö¿â·¢´í</option>'
-                                                   +'<option value="°låeØ›£¬¶ş´Î“QØ›£¬¿Í»§×Ô¼ºÌá¹©´í">°låeØ›£¬¶ş´Î“QØ›£¬¿Í»§×Ô¼ºÌá¹©´í</option>'
-                                                   +'<option value="»»²úÆ·">»»²úÆ·</option>'
-                                                   +'<option value="Ÿo·¨Ê¹ÓÃ£¬“QĞÂ">Ÿo·¨Ê¹ÓÃ£¬“QĞÂ</option>'
-                                                +'</select>'
+                                                +'<input type="text" class="form-control input-inline input-medium" name="order_number" placeholder="è¯·è¾“å…¥è®¢å•å·">'
+                                                +'<input disabled="disabled" type="text" class="form-control input-inline input-medium" name="phone" placeholder="è¯·è¾“å…¥ç”µè¯å·ç ">'
+                                                +'<input type="text" class="form-control input-inline input-medium" name="waybill_number" placeholder="è¯·è¾“å…¥ç‰©æµå•å·">'
+                                                +'<input  disabled="disabled" type="text" class="form-control input-inline input-small" name="ip" placeholder="è¯·è¾“å…¥IP">&nbsp'
+                                                +'<button type="button" class="btn green" onclick="show()">æŸ¥è¯¢</button>&nbsp'
+                         +'<button type="button" class="btn green" onclick="showw()">æŸ¥è¯¢00</button>&nbsp&nbsp&nbsp&nbsp'
+                                              +'<button type="button" class="btn yellow-gold " onclick="tuohuo()">é€€è´§</button>&nbsp'
+                                      +'<button type="button" class="btn yellow-gold " onclick="huanhuo()">æ¢è´§</button>&nbsp'
+                                      +'<button type="button" class="btn yellow-gold " onclick="bufa()">è¡¥å‘</button>&nbsp'
+                                      +'<button type="button" class="tool-action btn yellow " onclick="fuzhi()">ç‚¹å‡»å¤åˆ¶</button>&nbsp&nbsp'
+                                      +'<button type="button" class="tool-action btn yellow " onclick="daochu()">å¯¼å‡º</button>&nbsp&nbsp'
+                                      +'<button type="button" class="tool-action btn yellow " onclick="daochu1()">å¯¼å‡ºå¤‡ç”¨</button>&nbsp&nbsp'
                                             +'</div>'
                                         +'</form>'
                                     +'</div>'
@@ -243,27 +344,32 @@
                                 +'<table class="table table-striped table-bordered table-hover">'
                                     +'<thead>'
                                         +'<tr>'
-                                            +'<th> ¶©µ¥ºÅ </th>'
-                                            +'<th> ¶©µ¥×´Ì¬ </th>'
-                                            +'<th> ÎïÁ÷µ¥ºÅ </th>'
-                                            +'<th> À´Ô´Æ½Ì¨ </th>'
-                                            +'<th> ÉÌÆ·Ãû³Æ </th>'
-                                            +'<th> ÊÇ·ñ¶ş´Î¸ÄÅÉ </th>'
-                                            +'<th> ÊÇ·ñ¿ËÂ¡ </th>'
-                                            +'<th> ¹æ¸ñ </th>'
-                                            +'<th> ÊıÁ¿ </th>'
-                                            +'<th> ±ÒÖÖ </th>'
-                                            +'<th> Á´½ÓµØÖ· </th>'
-                                            +'<th> ÏÂµ¥Ê±¼ä </th>'
-                                            +'<th> ĞÕÃû </th>'
-                                            +'<th> µç»° </th>'
-                                            +'<th> À­ºÚÂÊ </th>'
-                                            +'<th> ÖØÁ¿ </th>'
-                                            +'<th> ÎïÁ÷×´Ì¬ </th>'
-                                            +'<th> µØÖ· </th>'
+                                            +'<th> è®¢å•å· </th>'
+                                            +'<th> è®¢å•çŠ¶æ€ </th>'
+                                            +'<th> ç‰©æµå•å· </th>'
+                                            +'<th> æ¥æºå¹³å° </th>'
+                                            +'<th> å•†å“åç§° </th>'
+                                            +'<th> æ˜¯å¦äºŒæ¬¡æ”¹æ´¾ </th>'
+                                            +'<th> æ˜¯å¦å…‹éš† </th>'
+                                            +'<th> è§„æ ¼ </th>'
+                                            +'<th> æ•°é‡ </th>'
+                                            +'<th> å¸ç§ </th>'
+                                            +'<th> é‡‘é¢ </th>'
+                                            +'<th> æ”¯ä»˜ç±»å‹ </th>'
+                                            +'<th> é“¾æ¥åœ°å€ </th>'
+                                            +'<th> ä¸‹å•æ—¶é—´ </th>'
+                                            +'<th> å§“å </th>'
+                                            +'<th> ç”µè¯ </th>'
+                                            +'<th> æ‹‰é»‘ç‡ </th>'
+                                            +'<th> é‡é‡ </th>'
+                                            +'<th> ç‰©æµçŠ¶æ€ </th>'
+                                            +'<th> ç‰©æµæ›´æ–°æ—¶é—´ </th>'
+                                            +'<th> ç‰©æµå…¬å¸ </th>'
+                                            +'<th> åœ°å€ </th>'
                                             +'<th> IP </th>'
-                                            +'<th> Õ¾µãID </th>'
-                                            +'<th> ²Ù×÷ </th>'
+                                            +'<th> ç«™ç‚¹ID </th>'
+                                            +'<th> å®¡æ ¸æ–¹å¼ </th>'
+                                            +'<th> æ“ä½œ </th>'
                                         +'</tr>'
                                     +'</thead>'
                                     +'<tbody>'
@@ -282,53 +388,141 @@
    xxbdemo1.appendChild(xxbNode2);
 
      var xxbNode001 = document.createElement('script');
-         xxbNode001.innerHTML ='function show(){'
-              +'var xhr;'
-       +'var strHtml ="orderPrefix=NR007311326091024&_user=1343&_token=c6ba81ceb060e8abeab0d0280c9726d4";'
-       +'var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";'
-           +'if( window.XMLHttpRequest ){'
-              +'xhr=new XMLHttpRequest();'
-            +'}else{'
-              +'xhr = new ActiveXObject("Microsoft.XMLHTTP");'
-           +'};'
-          +'xhr.onreadystatechange=function(){'
-            +'if( xhr.readyState==4 && xhr.status==200){'
-              +'var hhNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];'
+         xxbNode001.innerHTML ='function show(){\n'
+        +'var xhr;\n'
+        +'var arr;\n'
+        +'var reg = new RegExp("(^| )token=([^;]*)(;|$)");\n'
+            +'arr = document.cookie.match(reg);\n'
+               +'console.log(arr[2]);\n'
+         +'function formValue(){\n'
+         +'var form = document.getElementsByClassName("form-control input-inline input-medium")[0].value;\n'
+         +'var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2].value;\n'
+         +'var item_arr = form.split(/[\\n\\s+,ï¼Œï¼›;]/g);\n'
+               +'console.log(item_arr);\n'
+         +'var orderValue="";\n'
+         +'for (var i=0;i<item_arr.length;i++){\n'
+             +'orderValue+= item_arr[i]+","\n'
+            +'}\n'
+            +'return orderValue\n'
+        +'}\n'
+        +'var strHtml ="_user=1343&_token="+arr[2] + "&orderPrefix=" + formValue();\n'
+        +'var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";\n'
+           +'if( window.XMLHttpRequest ){\n'
+              +'xhr=new XMLHttpRequest();\n'
+            +'}else{\n'
+              +'xhr = new ActiveXObject("Microsoft.XMLHTTP");\n'
+           +'};\n'
+          +'xhr.onreadystatechange=function(){\n'
+            +'if( xhr.readyState==4 && xhr.status==200){\n'
+              +'var hhNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];\n'
                   +'hhNode.firstChild.innerHTML ="<tr>'
-                                            +'<th> ¶©µ¥ºÅ </th>'
-                                            +'<th> ¶©µ¥×´Ì¬ </th>'
-                                            +'<th> ÎïÁ÷µ¥ºÅ </th>'
-                                            +'<th> À´Ô´Æ½Ì¨ </th>'
-                                            +'<th> ÉÌÆ·Ãû³Æ </th>'
-                                            +'<th> ÊÇ·ñ¶ş´Î¸ÄÅÉ </th>'
-                                            +'<th> ÊÇ·ñ¿ËÂ¡ </th>'
-                                            +'<th> ¹æ¸ñ </th>'
-                                            +'<th> ÊıÁ¿ </th>'
-                                            +'<th> ±ÒÖÖ </th>'
-                                            +'<th> Á´½ÓµØÖ· </th>'
-                                            +'<th> ÏÂµ¥Ê±¼ä </th>'
-                                            +'<th> ĞÕÃû </th>'
-                                            +'<th> µç»° </th>'
-                                            +'<th> À­ºÚÂÊ </th>'
-                                            +'<th> ÖØÁ¿ </th>'
-                                            +'<th> ÎïÁ÷×´Ì¬ </th>'
-                                            +'<th> µØÖ· </th>'
+                                            +'<th> è®¢å•å· </th>'
+                                            +'<th> è®¢å•çŠ¶æ€ </th>'
+                                            +'<th> ç‰©æµå•å· </th>'
+                                            +'<th> æ¥æºå¹³å° </th>'
+                                            +'<th> å•†å“åç§° </th>'
+                                            +'<th> æ˜¯å¦äºŒæ¬¡æ”¹æ´¾ </th>'
+                                            +'<th> æ˜¯å¦å…‹éš† </th>'
+                                            +'<th> è§„æ ¼ </th>'
+                                            +'<th> æ•°é‡ </th>'
+                                            +'<th> å¸ç§ </th>'
+                                            +'<th> é‡‘é¢ </th>'
+                                            +'<th> æ”¯ä»˜ç±»å‹ </th>'
+                                            +'<th> é“¾æ¥åœ°å€ </th>'
+                                            +'<th> ä¸‹å•æ—¶é—´ </th>'
+                                            +'<th> å§“å </th>'
+                                            +'<th> ç”µè¯ </th>'
+                                            +'<th> æ‹‰é»‘ç‡ </th>'
+                                            +'<th> é‡é‡ </th>'
+                                            +'<th> ç‰©æµçŠ¶æ€ </th>'
+                                            +'<th> ç‰©æµæ›´æ–°æ—¶é—´ </th>'
+                                            +'<th> ç‰©æµå…¬å¸ </th>'
+                                            +'<th> åœ°å€ </th>'
                                             +'<th> IP </th>'
-                                            +'<th> Õ¾µãID </th>'
-                                            +'<th> ²Ù×÷ </th>'
+                                            +'<th> ç«™ç‚¹ID </th>'
+                                            +'<th> å®¡æ ¸æ–¹å¼ </th>'
+                                            +'<th> æ“ä½œ </th>'
                                         +'</tr>";'
                 +'console.log(xhr.responseText);'
           +'var mp3 = eval("("+ this.responseText +")");'
                 +'console.log(mp3);'
                 +'console.log(mp3.data.list);'
                 +'console.log(mp3.data.list[0]);'
-                +'console.log(99990000);'
+                +'console.log(200);'
       +'var mp3Val = mp3.data.list;'
           +'product(mp3Val);'
 +'function product(mp3Val){'
+    +'var tableValue="";'
     +'for(var i=0;i<mp3Val.length;i++){'
-         +'console.log(999900001111111111);'
-     +'var listVal = mp3Val[i];'
+         +'var listVal = mp3Val[i];'
+             +'var autolist = listVal.autoVerify;'
+              +'function autoReason(autolist){'
+                   +'for(var i=0;i<autolist.length;i++){'
+                         +'this.autoVal = autolist[i];'
+                         +'return  this.autoVal'
+                    +'};'
+               +'};'
+              +'var chanlist = listVal.specs;'
+              +'function saleReason(chanlist){'
+                   +'for(var i=0;i<chanlist.length;i++){'
+                         +'var dataVal = chanlist[i];'
+                         +'this.saleProduct = dataVal.saleProduct;'
+                         +'return  this.saleProduct'
+                    +'};'
+               +'};'
+               +'function linkReason(chanlist){'
+                   +'for(var i=0;i<chanlist.length;i++){'
+                         +'var dataVal = chanlist[i];'
+                         +'this.link = dataVal.link;'
+                         +'return  this.link'
+                    +'};'
+               +'};'
+              +'function specReason(chanlist){'
+                   +'for(var i=0;i<chanlist.length;i++){'
+                         +'var dataVal = chanlist[i];'
+                         +'this.spec =  dataVal.spec;'
+                         +'return  this.spec'
+                    +'};'
+               +'};'
+              +'var clonelist = listVal.isClone;'
+              +'function cloneReason(clonelist){'
+                      +'if(clonelist==0){'
+                          +'this.clone = "å¦";'
+                     +'}else{'
+                         +'this.clone = "æ˜¯";'
+                     +'}'
+                     +'return  this.clone;'
+               +'};'
+                                 +'tableValue +="<tr>'
+                                              +'<td>"+listVal.orderNumber+"</td>'
+                                              +'<td>"+listVal.orderStatus+"</td>'
+                                              +'<td>"+listVal.wayBillNumber+"</td>'
+                                              +'<td>"+listVal.befrom+"</td>'
+                                              +'<td>"+saleReason(chanlist)+"</td>'
+                                              +'<td>"+listVal.isSecondSend+"</td>'
+                                              +'<td>"+cloneReason(clonelist)+"</td>'
+                                              +'<td>"+specReason(chanlist)+"</td>'
+                                                 +'<td>"+listVal.befrom+"</td>'
+                                              +'<td>"+listVal.currency+"</td>'
+                                              +'<td>"+listVal.amount+"</td>'
+                                              +'<td>"+listVal.payType+"</td>'
+                                              +'<td><a href="'
+                                              +'+linkReason(chanlist)+"</a></td>'
+                                              +'<td>"+listVal.addTime+"</td>'
+                                              +'<td>"+listVal.shipInfo.shipName+"</td>'
+                                              +'<td>"+listVal.shipInfo.shipPhone+"</td>'
+                                              +'<td>"+listVal.befrom+"</td>'
+                                              +'<td>"+listVal.weight+"</td>'
+                                              +'<td>"+listVal.logisticsStatus+"</td>'
+                                              +'<td>"+listVal.logisticsUpdateTime+"</td>'
+                                              +'<td>"+listVal.logisticsName+"</td>'
+                                              +'<td>"+listVal.shipInfo.shipAddress+"</td>'
+                                              +'<td>"+listVal.ip+"</td>'
+                                              +'<td>"+listVal.collId+"</td>'
+                                              +'<td>"+autoReason(autolist)+"</td>'
+                                                 +'<td>"+listVal.befrom+"</td>'
+                                              +'<tr>";'
+
           +'console.log(listVal.addTime);'
           +'console.log(listVal.amount);'
           +'console.log(listVal.area);'
@@ -413,54 +607,103 @@
        +'console.log(listVal.wayBillNumber);'
        +'console.log(listVal.weight);'
              +'};'
-           +'};'
-        +'};'
-    +'};'
-        +'xhr.open("post",xhr_url,true);'
-        +'xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");'
-        +'xhr.send(strHtml);'
- +'};'
+     +'var showNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];'
+         +'showNode.lastElementChild.innerHTML = tableValue\n'
+           +'};\n'
+        +'};\n'
+    +'};\n'
+        +'xhr.open("post",xhr_url,true);\n'
+        +'xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");\n'
+        +'xhr.send(strHtml);\n'
+ +'};\n'
    xxbdemo1.appendChild(xxbNode001);
 
+         var xxbNode0021 = document.createElement('script');//è¤‡è£½
+             xxbNode0021.innerHTML ='function fuzhi(){\n'
+            +'var thNode111 = document.getElementsByTagName("tbody")[0];\n'
+            +'var thNodeLen = thNode111.children.length;\n'
+             +'if(thNodeLen == 1){\n'
+            +'var text= document.getElementsByTagName("tbody")[0].innerText;\n'
+            +'var textArea = document.createElement("input");\n'
+                +'textArea.value = text;\n'
+              +'document.body.appendChild(textArea);\n'
+                +'textArea.select();\n'
+                +'document.execCommand("copy");\n'
+              +'layer.msg("Hello å¤åˆ¶æˆåŠŸ", {icon: 6});\n'
+                 +'setTimeout(function () {\n'
+                    +'document.body.removeChild(textArea);\n'
+                +'}, 100);\n'
+          +'}else{\n'
+            +'var text0= document.getElementsByTagName("tbody")[0].innerText;\n'
+                   +'console.log(text0);\n'
+            +'var textArea0 = document.createElement("textarea");\n'
+                +'textArea0.value = text0;\n'
+              +'document.body.appendChild(textArea0);\n'
+                +'textArea0.select();\n'
+              +'document.execCommand("copy");\n'
+               +'layer.msg("Hello å¤åˆ¶æˆåŠŸ", {icon: 6});\n'
+                 +'setTimeout(function () {\n'
+                    +'document.body.removeChild(textArea0);\n'
+                +'}, 100)\n'
+          +'};\n'
+         +'};\n'
+         xxbdemo1.appendChild(xxbNode0021);
+
+        var xxbNode0022 = document.createElement('script');//å¯¼å‡º
+         xxbNode0022.innerHTML ='function daochu(){\n'
+                 +'var exportFileContent = document.getElementsByClassName("table table-striped table-bordered table-hover")[0].outerHTML;\n'
+                 +'var downloadA = document.createElement("a");\n'
+                 +'var blob = new Blob([exportFileContent], {type: "text/plain;charset=utf-8"});\n'
+                    +'downloadA.href = window.URL.createObjectURL(blob);\n'
+                    +'downloadA.download = "æ•°æ®ä¸‹è½½.xlsx";\n'
+                    +'downloadA.click();\n'
+               +'};\n'
+         xxbdemo1.appendChild(xxbNode0022);
+
      var xxbNode002 = document.createElement('script');
-         xxbNode002.innerHTML ='function huanhuo(){'
-       +'var xhr;'
-       +'var strHtml ="orderPrefix=NR007312128585657&_user=1343&_token=c6ba81ceb060e8abeab0d0280c9726d4";'
-       +'var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";'
-       +'if(window.XMLHttpRequest){'
-              +'xhr=new XMLHttpRequest();'
-            +'}else{'
-              +' xhr=new ActiveXObject("Microsoft.XMLHTTP");'
-              +'};'
-         +'xhr.open("post",xhr_url,true);'
-         +'xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");'
-         +'xhr.send(strHtml);'
-         +'xhr.onreadystatechange = function(){'
-           +'if(xhr.readyState==4 && xhr.status==200){'
-              +'console.log(xhr.response);'
-              +'var hhNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];'
+         xxbNode002.innerHTML ='function huanhuo(){\n'
+       +'var xhr;\n'
+       +'var arr;\n'
+       +'var reg = new RegExp("(^| )token=([^;]*)(;|$)");\n'
+            +'arr = document.cookie.match(reg);\n'
+               +'console.log(arr[2]);\n'
+       +'var form = document.getElementsByClassName("form-control input-inline input-medium")[0].value;\n'
+       +'var strHtml ="orderPrefix=" + form + "&_user=1343&_token=" + arr[2];\n'
+       +'var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";\n'
+       +'if(window.XMLHttpRequest){\n'
+              +'xhr=new XMLHttpRequest();\n'
+            +'}else{\n'
+              +' xhr=new ActiveXObject("Microsoft.XMLHTTP");\n'
+              +'};\n'
+         +'xhr.open("post",xhr_url,true);\n'
+         +'xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");\n'
+         +'xhr.send(strHtml);\n'
+         +'xhr.onreadystatechange = function(){\n'
+           +'if(xhr.readyState==4 && xhr.status==200){\n'
+              +'console.log(xhr.response);\n'
+              +'var hhNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];\n'
                   +'hhNode.firstChild.innerHTML ="<tr>'
-                                          +'<th> »»ĞÂÆ·Ãû </th>'
-                                          +'<th> ĞÕÃû </th>'
-                                          +'<th> µç»° </th>'
-                                          +'<th> ¹æ¸ñ </th>'
-                                          +'<th> ±¸×¢ </th>'
-                                          +'<th> µØÖ· </th>'
-                                          +'<th> ÊÕ»Ø»õÎïµÄÔËµ¥ºÅ</th>'
-                                          +'<th> Ô­²úÆ· </th>'
-                                          +'<th> Ô­¹æ¸ñ </th>'
-                                          +'<th> Ô­Òò </th>'
-                                          +'<th> ±¸×¢Ô­Òò </th>'
-                                          +'<th> ·Ö×é </th>'
-                                          +'<th> ÊıÁ¿ </th>'
-                                          +'<th> ²úÆ·ID </th>'
-                                          +'<th> ÎïÁ÷ÇşµÀ </th>'
-                                          +'<th> µÇ¼ÇÈË </th>'
-                                          +'<th> ¶©µ¥À´Ô´ </th>'
-                                          +'<th> »»»õ±¸×¢ </th>'
-                                          +'<th> Ê±¼ä´Á </th>'
-                                          +'<th> ±¸×¢ </th>'
-                                          +'<th> Õ¾ücID </th>'
+                                          +'<th> æ¢æ–°å“å </th>'
+                                          +'<th> å§“å </th>'
+                                          +'<th> ç”µè¯ </th>'
+                                          +'<th> è§„æ ¼ </th>'
+                                          +'<th> å¤‡æ³¨ </th>'
+                                          +'<th> åœ°å€ </th>'
+                                          +'<th> æ”¶å›è´§ç‰©çš„è¿å•å·</th>'
+                                          +'<th> åŸäº§å“ </th>'
+                                          +'<th> åŸè§„æ ¼ </th>'
+                                          +'<th> åŸå›  </th>'
+                                          +'<th> å¤‡æ³¨åŸå›  </th>'
+                                          +'<th> åˆ†ç»„ </th>'
+                                          +'<th> æ•°é‡ </th>'
+                                          +'<th> äº§å“ID </th>'
+                                          +'<th> ç‰©æµæ¸ é“ </th>'
+                                          +'<th> ç™»è®°äºº </th>'
+                                          +'<th> è®¢å•æ¥æº </th>'
+                                          +'<th> æ¢è´§å¤‡æ³¨ </th>'
+                                          +'<th> æ—¶é—´æˆ³ </th>'
+                                          +'<th> å¤‡æ³¨ </th>'
+                                          +'<th> ç«™é»ID </th>'
                                           +'</tr>";'
             +'hhNode.lastChild.innerHTML="<td></td>"'
               +'}'
@@ -469,17 +712,17 @@
    xxbdemo1.appendChild(xxbNode002);
 },false);
 
-//--------------------------------------------------------------------------------------------------------------------
- document.getElementById("order_search").addEventListener("click", function(){//testÏÔÊ¾  tanchuang
+//--------------------------------------------------------------------------------------------------------------------         +'var strHtml ="_user=1343&_token=2808f4bc7e60b89ca3fc0b93cd3997ec&orderPrefix=NR007311326091024";'
+ document.getElementById("order_search").addEventListener("click", function(){//testæ˜¾ç¤º  tanchuang
       querty();
 },false);
-//--------------------------------------------------·Ö¸î¾€-----------------------------------------------------------
-    //²éÑ¯xhr , ÒÔ´ËÎª»ù´¡µÄº¯Êı
+//--------------------------------------------------åˆ†å‰²ç·š-----------------------------------------------------------
+    //æŸ¥è¯¢xhr , ä»¥æ­¤ä¸ºåŸºç¡€çš„å‡½æ•°
     function querty(){
       var xhr;
        // var orderVal = document.getElementById("order_input").value;
       //      console.log(orderVal);
-        var strHtml ="orderPrefix=NR007080504559891&_user=1343&_token=170a9a396f8152b6723bffd46aa62af0";
+        var strHtml ="orderPrefix=NR007080504559891&_user=1343&_token=2808f4bc7e60b89ca3fc0b93cd3997ec";
         var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";
             if( window.XMLHttpRequest ){
                 xhr=new XMLHttpRequest();
@@ -488,8 +731,8 @@
             };
            xhr.onreadystatechange=function(){
              if( xhr.readyState==4 && xhr.status==200){
-                 console.log(xhr.responseText);//·µ»Øjson×Ö·û´®
-   //var resVal = eval("("+ this.responseText +")");//json×ª»¯Îªjs¶ÔÏó
+                 console.log(xhr.responseText);//è¿”å›jsonå­—ç¬¦ä¸²
+   //var resVal = eval("("+ this.responseText +")");//jsonè½¬åŒ–ä¸ºjså¯¹è±¡
    //    console.log(resVal);// console.log(mp3.code); //console.log(mp3.data.list);
   var mp3 = eval('('+ this.responseText +')');
          console.log(mp3);
@@ -501,14 +744,12 @@
           product(mp3Val);
  function product(mp3Val){
     for(var i=0;i<mp3Val.length;i++){
-     console.log(999900001111111111);
      var listVal = mp3Val[i]
-          console.log(listVal.addTime);//ÏÂµ¥Ê±¼ä3
-          console.log(listVal.amount);//¶©µ¥½ğ¶î4
-          console.log(listVal.area);//¹éÊôÍÅ¶Ó10
-
-        console.log(listVal.autoVerify);//×Ô¶¯ÎÊÌâ
-    var areaList = listVal.autoVerify;//×Ô¶¯ÎÊÌâĞÅÏ¢------99
+          console.log(listVal.addTime);//ä¸‹å•æ—¶é—´3
+          console.log(listVal.amount);//è®¢å•é‡‘é¢4
+          console.log(listVal.area);//å½’å±å›¢é˜Ÿ10
+        console.log(listVal.autoVerify);//è‡ªåŠ¨é—®é¢˜
+    var areaList = listVal.autoVerify;//è‡ªåŠ¨é—®é¢˜ä¿¡æ¯------99
         areaProduct(areaList);
    function areaProduct(areaList) {
         for(var i=0;i<areaList.length;i++){
@@ -516,16 +757,13 @@
                 console.log(areaVal);
            }
         };
-
-      console.log(listVal.befrom);//Í¶·ÅÆ½Ì¨7
-      console.log(listVal.collDomain);//À´Ô´ÓòÃû9
-
-      console.log(listVal.collId);//Õ¾µã/¼¯ºÏID8
-      console.log(listVal.collName);//Õ¾µãÃû³Æ
-      console.log(listVal.currency);//±ÒÖÖ4
-
-         console.log(listVal.delReason);//É¾³ıÔ­Òò---99
-     var delList = listVal.delReason;//É¾³ıĞÅÏ¢------99
+      console.log(listVal.befrom);//æŠ•æ”¾å¹³å°7
+      console.log(listVal.collDomain);//æ¥æºåŸŸå9
+      console.log(listVal.collId);//ç«™ç‚¹/é›†åˆID8
+      console.log(listVal.collName);//ç«™ç‚¹åç§°
+      console.log(listVal.currency);//å¸ç§4
+         console.log(listVal.delReason);//åˆ é™¤åŸå› ---99
+     var delList = listVal.delReason;//åˆ é™¤ä¿¡æ¯------99
          delProduct(delList);
     function delProduct(delList) {
    for(var i=0;i<delList.length;i++){
@@ -533,47 +771,39 @@
               console.log(areaVal);
           }
      };
-    console.log(listVal.delTime);//É¾³ıÊ±¼ä---99
-    console.log(listVal.deliveryTime);//É¾³ı
-
-    console.log(listVal.emailStatus);//ÓÊ¼ş13
-
-    console.log(listVal.ip);//ÊÕ»õÈËip
-
-    console.log(listVal.logisticsControl);//ÎïÁ÷ÉèÖÃ
-    console.log(listVal.logisticsName);//ÎïÁ÷¹«Ë¾18
-    console.log(listVal.logisticsStatus);//ÎïÁ÷×´Ì¬
-    console.log(listVal.logisticsStyle);//ÎïÁ÷×¨Ïß
-    console.log(listVal.logisticsUpdateTime);//ÎïÁ÷¸üĞÂÊ±¼ä
-    console.log(listVal.lowerstatus);//²Ö¿â×´Ì¬
-
-    console.log(listVal.notes);//¿Í»§ÁôÑÔ11
-
-    console.log(listVal.orderNumber);//¶©µ¥±àºÅ1
-    console.log(listVal.orderStatus);//¶©µ¥×´Ì¬2
-
-    console.log(listVal.payDomain);//¶©µ¥À´Ô´7
-    console.log(listVal.payType);//Ö§¸¶ÀàĞÍ16
+    console.log(listVal.delTime);//åˆ é™¤æ—¶é—´---99
+    console.log(listVal.deliveryTime);//åˆ é™¤
+    console.log(listVal.emailStatus);//é‚®ä»¶13
+    console.log(listVal.ip);//æ”¶è´§äººip
+    console.log(listVal.logisticsControl);//ç‰©æµè®¾ç½®
+    console.log(listVal.logisticsName);//ç‰©æµå…¬å¸18
+    console.log(listVal.logisticsStatus);//ç‰©æµçŠ¶æ€
+    console.log(listVal.logisticsStyle);//ç‰©æµä¸“çº¿
+    console.log(listVal.logisticsUpdateTime);//ç‰©æµæ›´æ–°æ—¶é—´
+    console.log(listVal.lowerstatus);//ä»“åº“çŠ¶æ€
+    console.log(listVal.notes);//å®¢æˆ·ç•™è¨€11
+    console.log(listVal.orderNumber);//è®¢å•ç¼–å·1
+    console.log(listVal.orderStatus);//è®¢å•çŠ¶æ€2
+    console.log(listVal.payDomain);//è®¢å•æ¥æº7
+    console.log(listVal.payType);//æ”¯ä»˜ç±»å‹16
     console.log(listVal.addTime);//
-    console.log(listVal.phoneLength);//µç»°³¤¶È12
-
-        console.log(listVal.productSpecs);//²úÆ·ĞÅÏ¢------99
-    var productlist = listVal.productSpecs;//²úÆ·ĞÅÏ¢------99
+    console.log(listVal.phoneLength);//ç”µè¯é•¿åº¦12
+        console.log(listVal.productSpecs);//äº§å“ä¿¡æ¯------99
+    var productlist = listVal.productSpecs;//äº§å“ä¿¡æ¯------99
         dataproduct(productlist);
   function dataproduct(productlist){
         for(var i=0;i<productlist.length;i++){
               var dataVal = productlist[i]
                console.log(dataVal);
-                   console.log(dataVal.id);//ÉÌÆ·id
-                  console.log(dataVal.price);//¼Û¸ñ
+                   console.log(dataVal.id);//å•†å“id
+                  console.log(dataVal.price);//ä»·æ ¼
                   console.log(dataVal.productName);//
-                  console.log(dataVal.saleName);//ÉÌÆ·Ãû³Æ
+                  console.log(dataVal.saleName);//å•†å“åç§°
                  console.log(dataVal.sku);//
-                 console.log(dataVal.quantity);//ÊıÁ¿
+                 console.log(dataVal.quantity);//æ•°é‡
           }
      };
-
-        console.log(listVal.questionReason);//ÎÊÌâÔ­Òò----99
+        console.log(listVal.questionReason);//é—®é¢˜åŸå› ----99
     var queReasonlist = listVal.questionReason;
         queReason(queReasonlist);
   function queReason(queReasonlist) {
@@ -582,25 +812,21 @@
                console.log(dataVal);
           }
       };
-
-       console.log(listVal.shipInfo);//ÊÕ»õÈËĞÅÏ¢----99
-       console.log(listVal.shipInfo.shipAddress);//µØÖ·
-       console.log(listVal.shipInfo.shipEmail);//ÓÊÏä
-       console.log(listVal.shipInfo.shipName);//ĞÕÃû
-       console.log(listVal.shipInfo.shipPhone);//ëŠÔ’
-
-       console.log(listVal.reassignmentTypeName);//¶©µ¥ÀàĞÍ17
-       console.log(listVal.remark);//ÎÊÌâ¶©µ¥ÉóºËÈË
-
-       console.log(listVal.smsStatus);//ÓÊÏä·¢ËÍ×´Ì¬
-       console.log(listVal.transferTime);//ÉóºË²Ù×÷Ê±¼ä
-       console.log(listVal.update_time);//¸üĞÂÊ±¼ä
+       console.log(listVal.shipInfo);//æ”¶è´§äººä¿¡æ¯----99
+       console.log(listVal.shipInfo.shipAddress);//åœ°å€
+       console.log(listVal.shipInfo.shipEmail);//é‚®ç®±
+       console.log(listVal.shipInfo.shipName);//å§“å
+       console.log(listVal.shipInfo.shipPhone);//é›»è©±
+       console.log(listVal.reassignmentTypeName);//è®¢å•ç±»å‹17
+       console.log(listVal.remark);//é—®é¢˜è®¢å•å®¡æ ¸äºº
+       console.log(listVal.smsStatus);//é‚®ç®±å‘é€çŠ¶æ€
+       console.log(listVal.transferTime);//å®¡æ ¸æ“ä½œæ—¶é—´
+       console.log(listVal.update_time);//æ›´æ–°æ—¶é—´
        console.log(listVal.userId);//
-       console.log(listVal.username);//ÉóºËÈË15
-
-       console.log(listVal.verifyTime);//ÉóºËÊ±¼ä14
-       console.log(listVal.wayBillNumber);//ÎïÁ÷ÔËµ¥ºÅ5
-       console.log(listVal.weight);//ÖØÁ¿6
+       console.log(listVal.username);//å®¡æ ¸äºº15
+       console.log(listVal.verifyTime);//å®¡æ ¸æ—¶é—´14
+       console.log(listVal.wayBillNumber);//ç‰©æµè¿å•å·5
+       console.log(listVal.weight);//é‡é‡6
              }
            };
        };
@@ -609,12 +835,12 @@
         xhr.send(strHtml);
     }
  };
-//------·Ö¸î¾€---------
+//------åˆ†å‰²ç·š---------
      window.onload=function () {
 
         };
 
-//µ¯´°Ö÷Ìå
+//å¼¹çª—ä¸»ä½“
    var nav_body = document.getElementsByTagName("body")[0];
    var nav_Node = document.createElement('div');
        //  targNode.setAttribute('class','classic-menu-dropdown');
@@ -626,12 +852,12 @@
 			+'<div class="modal-content">'
 				+'<div class="modal-header">'
 					+'<button type="button" class="close" data-dismiss="modal">&times;</button>'
-					+'<h4 class="modal-title">±êÌâ</h4>'
+					+'<h4 class="modal-title">æ ‡é¢˜</h4>'
 				+'</div>'
-				+'<div class="modal-body">ÎÄ±¾ÄÚÈİ creatTable() </div>'
+				+'<div class="modal-body">æ–‡æœ¬å†…å®¹ creatTable() </div>'
 				+'<div class="modal-footer">'
-					+'<button type="button" class="btn btn-primary" data-dismiss="modal" data-backdrop="true">¹Ø±Õ</button>'
-					+'<button type="button" class="btn btn-primary">Ìá½»¸ü¸Ä</button>'
+					+'<button type="button" class="btn btn-primary" data-dismiss="modal" data-backdrop="true">å…³é—­</button>'
+					+'<button type="button" class="btn btn-primary">æäº¤æ›´æ”¹</button>'
 				+'</div>'
 			+'</div>'
 		+'</div>'
@@ -639,12 +865,12 @@
    document.querySelector('body').appendChild(nav_Node);
 
  //cheng
-    function creatTable(data){//Õâ¸öº¯ÊıµÄ²ÎÊı¿ÉÒÔÊÇ´ÓºóÌ¨´«¹ıÀ´µÄÒ²¿ÉÒÔÊÇ´ÓÆäËûÈÎºÎµØ·½´«¹ıÀ´µÄÕâÀïÎÒ¼ÙÉèÕâ¸ödataÊÇÒ»¸ö³¤¶ÈÎª5µÄ×Ö·û´®Êı×é ÎÒÒª°ÑËû·ÅÔÚ±í¸ñµÄÒ»ĞĞÀïÃæ£¬·Ö³ÉÎåÁĞ
-         var tableData="<tr>" //¶¯Ì¬Ôö¼Ó5¸ötd,²¢ÇÒ°ÑdataÊı×éµÄÎå¸öÖµ¸³¸øÃ¿¸ötd
+    function creatTable(data){//è¿™ä¸ªå‡½æ•°çš„å‚æ•°å¯ä»¥æ˜¯ä»åå°ä¼ è¿‡æ¥çš„ä¹Ÿå¯ä»¥æ˜¯ä»å…¶ä»–ä»»ä½•åœ°æ–¹ä¼ è¿‡æ¥çš„è¿™é‡Œæˆ‘å‡è®¾è¿™ä¸ªdataæ˜¯ä¸€ä¸ªé•¿åº¦ä¸º5çš„å­—ç¬¦ä¸²æ•°ç»„ æˆ‘è¦æŠŠä»–æ”¾åœ¨è¡¨æ ¼çš„ä¸€è¡Œé‡Œé¢ï¼Œåˆ†æˆäº”åˆ—
+         var tableData="<tr>" //åŠ¨æ€å¢åŠ 5ä¸ªtd,å¹¶ä¸”æŠŠdataæ•°ç»„çš„äº”ä¸ªå€¼èµ‹ç»™æ¯ä¸ªtd
        for(var i=0;i<data.length;i++){
           tableData+="<td>"+data[i]+"</td>"
         }
-      tableData+="</tr>"//ÏÖÔÚtableDataÒÑ¾­Éú³ÉºÃÁË£¬°ÑËû¸³Öµ¸øÉÏÃæµÄtbody
+      tableData+="</tr>"//ç°åœ¨tableDataå·²ç»ç”Ÿæˆå¥½äº†ï¼ŒæŠŠä»–èµ‹å€¼ç»™ä¸Šé¢çš„tbody
        // $("#tbody1").html(tableData)
         return tableData;
      };
@@ -667,8 +893,8 @@
          +'xhr0.send(strHtml0);}'
        document.querySelector('body').appendChild(stNode11);
 
-    //²âÊÔ
-  document.getElementById("tt_searchButton").addEventListener("click", function(){//testÏÔÊ¾  tanchuang
+    //æµ‹è¯•
+  document.getElementById("tt_searchButton").addEventListener("click", function(){//testæ˜¾ç¤º  tanchuang
  quert();
         var orderVall = document.getElementById("order_input").value;
             console.log(orderVall);
@@ -683,19 +909,19 @@
                       },
                   data:orderVall,
                 onload: function(response){
-                        console.log("ÇëÇó³É¹¦");
+                        console.log("è¯·æ±‚æˆåŠŸ");
                        console.log(response);
                         console.log(response.responseText);
                  },
                onerror: function(response){
-                    console.log("ÇëÇóÊ§°Ü");
+                    console.log("è¯·æ±‚å¤±è´¥");
                 }
 
        });
   },false);
-
+//-------------------------------------------------------------------------------------------------æµ‹è¯•ä½¿ç”¨-----------------------------------------------------------------------------------------
  setTimeout(function(){
-                                     quert()
+                                 //    quert()
                         },3000);
 
 function quert(){
@@ -718,6 +944,98 @@ GM_xmlhttpRequest({
 }
 
 
-
-
+/*----å¤‡ç”¨
+      var mp3Val = mp3.data.list;
+          product(mp3Val);
+ function product(mp3Val){
+    for(var i=0;i<mp3Val.length;i++){
+     var listVal = mp3Val[i]
+          console.log(listVal.addTime);//ä¸‹å•æ—¶é—´3
+          console.log(listVal.amount);//è®¢å•é‡‘é¢4
+          console.log(listVal.area);//å½’å±å›¢é˜Ÿ10
+        console.log(listVal.autoVerify);//è‡ªåŠ¨é—®é¢˜
+    var areaList = listVal.autoVerify;//è‡ªåŠ¨é—®é¢˜ä¿¡æ¯------99
+        areaProduct(areaList);
+   function areaProduct(areaList) {
+        for(var i=0;i<areaList.length;i++){
+            var areaVal = areaList[i]
+                console.log(areaVal);
+           }
+        };
+      console.log(listVal.befrom);//æŠ•æ”¾å¹³å°7
+      console.log(listVal.collDomain);//æ¥æºåŸŸå9
+      console.log(listVal.collId);//ç«™ç‚¹/é›†åˆID8
+      console.log(listVal.collName);//ç«™ç‚¹åç§°
+      console.log(listVal.currency);//å¸ç§4
+         console.log(listVal.delReason);//åˆ é™¤åŸå› ---99
+     var delList = listVal.delReason;//åˆ é™¤ä¿¡æ¯------99
+         delProduct(delList);
+    function delProduct(delList) {
+   for(var i=0;i<delList.length;i++){
+          var areaVal = delList[i]
+              console.log(areaVal);
+          }
+     };
+    console.log(listVal.delTime);//åˆ é™¤æ—¶é—´---99
+    console.log(listVal.deliveryTime);//åˆ é™¤
+    console.log(listVal.emailStatus);//é‚®ä»¶13
+    console.log(listVal.ip);//æ”¶è´§äººip
+    console.log(listVal.logisticsControl);//ç‰©æµè®¾ç½®
+    console.log(listVal.logisticsName);//ç‰©æµå…¬å¸18
+    console.log(listVal.logisticsStatus);//ç‰©æµçŠ¶æ€
+    console.log(listVal.logisticsStyle);//ç‰©æµä¸“çº¿
+    console.log(listVal.logisticsUpdateTime);//ç‰©æµæ›´æ–°æ—¶é—´
+    console.log(listVal.lowerstatus);//ä»“åº“çŠ¶æ€
+    console.log(listVal.notes);//å®¢æˆ·ç•™è¨€11
+    console.log(listVal.orderNumber);//è®¢å•ç¼–å·1
+    console.log(listVal.orderStatus);//è®¢å•çŠ¶æ€2
+    console.log(listVal.payDomain);//è®¢å•æ¥æº7
+    console.log(listVal.payType);//æ”¯ä»˜ç±»å‹16
+    console.log(listVal.addTime);//
+    console.log(listVal.phoneLength);//ç”µè¯é•¿åº¦12
+        console.log(listVal.productSpecs);//äº§å“ä¿¡æ¯------99
+    var productlist = listVal.productSpecs;//äº§å“ä¿¡æ¯------99
+        dataproduct(productlist);
+  function dataproduct(productlist){
+        for(var i=0;i<productlist.length;i++){
+              var dataVal = productlist[i]
+               console.log(dataVal);
+                   console.log(dataVal.id);//å•†å“id
+                  console.log(dataVal.price);//ä»·æ ¼
+                  console.log(dataVal.productName);//
+                  console.log(dataVal.saleName);//å•†å“åç§°
+                 console.log(dataVal.sku);//
+                 console.log(dataVal.quantity);//æ•°é‡
+          }
+     };
+        console.log(listVal.questionReason);//é—®é¢˜åŸå› ----99
+    var queReasonlist = listVal.questionReason;
+        queReason(queReasonlist);
+  function queReason(queReasonlist) {
+      for(var i=0;i<queReasonlist.length;i++){
+              var dataVal = queReasonlist[i]
+               console.log(dataVal);
+          }
+      };
+       console.log(listVal.shipInfo);//æ”¶è´§äººä¿¡æ¯----99
+       console.log(listVal.shipInfo.shipAddress);//åœ°å€
+       console.log(listVal.shipInfo.shipEmail);//é‚®ç®±
+       console.log(listVal.shipInfo.shipName);//å§“å
+       console.log(listVal.shipInfo.shipPhone);//é›»è©±
+       console.log(listVal.reassignmentTypeName);//è®¢å•ç±»å‹17
+       console.log(listVal.remark);//é—®é¢˜è®¢å•å®¡æ ¸äºº
+       console.log(listVal.smsStatus);//é‚®ç®±å‘é€çŠ¶æ€
+       console.log(listVal.transferTime);//å®¡æ ¸æ“ä½œæ—¶é—´
+       console.log(listVal.update_time);//æ›´æ–°æ—¶é—´
+       console.log(listVal.userId);//
+       console.log(listVal.username);//å®¡æ ¸äºº15
+       console.log(listVal.verifyTime);//å®¡æ ¸æ—¶é—´14
+       console.log(listVal.wayBillNumber);//ç‰©æµè¿å•å·5
+       console.log(listVal.weight);//é‡é‡6
+             }
+           };
+*/
+      var xxbb = document.getElementById("nav-header");
+              console.log(xxbb);
+          xxbb.click();
 })();
