@@ -164,7 +164,6 @@ function product(mp3Val){
 				                  +listVal.isSecondSend+"</td><td>"
 				                  +cloneReason(clonelist)+"</td><td>"
 				                  +specReason(chanlist)+"</td><td>"
-				                  +listVal.befrom+"</td><td>"
 				                  +listVal.currency+"</td><td>"
 				                  +listVal.amount+"</td><td>"
 				                  +listVal.payType+"</td><td><a href="+linkReason(chanlist)+'  target="_blank">'
