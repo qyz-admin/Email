@@ -171,7 +171,6 @@ function product(mp3Val){
 				                  +listVal.addTime+"</td><td>"
 				                  +listVal.shipInfo.shipName+"</td><td>"
 				                  +listVal.shipInfo.shipPhone+"</td><td>"
-				                  +listVal.befrom+"</td><td>"
 				                  +listVal.weight+"</td><td>"
 				                  +listVal.logisticsStatus+"</td><td>"
 				                  +listVal.logisticsUpdateTime+"</td><td>"
