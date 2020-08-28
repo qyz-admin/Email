@@ -178,8 +178,7 @@ function product(mp3Val){
 				                  +listVal.shipInfo.shipAddress+"</td><td>"
 				                  +listVal.ip+"</td><td>"
 				                  +listVal.collId+"</td><td>"
-				                  +autoReason(autolist)+"</td><td>"
-				                  +listVal.befrom+"</td><tr>"
+				                  +autoReason(autolist)+"</td><tr>"
           console.log(listVal.addTime);
           console.log(listVal.amount);
           console.log(listVal.area);
