@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-5.25--
+// @name         admin-5.26--
 // @namespace    http://tampermonkey.net/
-// @version      5.25
+// @version      5.26
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -2725,7 +2725,7 @@ var thNodeVal = document.getElementById("tab_iframe_登記退換貨表").content
                     downloadA.href = window.URL.createObjectURL(blob);
                     downloadA.download = "数据下载.xlsx";
                     downloadA.click();
-               };
+           
 
    /*       var wxcx = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByClassName("form-control input-inline input-medium")[0];
           var wxcx_value=wxcx.value;
