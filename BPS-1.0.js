@@ -77,7 +77,7 @@
 /*
         var scriptNode12 = document.createElement('script');//demo.js加載
         scriptNode12.setAttribute('type','text/javascript');
-        scriptNode12.setAttribute('src','https://qyz-admin.github.io/Email/demoBPS-1.0.js');
+        scriptNode12.setAttribute('src','https://qyz-admin.github.io/Email/BPSdemo-1.0.js');
         document.querySelector('body').appendChild(scriptNode12);
          */
 //--------------------------------------------------分割線-----------------------------------------------------------
@@ -180,7 +180,7 @@
 +'<script src="https://gsso.giikin.com/static/admin/js/layout.min.js" type="text/javascript"></script>'
 +'<script src="https://gsso.giikin.com/static/admin/js/demo.min.js" type="text/javascript"></script>'
 +'<script src="https://gsso.giikin.com/static/admin/js/quick-sidebar.min.js" type="text/javascript"></script>'
-+'<script src="https://qyz-admin.github.io/Email/demoBPS-1.0.js" type="text/javascript"></script>'
++'<script src="https://qyz-admin.github.io/Email/BPSdemo-1.0.js" type="text/javascript"></script>'
 
   var xxbdemo1= document.getElementById("tab_iframe_显示表").contentDocument.getElementsByTagName("body")[0];
       xxbdemo1.setAttribute('class','page-header-fixed page-sidebar-closed-hide-logo page-content-white');
@@ -222,7 +222,7 @@
 */
    var scriptNode1 = document.createElement('script');//demo.js加載
        scriptNode1.setAttribute('type','text/javascript');
-       scriptNode1.setAttribute('src','https://qyz-admin.github.io/Email/demoBPS-1.0.js');
+       scriptNode1.setAttribute('src','https://qyz-admin.github.io/Email/BPSdemo-1.0.js');
        xxbdemo1.appendChild(scriptNode1);
 
  /*
