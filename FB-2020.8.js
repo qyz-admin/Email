@@ -10,8 +10,8 @@
 // @match    https://www.facebook.com/*
 // @require   http://code.jquery.com/jquery-1.11.0.min.js
 // @require   https://qyz-admin.github.io/Email/layer.js
-// @downloadURL  https://qyz-admin.github.io/Email/FB-2020.js
-// @updateURL    https://qyz-admin.github.io/Email/FB-2020.js
+// @downloadURL  https://qyz-admin.github.io/Email/FB-2020.8.js
+// @updateURL    https://qyz-admin.github.io/Email/FB-2020.8.js
 // @grant    none
 // ==/UserScript==
 /*
@@ -34,18 +34,18 @@ var vra=document.createElement('a');
 */
 (function() {
 // var targNode = document.querySelector('._cy7');
-//      '<input type="button" value="•º•r" class="search-button" id="zss_searchButton" >'
+//      '<input type="button" value="æš«æ™‚" class="search-button" id="zss_searchButton" >'
     var targNode =document.getElementsByClassName('thodolrn ojvp67qx taijpn5t buofh1pr j83agx80 aovydwv3 bqdfd6uv')[0];
   var wxzSearchBarNode = document.createElement('div');
      wxzSearchBarNode.setAttribute('id','header-close');
      wxzSearchBarNode.setAttribute('class','header-wxzbar header-info');
      wxzSearchBarNode.style = "height: 40px;"
      wxzSearchBarNode.innerHTML =
-        ' <input type="button" value="Í¨Öª" class="search-button" id="tz_searchButton" > '
-       +' <input class="search-query" autocomplete="off" placeholder="²éÔƒ--”µÁ¿" id="wxz_input" style="text-align: center;width: 100px;">'
+        ' <input type="button" value="é€šçŸ¥" class="search-button" id="tz_searchButton" > '
+       +' <input class="search-query" autocomplete="off" placeholder="æŸ¥è©¢--æ•¸é‡" id="wxz_input" style="text-align: center;width: 100px;">'
        +' <input type="button" value="GO" class="search-button" id="wxz_searchButton" > '
        +' <input type="button" value="40" class="search-button" id="wxz40_searchButton" > 0-40 '
-       +' <input type="button" value="45" class="search-button" id="wxz45_searchButton" > 45ÒÔÉÏ '
+       +' <input type="button" value="45" class="search-button" id="wxz45_searchButton" > 45ä»¥ä¸Š '
        +' <input type="button" value="80" class="search-button" id="wxz80_searchButton" > 40-80 '
        +' <input type="button" value="120" class="search-button" id="wxz120_searchButton" > 80-120 '
   targNode.appendChild(wxzSearchBarNode);
@@ -54,10 +54,10 @@ var vra=document.createElement('a');
       wxzbgNode.setAttribute('class','wxz-bg');
       wxzbgNode.style.display = 'none';
   document.querySelector('body').appendChild(wxzbgNode);
-//-----------------------------------------------------------------------------------------¹«ÓÃº¯”µ--------------------------------------------------------------
+//-----------------------------------------------------------------------------------------å…¬ç”¨å‡½æ•¸--------------------------------------------------------------
   var objArray= new Array();
   var index = 0;
- function getElementByClassName(classnames){//²éÔƒĞÅÏ¢æœ½Ó
+ function getElementByClassName(classnames){//æŸ¥è©¢ä¿¡æ¯éˆæ¥
         var tags = document.getElementsByClassName(classnames);
             console.log(tags.length);
         var tip = "";
@@ -74,7 +74,7 @@ var vra=document.createElement('a');
 };
   console.log(getElementByClassName("qjjbsfad j83agx80"));
 
- function sleep(n) {//Ó‹•rº¯”µ
+ function sleep(n) {//è¨ˆæ™‚å‡½æ•¸
     var start=new Date().getTime();
     while (true) {
       var time=new Date().getTime();
@@ -86,7 +86,7 @@ var vra=document.createElement('a');
   var objArrayy= new Array();
   var indexyy = 0;
 
- function getElementByClassNamey(classnames){//²éÔƒÍ¨Öªæœ½Ó
+ function getElementByClassNamey(classnames){//æŸ¥è©¢é€šçŸ¥éˆæ¥
         var tags = document.getElementsByClassName(classnames);
             console.log(tags.length);
         var tip = "";
@@ -103,7 +103,7 @@ var vra=document.createElement('a');
 };
   console.log(getElementByClassNamey("qjjbsfad j83agx80"));
  //--------------------------------------------------------------------------------------------------------------------------------------------
-  document.getElementById("tz_searchButton").addEventListener("click", function fn() {//Í¨ÖªĞÅÏ¢´òé_
+  document.getElementById("tz_searchButton").addEventListener("click", function fn() {//é€šçŸ¥ä¿¡æ¯æ‰“é–‹
      getElementByClassNamey("qjjbsfad j83agx80")
   for(var j=0; j<objArrayy.length;j++){
     var command=objArrayy[j];
@@ -116,7 +116,7 @@ var vra=document.createElement('a');
   }
 },false);
 //-------------------------------------------------------------------
- document.getElementById("wxz_searchButton").addEventListener("click", function fn() {//¶ÁÈ¡inputÊıÖµ
+ document.getElementById("wxz_searchButton").addEventListener("click", function fn() {//è¯»å–inputæ•°å€¼
      getElementByClassName("qjjbsfad j83agx80");
     var inputValue = document.getElementById("wxz_input").value;
       var inputValuee = document.getElementById("wxz40_searchButton").getAttribute("value");
@@ -133,10 +133,10 @@ if(inputValue == null || inputValue == ""){
     sleep(100);
    }
   }else if(objArray.length==0||objArray.length=="undefined"){
-      alert("Hello Ã»ÓĞ×îĞÂÏûÏ¢Å¶£¡£¡£¡");
-     // layer.msg('Hello Ã»ÓĞ×îĞÂÏûÏ¢Å¶£¡£¡£¡', {icon: 6});
+      alert("Hello æ²¡æœ‰æœ€æ–°æ¶ˆæ¯å“¦ï¼ï¼ï¼");
+     // layer.msg('Hello æ²¡æœ‰æœ€æ–°æ¶ˆæ¯å“¦ï¼ï¼ï¼', {icon: 6});
   }else if(objArray.length>40){
-     alert("”µÁ¿ : "+objArray.length+" ; Õˆ·Ö„eüc“ô 40,£» 45£¬°´âo·ÖƒÉ´Î´òé_í“Ãæ ");
+     alert("æ•¸é‡ : "+objArray.length+" ; è«‹åˆ†åˆ¥é»æ“Š 40,ï¼› 45ï¼ŒæŒ‰éˆ•åˆ†å…©æ¬¡æ‰“é–‹é é¢ ");
   };
 }else{
   for(var ij=0; ij<inputValue;ij++){
@@ -151,7 +151,7 @@ if(inputValue == null || inputValue == ""){
      };
 },false);
  //---------------------------------------------------------------------------------------------------------------------------------------------------------
-  document.getElementById("wxz45_searchButton").addEventListener("click", function fn() {//´óÓÚ45Ö±½Ó´ò¿ªÒ³Ãæ
+  document.getElementById("wxz45_searchButton").addEventListener("click", function fn() {//å¤§äº45ç›´æ¥æ‰“å¼€é¡µé¢
           getElementByClassName("qjjbsfad j83agx80");
       var inputValueee = document.getElementById("wxz45_searchButton").getAttribute("value");
 if(objArray.length>40){
@@ -169,7 +169,7 @@ if(objArray.length>40){
    }
  },false);
  //---------------------------------------------------------------------------------------------------------------------------------------------------------
- document.getElementById("wxz40_searchButton").addEventListener("click", function fn() {//µÈÓÚ40-Ö±½Ó´ò¿ªÒ³Ãæ
+ document.getElementById("wxz40_searchButton").addEventListener("click", function fn() {//ç­‰äº40-ç›´æ¥æ‰“å¼€é¡µé¢
           getElementByClassName("qjjbsfad j83agx80");
       var inputValuee = document.getElementById("wxz40_searchButton").getAttribute("value");
  if(objArray.length>40){
@@ -184,7 +184,7 @@ if(objArray.length>40){
        }
      },false);
 //---------------------------------------------------------------------------------------------------------------------------------------------------------
-    document.getElementById("wxz80_searchButton").addEventListener("click", function fn() {//80Ö±½Ó´ò¿ªÒ³Ãæ
+    document.getElementById("wxz80_searchButton").addEventListener("click", function fn() {//80ç›´æ¥æ‰“å¼€é¡µé¢
           getElementByClassName("qjjbsfad j83agx80");
       var inputValue40 = document.getElementById("wxz80_searchButton").getAttribute("value");
 if(objArray.length>40){
@@ -202,7 +202,7 @@ if(objArray.length>40){
    }
  },false)
 //---------------------------------------------------------------------------------------------------------------------------------------------------------
- document.getElementById("wxz120_searchButton").addEventListener("click", function fn() {//120Ö±½Ó´ò¿ªÒ³Ãæ
+ document.getElementById("wxz120_searchButton").addEventListener("click", function fn() {//120ç›´æ¥æ‰“å¼€é¡µé¢
          getElementByClassName("qjjbsfad j83agx80");
     //  var inputValue60 = document.getElementById("wxz60_searchButton").getAttribute("value");
      var inputValue60 = document.getElementById("wxz120_searchButton").getAttribute("value");
@@ -221,20 +221,20 @@ if(objArray.length>80){
    }
  },false);
  //----------------------------------------------
- /*   document.getElementById("zss_searchButton").addEventListener("click", function fn() {//Ö±½Ó¹Ø±Õ
+ /*   document.getElementById("zss_searchButton").addEventListener("click", function fn() {//ç›´æ¥å…³é—­
           var closeNav = document.getElementById("header-close");
               closeNav.parentElement.removeChild(closeNav);
          },false);
          */
 //----------------------------------------------
-/* document.getElementById("wxz80_searchButton").addEventListener("click", function fn() {//80Ö±½Ó´ò¿ªÒ³Ãæ
+/* document.getElementById("wxz80_searchButton").addEventListener("click", function fn() {//80ç›´æ¥æ‰“å¼€é¡µé¢
   var objArray= new Array();
   var index = 0;
   function getElementByClassName(classnames){
     var tags=document.getElementsByTagName("*");
     for(var i in tags){
       if(tags[i].nodeType==1){
-        if(tags[i].getAttribute("class") == "linkWrap hasCount"&&tags[i].parentNode.firstChild.getAttribute("class")=="imgWrap"){ //ÈôÔªËØµÄclassÖµ·ûºÏ
+        if(tags[i].getAttribute("class") == "linkWrap hasCount"&&tags[i].parentNode.firstChild.getAttribute("class")=="imgWrap"){ //è‹¥å…ƒç´ çš„classå€¼ç¬¦åˆ
           objArray[index]=tags[i].parentNode.href.replace(/\?ref=bookmarks/,"notifications");
           index++;
 
@@ -267,14 +267,14 @@ if(objArray.length>20){
       }
    }
  },false);
- document.getElementById("wxz100_searchButton").addEventListener("click", function fn() {//100Ö±½Ó´ò¿ªÒ³Ãæ
+ document.getElementById("wxz100_searchButton").addEventListener("click", function fn() {//100ç›´æ¥æ‰“å¼€é¡µé¢
   var objArray= new Array();
   var index = 0;
   function getElementByClassName(classnames){
     var tags=document.getElementsByTagName("*");
     for(var i in tags){
       if(tags[i].nodeType==1){
-        if(tags[i].getAttribute("class") == "linkWrap hasCount"&&tags[i].parentNode.firstChild.getAttribute("class")=="imgWrap"){ //ÈôÔªËØµÄclassÖµ·ûºÏ
+        if(tags[i].getAttribute("class") == "linkWrap hasCount"&&tags[i].parentNode.firstChild.getAttribute("class")=="imgWrap"){ //è‹¥å…ƒç´ çš„classå€¼ç¬¦åˆ
           objArray[index]=tags[i].parentNode.href.replace(/\?ref=bookmarks/,"notifications");
           index++;
 
@@ -314,12 +314,12 @@ if(objArray.length>20){
         }
 }
 */
-//------------------------------------------------------------------------------‚äÓÃ¹¦ÄÜ----------------------------------------------------------
+//------------------------------------------------------------------------------å‚™ç”¨åŠŸèƒ½----------------------------------------------------------
     /*
 // Your code here...
  //   var d = document;
-    //    d.onload = testTab£¨£©;//»ğºüä¯ÀÀÆ÷¼æÈİ
-   // window.onload = testTab;//chromeä¯ÀÀÆ÷¼æÈİ
+    //    d.onload = testTabï¼ˆï¼‰;//ç«ç‹æµè§ˆå™¨å…¼å®¹
+   // window.onload = testTab;//chromeæµè§ˆå™¨å…¼å®¹
    // window.onload = function(){testTab();shuaxinTab();};
     window.onload = function(){testTab();};
     testTab();
@@ -328,11 +328,11 @@ if(objArray.length>20){
      var aad=document.getElementsByClassName("_6wk8")[1];
      var aac=document.getElementsByClassName("_5xdz");
    if (aad.childNodes.length==0){
-     if (aac[2].childNodes.length==2){//test   ÆÀÂÛÓĞÔªËØ
+     if (aac[2].childNodes.length==2){//test   è¯„è®ºæœ‰å…ƒç´ 
             var abcd000=document.getElementsByClassName("_4jy0 _4jy3 _517h _51sy _42ft");
                 abcd000[3].click();
              /*   for(var z in abcd000){
-                   if(abcd000[z].innerText.indexOf("È«±êÎªÒÑ¶Á") == 0){
+                   if(abcd000[z].innerText.indexOf("å…¨æ ‡ä¸ºå·²è¯»") == 0){
                       abcd000[z].click();
                    }
                  };
@@ -348,7 +348,7 @@ if(objArray.length>20){
             var aabc=document.getElementsByClassName("_4jy0 _4jy3 _517h _51sy _42ft");
                 aabc[3].click();
             /*  for(var x in aabc){
-                   if(aabc[x].innerText.indexOf("È«±êÎªÒÑ¶Á") == 0){
+                   if(aabc[x].innerText.indexOf("å…¨æ ‡ä¸ºå·²è¯»") == 0){
                       aabc[x].click();
                    }
                  };
@@ -359,12 +359,12 @@ if(objArray.length>20){
                      // window.open('', '_self');
    /*       }window.close();
 
-   }else if (aad.lastElementChild.className="_ju_"){//1´ú±íÎŞ×ÓÔªËØ£¬2´ú±íÓĞ×ÓÔªËØ
-        if (aac[2].childNodes.length==2){//test  ÆÀÂÛÓĞÔªËØ
+   }else if (aad.lastElementChild.className="_ju_"){//1ä»£è¡¨æ— å­å…ƒç´ ï¼Œ2ä»£è¡¨æœ‰å­å…ƒç´ 
+        if (aac[2].childNodes.length==2){//test  è¯„è®ºæœ‰å…ƒç´ 
             var abcd0001=document.getElementsByClassName("_4jy0 _4jy3 _517h _51sy _42ft");
                 abcd0001[3].click();
            /*  for(var g in abcd0001){
-                   if(abcd0001[g].innerText.indexOf("È«±êÎªÒÑ¶Á") == 0){
+                   if(abcd0001[g].innerText.indexOf("å…¨æ ‡ä¸ºå·²è¯»") == 0){
                       abcd0001[g].click();
                    }
                  };
@@ -376,11 +376,11 @@ if(objArray.length>20){
                     vraa001.href=cod001;
                     document.body.appendChild(vraa001);
                     vraa001.click();
-          }else if (aac[1].childNodes.length==2&&aac[2].childNodes.length==1&&aac[3].childNodes.length==1&&aac[4].childNodes.length==1){//aac[1]´ú±íÔŞÓĞ×ÓÔªËØ
+          }else if (aac[1].childNodes.length==2&&aac[2].childNodes.length==1&&aac[3].childNodes.length==1&&aac[4].childNodes.length==1){//aac[1]ä»£è¡¨èµæœ‰å­å…ƒç´ 
              var abc=document.getElementsByClassName("_4jy0 _4jy3 _517h _51sy _42ft");
                  abc[3].click();
                /* for(var h in abc){
-                   if(abc[h].innerText.indexOf("È«±êÎªÒÑ¶Á") == 0){
+                   if(abc[h].innerText.indexOf("å…¨æ ‡ä¸ºå·²è¯»") == 0){
                       abc[h].click();
                    }
                  }; */
@@ -391,11 +391,11 @@ if(objArray.length>20){
                     vraa.href=cod;
                     document.body.appendChild(vraa);
                     vraa.click();
-          }else if(aac[1].childNodes.length==1&&aac[2].childNodes.length==1&&aac[3].childNodes.length==1&&aac[4].childNodes.length==1){//aac[2]´ú±íÆÀÂÛÓĞ×ÓÔªËØ
+          }else if(aac[1].childNodes.length==1&&aac[2].childNodes.length==1&&aac[3].childNodes.length==1&&aac[4].childNodes.length==1){//aac[2]ä»£è¡¨è¯„è®ºæœ‰å­å…ƒç´ 
             var abcd=document.getElementsByClassName("_4jy0 _4jy3 _517h _51sy _42ft");
                 abcd[3].click();
                /*  for(var j in abcd){
-                   if(abcd[j].innerText.indexOf("È«±êÎªÒÑ¶Á") == 0){
+                   if(abcd[j].innerText.indexOf("å…¨æ ‡ä¸ºå·²è¯»") == 0){
                       abcd[j].click();
                    }
                  };*/
@@ -409,7 +409,7 @@ if(objArray.length>20){
          }
      }//
 
-  }//testTabº¯Êı½áÊø
+  }//testTabå‡½æ•°ç»“æŸ
 
   function shuaxinTab() {
     var aad=document.getElementsByClassName("_4xj-");
@@ -419,19 +419,19 @@ if(objArray.length>20){
     for(var i in aad){
         var aadd=aad[i].firstChild.textContent;
               console.log(aadd);
-         if(aadd.indexOf("Í¨Öª") != -1 && reg.test(aadd) == false && reg.test(aad1) == true){
-               console.log("ÊÕ¼şÏä´ò¿ªÁËÅ¶");
+         if(aadd.indexOf("é€šçŸ¥") != -1 && reg.test(aadd) == false && reg.test(aad1) == true){
+               console.log("æ”¶ä»¶ç®±æ‰“å¼€äº†å“¦");
                aad[1].click();
-           }else if(aadd.indexOf("Í¨Öª") != -1 && reg.test(aadd) == true){
-               console.log("Í¨Öª´ò¿ªÁËÅ¶");
+           }else if(aadd.indexOf("é€šçŸ¥") != -1 && reg.test(aadd) == true){
+               console.log("é€šçŸ¥æ‰“å¼€äº†å“¦");
                aad[i].click();
                testTab();
-           }else if(aadd == "Í¨Öª"&&aad1 == "ÊÕ¼şÏä"){
+           }else if(aadd == "é€šçŸ¥"&&aad1 == "æ”¶ä»¶ç®±"){
                console.log(1112222333);
               window.location.href="about:blank";
              }window.close();
        }
-    };//º¯Êı½áÊø
+    };//å‡½æ•°ç»“æŸ
 
     */
 })();
