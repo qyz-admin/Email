@@ -6,7 +6,7 @@ function daochu1(){
         '<x:Name>worksheet</x:Name>'+
         '<x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>'+
         '</x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]-->'+
-        '</head><body><table>'+exportFileContent+'</table></body></html>';
+        '</head><body>'+exportFileContent+'</body></html>';
 
                 var downloadA = document.createElement("a");
                 var blob = new Blob([template], {type: "text/plain;charset=utf-8"});
