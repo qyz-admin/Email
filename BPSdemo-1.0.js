@@ -97,8 +97,8 @@ function showw(){
                 console.log(xhr.responseText);
           var mp3 = eval("("+ this.responseText +")");
                 console.log(mp3);
-                console.log(mp3.data.list);
-                console.log(mp3.data.list[0]);
+              //  console.log(mp3.data.list);
+              //  console.log(mp3.data.list[0]);
           var mp3Val = mp3.data.list;
                 product(mp3Val);
 	 var form = document.getElementsByClassName("form-control input-inline input-medium")[0];
