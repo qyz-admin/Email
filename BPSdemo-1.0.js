@@ -43,6 +43,13 @@ function daochu1(){
                  }, 100) 
            }; 
       }; 
+//------------------------------------------------------------------------------------重置-------------------------------------------------------------------------
+function reset(){
+      var form = document.getElementsByClassName("form-control input-inline input-medium")[0];
+      var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2];
+          form.value ="";
+	  form2.value ="";
+ };
 //------------------------------------------------------------------------------------查询-------------------------------------------------------------------------
 function showw(){
        var xhr;
