@@ -75,7 +75,6 @@ function showw(){
                                             +'<th> 是否二次改派 </th>'
                                             +'<th> 是否克隆 </th>'
                                             +'<th> 规格 </th>'
-                                            +'<th> 数量 </th>'
                                             +'<th> 币种 </th>'
                                             +'<th> 金额 </th>'
                                             +'<th> 支付类型 </th>'
@@ -83,7 +82,6 @@ function showw(){
                                             +'<th> 下单时间 </th>'
                                             +'<th> 姓名 </th>'
                                             +'<th> 电话 </th>'
-                                            +'<th> 拉黑率 </th>'
                                             +'<th> 重量 </th>'
                                             +'<th> 物流状态 </th>'
                                             +'<th> 物流更新时间 </th>'
@@ -92,7 +90,6 @@ function showw(){
                                             +'<th> IP </th>'
                                             +'<th> 站点ID </th>'
                                             +'<th> 审核方式 </th>'
-                                            +'<th> 操作 </th>'
                                         +'</tr>'
                 console.log(xhr.responseText);
           var mp3 = eval("("+ this.responseText +")");
