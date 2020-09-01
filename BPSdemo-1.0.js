@@ -72,6 +72,10 @@ function showw(){
                 console.log(mp3.data.list[0]);
           var mp3Val = mp3.data.list;
                 product(mp3Val);
+	 var form = document.getElementsByClassName("form-control input-inline input-medium")[0];
+         var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2];
+             form.value ="";
+	     form2.value ="";
              }
         }
         xhr.open("post",xhr_url,true);
