@@ -129,7 +129,7 @@ function showw(){
            var form = document.getElementsByClassName("form-control input-inline input-medium")[0].value;
            var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2].value;
              if(form == "" && form2 == ""){
-		     return  "&shippingNumber=&orderPrefix="
+		     return  "&shippingNumber= ,&orderPrefix= ,"
                 layer.msg("請輸入訂單編號");
 		       // return;
                }else if(form != "" && form2 != ""){
