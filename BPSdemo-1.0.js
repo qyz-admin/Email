@@ -53,7 +53,7 @@ function reset(){
 //------------------------------------------------------------------------------------查询-------------------------------------------------------------------------
 function showw(){
        var xhr;
-       var strHtml ="_user=1343&_token="+ getCookie("token") + "&orderPrefix=" + formVal();
+       var strHtml ="_user=1343&_token="+ getCookie("token") +  formVal();
 
       // var strHtml ="_user=1343&_token=50b94b8a7357a458668946983d37ae40&" + "orderPrefix=" + form;
       // var strHtml ="orderPrefix=NR007311326091024&_user=1343&_token=50b94b8a7357a458668946983d37ae40";
@@ -107,11 +107,11 @@ function showw(){
               }else if(form == "" && form2 != ""){
 		        console.log(22);
                 orderValue = formValue(form2);
-		              return  orderValue;
+		             return  "&shippingNumber=" +orderValue;
               }else if(form != "" && form2 == ""){
 		        console.log(00);
                 orderValue = formValue(form);
-		             return  orderValue;
+		             return  "&orderPrefix=" +orderValue;
              }
          };
     function formValue(val){
