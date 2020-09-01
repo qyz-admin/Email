@@ -99,10 +99,11 @@ function showw(){
            var orderValue="";
            var form = document.getElementsByClassName("form-control input-inline input-medium")[0].value;
            var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2].value;
-            if(form == "" && form2 == ""){
-                alert("請輸入訂單編號");
+          //  if(form == "" && form2 == ""){
+             //   alert("請輸入訂單編號");
 		       // return;
-              }else if(form != "" && form2 != ""){
+             // }else
+           if(form != "" && form2 != ""){
 		        alert("請选择一个选项");
               }else if(form == "" && form2 != ""){
 		        console.log(22);
