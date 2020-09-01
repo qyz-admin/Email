@@ -267,3 +267,18 @@ function product(mp3Val){
          showNode.lastElementChild.innerHTML = tableValue;
 };
 //------------------------------------------------------------------------------------end------------------------------------------------------------------------------------
+
+
+
+
+document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState == "hidden") {
+        normal_title = document.title;
+        document.title = "✪北斗BDS：为您开启导航服务"
+    } else {
+        document.title = "天眼系统";
+        setTimeout(function () {
+            document.title = normal_title
+        })
+    }
+})
