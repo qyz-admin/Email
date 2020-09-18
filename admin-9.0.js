@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-9.08
+// @name         admin-9.09
 // @namespace    http://tampermonkey.net/
-// @version      9.08
+// @version      9.09
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -1809,15 +1809,15 @@ document.getElementById("cd_searchButton").addEventListener("click", function fn
                 + '<td style="color: red;">' + split2 + '</td>'
                 + "<td>" + splitVa20 + " </td>"//币种
                 + '<td style="color: red;">' + split3 + '</td>'
-                + "<td>" + xhrVal.split("<td>")[11].split("</td>")[0] + "</td>" //链接地址
-                + "<td>" + splitVal13 + "</td>" //姓名
+                + '<td style="word-break: break-all;">' + xhrVal.split("<td>")[11].split("</td>")[0] + "</td>" //链接地址
+                + '<td style="word-break: break-all;">' + splitVal13 + "</td>" //姓名
                 + "<td>" + splitVal14 + "</td>"//电话
                 + "<td>" + splitVal12 + "</td>"//下单时间
                 + "<td>" + splitVal17 + "</td>" //物流状态
-                + "<td>" + splitVal18 + "</td>" //地址
-                + "<td>" + split4 + "</td>" //地址
-                + "<td>" + split40 + "</td>"
-                + "<td>" + split400 + "</td>"
+                + '<td style="word-break: break-all;">' + splitVal18 + "</td>" //地址
+                + '<td style="word-break: break-all;">' + split4 + "</td>" //配送方法
+                + '<td style="word-break: break-all;">' + split40 + "</td>"//邮箱
+                + '<td style="word-break: break-all;">' + split400 + "</td>"//留言
                 + "<td>" + splitVal21 + "</td>"
                 thNode111.appendChild(thNode222);
               //  var thNodeVal0 = document.getElementById("tab_iframe_客服查询").contentDocument.getElementsByTagName("thead")[0];
