@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
-// @name         admin-9.06
+// @name         admin-9.08
 // @namespace    http://tampermonkey.net/
-// @version      9.06
+// @version      9.08
 // @description  以客服查詢界面為主
 // @author       qyz
 // @match        http://13.229.176.203/admin/index/index.html
@@ -12,50 +12,47 @@
 // ==/UserScript==https://13.229.176.203/static/admin/js/tabs.js  // @grant        none Tampermonkey
 (function() {
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  // var a= 15511;
+  // var a= 2020.9.18;
   //  func(a);
       var checkUser = document.getElementsByClassName("username username-hide-on-mobile")[0];
          console.log(checkUser.innerText);
-       if ( checkUser.innerText == "qiyuanzhang@jikeyin.com"){
-            console.log(2222);
+       if ( checkUser.innerText == "qiyuanzhang@jikeyin.com" || checkUser.innerText == "qiyuanzhang@giikin.com"){
+            console.log(110);
                  fn_nav();
-          }else if ( checkUser.innerText == "jiangtiantian@jikeyin.com"){
-            console.log(2222);
+          }else if ( checkUser.innerText == "liujun@jikeyin.com" || checkUser.innerText == "liujun@giikin.com"){
+            console.log(110);
                  fn_nav();
-                 daochu()
-          }else if ( checkUser.innerText == "yangzhiyu@jikeyin.com"){
-            console.log(2222);
+          }else if ( checkUser.innerText == "sunyaru@jikeyin.com" || checkUser.innerText == "sunyaru@giikin.com"){
+            console.log(110);
                  fn_nav();
-          }else if ( checkUser.innerText == "sunyaru@jikeyin.com"){
-            console.log(2222);
+          }else if ( checkUser.innerText == "liruolan@jikeyin.com" || checkUser.innerText == "liruolan@giikin.com"){
+            console.log(110);
                  fn_nav();
-          }else if ( checkUser.innerText == "liruolan@jikeyin.com"){
-            console.log(2222);
-                 fn_nav();
-          }else if ( checkUser.innerText == "yuanhuanxin@jikeyin.com"){
-            console.log(2222);
+          }else if ( checkUser.innerText == "qukaituo@jikeyin.com" || checkUser.innerText == "qukaituo@giikin.com"){
+            console.log(110);
                 fn_nav();
-                 daochu()
-          }else if ( checkUser.innerText == "yangjiayi@jikeyin.com"){
+          }else if ( checkUser.innerText == "caokeke@jikeyin.com" || checkUser.innerText == "caokeke@giikin.com"){
+            console.log(110);
+                 fn_nav();
+          }else if ( checkUser.innerText == "yangzhiyu@jikeyin.com" || checkUser.innerText == "yangzhiyu@giikin.com"){
+            console.log(110);
+                 fn_nav();
+          }else if ( checkUser.innerText == "yangjiayi@jikeyin.com" || checkUser.innerText == "yangjiayi@giikin.com"){
             console.log(2222);
                  fn_nav();
                 daochu()
-          }else if ( checkUser.innerText == "xuwenjian@jikeyin.com"){
+          }else if ( checkUser.innerText == "xuwenjian@jikeyin.com" || checkUser.innerText == "xuwenjian@giikin.com"){
             console.log(2222);
                  fn_nav();
                  daochu()
-          }else if ( checkUser.innerText == "qukaituo@jikeyin.com"){
+          }else if ( checkUser.innerText == "yuanhuanxin@jikeyin.com" || checkUser.innerText == "yuanhuanxin@giikin.com"){
             console.log(2222);
                  fn_nav();
-          }else if ( checkUser.innerText == "liyafang@jikeyin.com"){
-            console.log(2222);
-                 fn_nav();
-                 daochu()
-          }else if ( checkUser.innerText == "caokeke@jikeyin.com"){
+          }else if ( checkUser.innerText == "liyafang@jikeyin.com" || checkUser.innerText == "liyafang@giikin.com"){
             console.log(2222);
                  fn_nav();
                  daochu()
-          }else if ( checkUser.innerText == "yanghao@jikeyin.com"){
+          }else if ( checkUser.innerText == "yanghao@jikeyin.com" || checkUser.innerText == "yanghao@giikin.com"){
             console.log(2222);
                  fn_nav();
                  daochu()
