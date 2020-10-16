@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name    FB-10.1
+// @name    FB-2.1
 // @namespace  http://tampermonkey.net/
-// @version   10.1
+// @version   2.1
 // @description try to take over the world!
 // @author   You
 // @match    https://www.facebook.com/bookmarks/*
@@ -380,8 +380,8 @@ if(inputValue == null || inputValue == ""){
  //------------------------------------------------------------------------------------第三部分------页面刷新---------------------------------------------------------------
 
    //window.onload = function(){testTab();};
-  window.onload = function(){testTab();};
-  testTab();
+  //window.onload = function(){testTab();};
+  //testTab();
      //    var d = document;
      //     d.onload = testTab();//火狐浏览器兼容
   //  window.onload = testTab();//chrome浏览器兼容
@@ -395,6 +395,37 @@ if(inputValue == null || inputValue == ""){
         },2000);
         */
 
+       var width = 0;
+       var id = setInterval(frame, 2000);
+  function frame() {
+        if(document.readyState=="complete"){
+            if (width == 30) {
+                  console.log("终止");
+                   clearInterval(id);
+            }else {
+             //   testA();
+              var tags = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
+                         console.log(tags[16]);
+                 if (tags[16] == undefined) {
+                    console.log("止");
+                    width++;
+                 }else{
+                    testTab();
+                 }
+            }
+        }
+ };
+    function testA() {
+        var width = 0;
+        var tags = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
+                       console.log(tags[16]);
+        if (tags[16] == undefined) {
+               width++;
+               console.log("止");
+        }else{
+             width--;
+        }
+    };
     function testTab() {
       var tags = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
             console.log(tags[16]);
