@@ -22,7 +22,7 @@ var interval = setInterval(function(){
              yemian();
             clearInterval(interval);
         }
-},1000);
+},3000);
 //------页面自动刷新设置-----
 function yemian(){
     'use strict';
