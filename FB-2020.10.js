@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name    FB-20.12
+// @name    FB-20.12.1
 // @namespace  http://tampermonkey.net/
-// @version   20.12
+// @version   20.12.1
 // @description try to take over the world!
 // @author   You
 // @match    https://www.facebook.com/*
@@ -13,7 +13,18 @@
 // @grant    none
 // ==/UserScript==
 
-window.onload =(function() {
+(function() {
+//------页面自动刷新设置-----
+var interval = setInterval(function(){
+    var status = document.readyState;
+    if(status=="complete"){
+             console.log("页面获取成功");
+             yemian();
+            clearInterval(interval);
+        }
+},1000);
+//------页面自动刷新设置-----
+function yemian(){
     'use strict';
     // var targNode = document.querySelector('._cy7');     window.onload =
 //      '<input type="button" value="暫時" class="search-button" id="zss_searchButton" >'
@@ -514,7 +525,7 @@ function SubmitCk() {
            var width = 0;
            var idD = setInterval(SubmitAAA, 2000);
            function SubmitAAA() {
-                if (width == 30) {
+                if (width == 15) {
                       console.log("终止加载");
                       clearInterval(idD);
                   }else {
@@ -674,5 +685,5 @@ function SubmitCk() {
          //    window.close();
        }
     }
-
+};//------页面自动刷新设置-----
 })();
