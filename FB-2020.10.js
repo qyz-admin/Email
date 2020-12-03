@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name    FB-20.12.1
+// @name    FB-20.12.2
 // @namespace  http://tampermonkey.net/
-// @version   20.12.1
+// @version   20.12.2
 // @description try to take over the world!
 // @author   You
 // @match    https://www.facebook.com/*
@@ -97,7 +97,7 @@ if(inputValue == null || inputValue == ""){
     vra.href=command;
     document.body.appendChild(vra);
     vra.click();
-    sleep(100);
+    sleep(5000);
    }
   }else if(objArray.length==0||objArray.length=="undefined"){
       alert("Hello 没有最新消息哦！！！");
@@ -113,7 +113,7 @@ if(inputValue == null || inputValue == ""){
                 vra0.href=command0;
            document.body.appendChild(vra0);
                 vra0.click();
-                sleep(100);
+                sleep(5000);
            }
      };
 },false);
@@ -159,7 +159,7 @@ if(objArray.length>40){
         vraa.href=conmand;
         document.body.appendChild(vraa);
         vraa.click();
-        sleep(100);
+        sleep(5000);
         }
       }
   // }
@@ -203,7 +203,7 @@ if(objArray.length>40){
        var comand=objArray[m];
        window.open(comand);
        window.location.reload;
-       sleep(100);
+       sleep(5000);
            }
          }
     //   }
@@ -249,7 +249,7 @@ if(objArray.length>40){
     vra.href=command;
     document.body.appendChild(vra);
     vra.click();
-    sleep(100);
+    sleep(5000);
   }
      var inputValue = document.getElementById("wxz_input").value;
 if(inputValue == null || inputValue == ""){
@@ -261,7 +261,7 @@ if(inputValue == null || inputValue == ""){
          vraj.href=commandj;
          document.body.appendChild(vraj);
          vraj.click();
-         sleep(100);
+         sleep(5000);
      }
   }else if(objArrayy.length==0||objArrayy.length=="undefined"){
       alert("Hello 没有最新通知哦！！！");
@@ -276,7 +276,7 @@ if(inputValue == null || inputValue == ""){
                 vra0.href=command0;
            document.body.appendChild(vra0);
                 vra0.click();
-                sleep(100);
+                sleep(5000);
            }
      };
 },false);
@@ -319,7 +319,7 @@ if(inputValue == null || inputValue == ""){
     vra.href=command;
     document.body.appendChild(vra);
     vra.click();
-    sleep(100);
+    sleep(5000);
   }
 },false);
  //---------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -361,7 +361,7 @@ if(inputValue == null || inputValue == ""){
     vra.href=command;
     document.body.appendChild(vra);
     vra.click();
-    sleep(100);
+    sleep(5000);
   }
 },false);
  //---------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -403,7 +403,7 @@ if(inputValue == null || inputValue == ""){
     vra.href=command;
     document.body.appendChild(vra);
     vra.click();
-    sleep(100);
+    sleep(5000);
   }
 },false);
  //---------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -445,7 +445,7 @@ if(inputValue == null || inputValue == ""){
     vra.href=command;
     document.body.appendChild(vra);
     vra.click();
-    sleep(100);
+   sleep(5000);
   }
 },false);
 
