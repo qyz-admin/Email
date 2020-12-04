@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name    FB-20.12.2
+// @name    FB-20.12.5
 // @namespace  http://tampermonkey.net/
-// @version   20.12.2
+// @version   20.12.5
 // @description try to take over the world!
 // @author   You
 // @match    https://www.facebook.com/*
@@ -13,18 +13,52 @@
 // @grant    none
 // ==/UserScript==
 
-(function() {
+window.onload = (function() {
 //------页面自动刷新设置-----
-var interval = setInterval(function(){
-    var status = document.readyState;
-    if(status=="complete"){
-             console.log("页面获取成功");
-             yemian();
-            clearInterval(interval);
+    SubmitWeb();
+function SubmitWeb() { //总网址加载判断设置（一）
+        var cod99=window.location.href;
+        var reg = /\d{10,}/;
+        if (reg.test(cod99)) {
+            console.log("正在刷新网页详细内容---");
+            var width = 0;
+            var idB = setInterval(SubmitAB, 2000);
+            function SubmitAB() {
+                 var tags = document.getElementsByClassName("d2edcug0 hpfvmrgz qv66sw1b c1et5uql rrkovp55 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb mdeji52x jagab5yi g1cxx5fr ekzkrbhg oo9gr5id hzawbc8m");
+                    // console.log(tags[0]);
+                if(cod99.search(/inbox/i) == "-1" && cod99.search(/notifications/i) == "-1"){
+                    if (tags[0].innerText == "首页" || tags[0].innerText == "Home") {
+                        console.log("终止刷新网页");
+                        clearInterval(idB);
+                        testAAA();
+                    }else{
+                        console.log("正在刷新网页");
+                        testAAA();
+                   }
+                }else{
+                    console.log("不需要刷新网页");
+                    clearInterval(idB);
+                }
+           }
+        }else{
+            console.log("正在加载网页标题内容---");//  yemian();
+            var interval = setInterval(Fload, 2000);
+            function Fload(){
+                if(document.readyState =="complete"){
+                    var targNode =document.getElementsByClassName('thodolrn ojvp67qx taijpn5t buofh1pr j83agx80 aovydwv3 bqdfd6uv')[0];
+                    if(targNode.childElementCount == 7){
+                        console.log("页面标题已获取---加载成功");
+                        clearInterval(interval);
+                    }else{
+                        console.log("页面标题正获取中---");
+                        yemian();
+                    }
+                }
+            }
         }
-},3000);
+    };
 //------页面自动刷新设置-----
-function yemian(){
+function yemian(){ //正在加载网页标题内容（二）
     'use strict';
     // var targNode = document.querySelector('._cy7');     window.onload =
 //      '<input type="button" value="暫時" class="search-button" id="zss_searchButton" >'
@@ -63,7 +97,7 @@ function yemian(){
     var tip = "";
     for(var i=0; i<tags.length;i++){
         var tags2 = tags[i].parentNode.getAttribute("class");
-         if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
+        if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
            var dd = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.lastElementChild.firstElementChild.firstElementChild.lastElementChild.childElementCount;
            if(dd == 1 ){
                objArray[index] = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.lastElementChild.href;
@@ -91,13 +125,16 @@ function yemian(){
 if(inputValue == null || inputValue == ""){
   if(objArray.length<40 && objArray.length>0){
   for(var j=0; j<objArray.length;j++){
+   var ev = document.createEvent("MouseEvents");
+       ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
     var command=objArray[j];
     var vra=document.createElement('a');
     vra.target='_blank';
     vra.href=command;
     document.body.appendChild(vra);
-    vra.click();
-    sleep(5000);
+    //vra.click();
+      vra.dispatchEvent(ev);
+    sleep(100);
    }
   }else if(objArray.length==0||objArray.length=="undefined"){
       alert("Hello 没有最新消息哦！！！");
@@ -107,13 +144,16 @@ if(inputValue == null || inputValue == ""){
   };
 }else{
   for(var ij=0; ij<inputValue;ij++){
+            var ev2 = document.createEvent("MouseEvents");
+                ev2.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
             var command0=objArray[ij];
             var vra0=document.createElement('a');
                 vra0.target='_blank';
                 vra0.href=command0;
            document.body.appendChild(vra0);
-                vra0.click();
-                sleep(5000);
+              //  vra0.click();
+                  vra0.dispatchEvent(ev2);
+                sleep(100);
            }
      };
 },false);
@@ -127,7 +167,7 @@ if(inputValue == null || inputValue == ""){
         var tip = "";
     for(var i=0; i<tags.length;i++){
         var tags2 = tags[i].parentNode.getAttribute("class");
-         if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
+        if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
            var dd = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.lastElementChild.firstElementChild.firstElementChild.lastElementChild.childElementCount;
            if(dd == 1 ){
                objArray[index] = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.lastElementChild.href;
@@ -153,13 +193,16 @@ if(inputValue == null || inputValue == ""){
 if(objArray.length>40){
    //  if(inputValueee > 40){
       for(var n=40; n<objArray.length+1;n++){
+         var ev = document.createEvent("MouseEvents");
+             ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
         var conmand=objArray[n];
         var vraa=document.createElement('a');
         vraa.target='_blank';
         vraa.href=conmand;
         document.body.appendChild(vraa);
-        vraa.click();
-        sleep(5000);
+      //  vraa.click();
+          vraa.dispatchEvent(ev);
+        sleep(100);
         }
       }
   // }
@@ -174,7 +217,7 @@ if(objArray.length>40){
         var tip = "";
     for(var i=0; i<tags.length;i++){
         var tags2 = tags[i].parentNode.getAttribute("class");
-         if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
+        if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
            var dd = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.lastElementChild.firstElementChild.firstElementChild.lastElementChild.childElementCount;
            if(dd == 1 ){
                objArray[index] = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.lastElementChild.href;
@@ -187,7 +230,7 @@ if(objArray.length>40){
        return objArray;
 };
   console.log(getElementByClassName("qjjbsfad j83agx80"));
-                 function sleep(n) {//計時函數
+ function sleep(n) {//計時函數
     var start=new Date().getTime();
     while (true) {
       var time=new Date().getTime();
@@ -200,15 +243,26 @@ if(objArray.length>40){
  if(objArray.length>40){
     //  if(inputValuee < 41) {
        for(var m=0; m<41;m++){
+       var ev = document.createEvent("MouseEvents");
+           ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
        var comand=objArray[m];
-       window.open(comand);
-       window.location.reload;
-       sleep(5000);
+       var vraaa=document.createElement('a');
+           vraaa.target='_blank';
+           vraaa.href=comand;
+        document.body.appendChild(vraaa);
+      //  vraaa.click();
+          vraaa.dispatchEvent(ev);
+       sleep(100);
            }
          }
     //   }
      },false);
+ //-------------------------------------------------------------------------------------第一部分-------------------------------------------------------------------
+
+
  //---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
  //-------------------------------------------------------------------------------------第二部分--------------------------------------------------------------------
      document.getElementById("tz_onputButton").addEventListener("click", function fn() {//读取onput数值
         var objArrayy= new Array();
@@ -219,7 +273,7 @@ if(objArray.length>40){
         var tip = "";
     for(var i=0; i<tags.length;i++){
         var tags2 = tags[i].parentNode.getAttribute("class");
-         if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
+        if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
            var dd = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.firstElementChild.firstElementChild.firstElementChild.lastElementChild.childElementCount;
            if(dd == 1 ){
                objArrayy[indexyy] = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.firstElementChild.href.replace(/\/notifications\//,"/");
@@ -241,42 +295,39 @@ if(objArray.length>40){
       }
     }
   };
-
-  for(var j=0; j<inputValue;j++){
-    var command=objArrayy[j];
-    var vra=document.createElement('a');
-    vra.target='_blank';
-    vra.href=command;
-    document.body.appendChild(vra);
-    vra.click();
-    sleep(5000);
-  }
      var inputValue = document.getElementById("wxz_input").value;
 if(inputValue == null || inputValue == ""){
-    if(objArrayy.length<40 && objArrayy.length>0){
+    if(objArrayy.length<30 && objArrayy.length>0){
       for(var jj=0; jj<objArrayy.length;jj++){
+        var ev = document.createEvent("MouseEvents");
+            ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
          var commandj=objArrayy[jj];
          var vraj=document.createElement('a');
          vraj.target='_blank';
          vraj.href=commandj;
-         document.body.appendChild(vraj);
-         vraj.click();
-         sleep(5000);
+       document.body.appendChild(vraj);
+         vraj.dispatchEvent(ev);;
+         sleep(100);
      }
   }else if(objArrayy.length==0||objArrayy.length=="undefined"){
       alert("Hello 没有最新通知哦！！！");
-  }else if(objArrayy.length>40){
-     alert("数量 : "+objArrayy.length+" ; 请分别点击 40,； 80； 120; 按钮分三次打开页面 ");
+  }else if(objArrayy.length>30){
+     alert("数量 : "+objArrayy.length+" ; 请分别点击 30,； 60； 90; 按钮分三次打开页面 ");
   };
 }else{
+   // var ev = document.createEvent("MouseEvents");
+   //     ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
   for(var ij=0; ij<inputValue;ij++){
+           var ev2 = document.createEvent("MouseEvents");
+               ev2.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
             var command0=objArrayy[ij];
             var vra0=document.createElement('a');
                 vra0.target='_blank';
                 vra0.href=command0;
            document.body.appendChild(vra0);
-                vra0.click();
-                sleep(5000);
+               // vra0.click();
+                vra0.dispatchEvent(ev2);
+                sleep(100);
            }
      };
 },false);
@@ -284,13 +335,13 @@ if(inputValue == null || inputValue == ""){
   document.getElementById("tz_searchButton").addEventListener("click", function fn() {//通知信息30打開
         var objArrayy= new Array();
         var indexyy = 0;
-       function getElementByClassNamey(classnames){//查詢通知鏈接
+function getElementByClassNamey(classnames){//查詢通知鏈接
         var tags = document.getElementsByClassName(classnames);
             console.log(tags.length);
         var tip = "";
     for(var i=0; i<tags.length;i++){
         var tags2 = tags[i].parentNode.getAttribute("class");
-         if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
+        if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
            var dd = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.firstElementChild.firstElementChild.firstElementChild.lastElementChild.childElementCount;
            if(dd == 1 ){
                objArrayy[indexyy] = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.firstElementChild.href.replace(/\/notifications\//,"/");
@@ -313,26 +364,29 @@ if(inputValue == null || inputValue == ""){
     }
   };
   for(var j=0; j<30;j++){
+   var ev = document.createEvent("MouseEvents");
+       ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
     var command=objArrayy[j];
     var vra=document.createElement('a');
     vra.target='_blank';
     vra.href=command;
     document.body.appendChild(vra);
-    vra.click();
-    sleep(5000);
+   // vra.click();
+      vra.dispatchEvent(ev);
+    sleep(100);
   }
 },false);
  //---------------------------------------------------------------------------------------------------------------------------------------------------------
   document.getElementById("tz60_searchButton").addEventListener("click", function fn() {//通知信息30-60打開
         var objArrayy= new Array();
         var indexyy = 0;
-       function getElementByClassNamey(classnames){//查詢通知鏈接
+function getElementByClassNamey(classnames){//查詢通知鏈接
         var tags = document.getElementsByClassName(classnames);
             console.log(tags.length);
         var tip = "";
     for(var i=0; i<tags.length;i++){
         var tags2 = tags[i].parentNode.getAttribute("class");
-         if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
+        if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
            var dd = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.firstElementChild.firstElementChild.firstElementChild.lastElementChild.childElementCount;
            if(dd == 1 ){
                objArrayy[indexyy] = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.firstElementChild.href.replace(/\/notifications\//,"/");
@@ -355,20 +409,23 @@ if(inputValue == null || inputValue == ""){
     }
   };
   for(var j=30; j<60;j++){
+   var ev = document.createEvent("MouseEvents");
+       ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
     var command=objArrayy[j];
     var vra=document.createElement('a');
     vra.target='_blank';
     vra.href=command;
     document.body.appendChild(vra);
-    vra.click();
-    sleep(5000);
+   // vra.click();
+      vra.dispatchEvent(ev);
+    sleep(100);
   }
 },false);
  //---------------------------------------------------------------------------------------------------------------------------------------------------------
   document.getElementById("tz90_searchButton").addEventListener("click", function fn() {//通知信息60-90打開
         var objArrayy= new Array();
         var indexyy = 0;
-       function getElementByClassNamey(classnames){//查詢通知鏈接
+function getElementByClassNamey(classnames){//查詢通知鏈接
         var tags = document.getElementsByClassName(classnames);
             console.log(tags.length);
         var tip = "";
@@ -397,20 +454,23 @@ if(inputValue == null || inputValue == ""){
     }
   };
   for(var j=60; j<90;j++){
+   var ev = document.createEvent("MouseEvents");
+       ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
     var command=objArrayy[j];
     var vra=document.createElement('a');
     vra.target='_blank';
     vra.href=command;
     document.body.appendChild(vra);
-    vra.click();
-    sleep(5000);
+    //vra.click();
+      vra.dispatchEvent(ev);
+    sleep(100);
   }
 },false);
  //---------------------------------------------------------------------------------------------------------------------------------------------------------
-  document.getElementById("tz45_searchButton").addEventListener("click", function fn() {//通知信息45以上打開
+  document.getElementById("tz45_searchButton").addEventListener("click", function fn() {//通知信息90以上打開
         var objArrayy= new Array();
         var indexyy = 0;
-       function getElementByClassNamey(classnames){//查詢通知鏈接
+function getElementByClassNamey(classnames){//查詢通知鏈接
         var tags = document.getElementsByClassName(classnames);
             console.log(tags.length);
         var tip = "";
@@ -439,16 +499,20 @@ if(inputValue == null || inputValue == ""){
     }
   };
   for(var j=90; j<objArrayy.length;j++){
+   var ev = document.createEvent("MouseEvents");
+       ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
     var command=objArrayy[j];
     var vra=document.createElement('a');
     vra.target='_blank';
     vra.href=command;
     document.body.appendChild(vra);
-    vra.click();
-   sleep(5000);
+  //  vra.click();
+      vra.dispatchEvent(ev);
+    sleep(100);
   }
 },false);
 
+};//------页面自动刷新设置-----
  //------------------------------------------------------------------------------------第三部分------页面刷新---------------------------------------------------------------
 
    //window.onload = function(){testTab();};
@@ -466,108 +530,8 @@ if(inputValue == null || inputValue == ""){
             }
         },2000);
         */
-
-/*
-       var width = 0;
-       var id = setInterval(frame, 2000);
-  function frame() {
-        if(document.readyState=="complete"){
-            if (width == 30) {
-                  console.log("终止");
-                   clearInterval(id);
-            }else {
-             //   testA();
-              var tags = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
-                         console.log(tags[16]);
-              var cod0000=window.location.href;
-                 if (tags[16] == undefined) {
-                    console.log("止");
-                    width++;
-                 }else if (cod0000 =="https://www.facebook.com/bookmarks/pages") {
-                     console.log("99止");
-                     clearInterval(id);
-                 }else{
-                     testTab()
-                 }
-            }
-        }
- };
-
-     function testA() {
-        var width = 0;
-        var tags = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
-                   console.log(tags[16]);
-        if (tags[16] == undefined) {
-               width++;
-               console.log("没有需要回复的收件箱");
-        }else{
-             width--;
-        }
-    };
-*/
-
-//-------------------------------启用刷新的函数调用-------------------------------
-  /*
-var interval = setInterval(function () {
-            console.log("调用刷新testA");
-     if(document.readyState=="complete"){
-           SubmitCk();
-           clearInterval(interval);
-         }
-     },2000);
-*/
-         SubmitCk();
-function SubmitCk() {
-        var cod99=window.location.href;
-            console.log(cod99);
-        var reg = /\d{10,}/;
-        if (reg.test(cod99)) {
-           var width = 0;
-           var idD = setInterval(SubmitAAA, 2000);
-           function SubmitAAA() {
-                if (width == 15) {
-                      console.log("终止加载");
-                      clearInterval(idD);
-                  }else {
-                      console.log("正在加载网页");
-                      //   window.onload = testAAA();
-                      //  document.testAAA();
-                      testAAA();
-                      width++;
-                  }
-              }
-        }else{
-          console.log("没有需要刷新的网页");
-        }
-    };
-
-/*
-       SubmitCk();
-    function SubmitCk() {
-        var width = 0;
-        var cod99=window.location.href;
-            console.log(cod99);
-        var reg = /\d{10,}/;
-        if (reg.test(cod99)) {
-            if (width == 30) {
-                  console.log("终止加载");
-            }else {
-               console.log("正在加载网页");
-                 window.onload = testA();
-            //  document.testA();
-            //   testA()
-              width++;
-            }
-        }else{
-             width--;
-          console.log("没有需要刷新的网页");
-        };
-    }
-    */
 //--------------------------------1、-检测是否有私讯
-    function testAAA() {
-        var width = 0;
-            width++;
+ function testAAA() { //正在刷新网页内容（三）
        var tags = document.getElementsByClassName("d2edcug0 hpfvmrgz qv66sw1b c1et5uql rrkovp55 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb mdeji52x jagab5yi g1cxx5fr ekzkrbhg oo9gr5id hzawbc8m");
                   console.log(tags);
        for(var t=0; t<tags.length;t++){
@@ -595,6 +559,7 @@ function SubmitCk() {
            }
         }
     };
+
 //--------------------------------2.备用刷新函数
     function testAA() {
        var tags = document.getElementsByClassName("d2edcug0 hpfvmrgz qv66sw1b c1et5uql rrkovp55 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb mdeji52x jagab5yi g1cxx5fr ekzkrbhg oo9gr5id hzawbc8m");
@@ -646,21 +611,7 @@ function SubmitCk() {
   };
 
 
-
 //--------------------------------备用刷新
-    /*
-         function testA() {
-        var width = 0;
-        var tags = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
-                   console.log(tags[16]);
-        if (tags[16] == undefined) {
-               width++;
-               console.log("没有需要回复的收件箱");
-        }else{
-             width--;
-        }
-    };
-*/
     function testTab() {
       var tags = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
             console.log(tags[16]);
@@ -685,5 +636,4 @@ function SubmitCk() {
          //    window.close();
        }
     }
-};//------页面自动刷新设置-----
 })();
