@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name    FB-20.12.5
+// @name    FB-20.12.6
 // @namespace  http://tampermonkey.net/
-// @version   20.12.5
+// @version   20.12.6
 // @description try to take over the world!
 // @author   You
 // @match    https://www.facebook.com/*
@@ -24,10 +24,12 @@ function SubmitWeb() { //总网址加载判断设置（一）
             var width = 0;
             var idB = setInterval(SubmitAB, 2000);
             function SubmitAB() {
-                 var tags = document.getElementsByClassName("d2edcug0 hpfvmrgz qv66sw1b c1et5uql rrkovp55 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb mdeji52x jagab5yi g1cxx5fr ekzkrbhg oo9gr5id hzawbc8m");
-                    // console.log(tags[0]);
+                // var tags = document.getElementsByClassName("d2edcug0 hpfvmrgz qv66sw1b c1et5uql rrkovp55 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb mdeji52x jagab5yi g1cxx5fr ekzkrbhg oo9gr5id hzawbc8m");
+               //  var tagsValue =  tags[0].innerText
+                var tags = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
+                 var tagsValue = tags[15].firstElementChild.firstElementChild.innerText;
                 if(cod99.search(/inbox/i) == "-1" && cod99.search(/notifications/i) == "-1"){
-                    if (tags[0].innerText == "首页" || tags[0].innerText == "Home") {
+                    if (tagsValue == "首页" || tagsValue == "Home") {
                         console.log("终止刷新网页");
                         clearInterval(idB);
                         testAAA();
