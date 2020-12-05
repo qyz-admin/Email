@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name    FB-20.12.6
+// @name    FB-20.12.7
 // @namespace  http://tampermonkey.net/
-// @version   20.12.6
+// @version   20.12.7
 // @description try to take over the world!
 // @author   You
 // @match    https://www.facebook.com/*
@@ -27,7 +27,7 @@ function SubmitWeb() { //总网址加载判断设置（一）
                 // var tags = document.getElementsByClassName("d2edcug0 hpfvmrgz qv66sw1b c1et5uql rrkovp55 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb mdeji52x jagab5yi g1cxx5fr ekzkrbhg oo9gr5id hzawbc8m");
                //  var tagsValue =  tags[0].innerText
                 var tags = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
-                 var tagsValue = tags[15].firstElementChild.firstElementChild.innerText;
+                var tagsValue = tags[15].firstElementChild.firstElementChild.innerText;
                 if(cod99.search(/inbox/i) == "-1" && cod99.search(/notifications/i) == "-1"){
                     if (tagsValue == "首页" || tagsValue == "Home") {
                         console.log("终止刷新网页");
@@ -57,6 +57,38 @@ function SubmitWeb() { //总网址加载判断设置（一）
                     }
                 }
             }
+        }
+    };
+//--------------------------------1、-检测是否有私讯
+ function testAAA() { //正在刷新网页内容（三）
+     //  var tags = document.getElementsByClassName("d2edcug0 hpfvmrgz qv66sw1b c1et5uql rrkovp55 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb mdeji52x jagab5yi g1cxx5fr ekzkrbhg oo9gr5id hzawbc8m");
+     //             console.log(tags);
+       var tags = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
+       var tagsValue = tags[15].firstElementChild.firstElementChild.innerText;
+       for(var t=0; t<tags.length;t++){
+        //  if (tags[t].innerText == "Inbox" || tags[t].innerText == "收件箱") {
+            if (tags[t].firstElementChild.firstElementChild.innerText == "Inbox" || tags[t].firstElementChild.firstElementChild.innerText == "收件箱") {
+                 console.log(tags[t].parentNode.parentNode.childElementCount);
+             var rr = tags[t].parentNode.parentNode.childElementCount;
+             if (rr == "2") {
+                    console.log("进行跳转网页");
+                 var cod009=window.location.href;
+                     cod009=cod009 +"inbox";
+                 var vraa009=document.createElement('a');
+                    vraa009.target='_self';
+                    vraa009.href=cod009;
+                    document.body.appendChild(vraa009);
+                    vraa009.click();
+                }else{
+                    console.log("进行关闭网页");
+                    window.opener = null;//禁止某些浏览器的一些弹窗
+                    window.open('','_self');
+                    window.close()
+                    //    console.log(1112222333);
+                    //      window.location.href="about:blank";
+                    //    window.close();
+                }
+           }
         }
     };
 //------页面自动刷新设置-----
@@ -533,11 +565,14 @@ function getElementByClassNamey(classnames){//查詢通知鏈接
         },2000);
         */
 //--------------------------------1、-检测是否有私讯
- function testAAA() { //正在刷新网页内容（三）
-       var tags = document.getElementsByClassName("d2edcug0 hpfvmrgz qv66sw1b c1et5uql rrkovp55 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb mdeji52x jagab5yi g1cxx5fr ekzkrbhg oo9gr5id hzawbc8m");
-                  console.log(tags);
+ function testAAAB() { //正在刷新网页内容（三）
+     //  var tags = document.getElementsByClassName("d2edcug0 hpfvmrgz qv66sw1b c1et5uql rrkovp55 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb mdeji52x jagab5yi g1cxx5fr ekzkrbhg oo9gr5id hzawbc8m");
+     //             console.log(tags);
+       var tags = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
+       var tagsValue = tags[15].firstElementChild.firstElementChild.innerText;
        for(var t=0; t<tags.length;t++){
-          if (tags[t].innerText == "Inbox" || tags[t].innerText == "收件箱") {
+        //  if (tags[t].innerText == "Inbox" || tags[t].innerText == "收件箱") {
+            if (tags[t].firstElementChild.firstElementChild.innerText == "Inbox" || tags[t].firstElementChild.firstElementChild.innerText == "收件箱") {
                  console.log(tags[t].parentNode.parentNode.childElementCount);
              var rr = tags[t].parentNode.parentNode.childElementCount;
              if (rr == "2") {
@@ -564,14 +599,17 @@ function getElementByClassNamey(classnames){//查詢通知鏈接
 
 //--------------------------------2.备用刷新函数
     function testAA() {
-       var tags = document.getElementsByClassName("d2edcug0 hpfvmrgz qv66sw1b c1et5uql rrkovp55 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb mdeji52x jagab5yi g1cxx5fr ekzkrbhg oo9gr5id hzawbc8m");
-                  console.log(tags);
+     //  var tags = document.getElementsByClassName("d2edcug0 hpfvmrgz qv66sw1b c1et5uql rrkovp55 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb mdeji52x jagab5yi g1cxx5fr ekzkrbhg oo9gr5id hzawbc8m");
+     //             console.log(tags);
+       var tags = document.getElementsByClassName("j83agx80 cbu4d94t ew0dbk1b irj2b8pg");
+       var tagsValue = tags[15].firstElementChild.firstElementChild.innerText;
        for(var t=0; t<tags.length;t++){
-          if (tags[t].innerText == "Notifications" || tags[t].innerText == "Notifications") {
+        //  if (tags[t].innerText == "Inbox" || tags[t].innerText == "收件箱") {
+            if (tags[t].firstElementChild.firstElementChild.innerText == "Inbox" || tags[t].firstElementChild.firstElementChild.innerText == "收件箱") {
                  console.log(tags[t].parentNode.parentNode.childElementCount);
              var rr = tags[t].parentNode.parentNode.childElementCount;
              if (rr == "2") {
-                    console.log("进行跳转网页");
+                    console.log("进行跳转网页---");
                  var cod009=window.location.href;
                      cod009=cod009 +"inbox";
                  var vraa009=document.createElement('a');
@@ -580,6 +618,14 @@ function getElementByClassNamey(classnames){//查詢通知鏈接
                     document.body.appendChild(vraa009);
                     vraa009.click();
                 }else{
+                    console.log("进行跳转网页---");
+                 var cod0066=window.location.href;
+                     cod0066=cod0066 +"notifications";
+                 var vraa0066=document.createElement('a');
+                    vraa0066.target='_self';
+                    vraa0066.href=cod0066;
+                    document.body.appendChild(vraa0066);
+                    vraa0066.click();
                  var dianji = document.getElementsByClassName("oajrlxb2 tdjehn4e qu0x051f esr5mh6w e9989ue4 r7d6kgcz rq0escxv nhd2j8a9 j83agx80 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of lzcic4wl l9j0dhe7 abiwlrkh p8dawk7l bp9cbjyn s45kfl79 emlxlaya bkmhp75w spb7xbtv rt8b4zig n8ej3o3l agehan2d sk4xxmp2 taijpn5t qypqp5cg q676j6op");
                             console.log(dianji);
                      dianji[2].click();
@@ -591,7 +637,7 @@ function getElementByClassNamey(classnames){//查詢通知鏈接
                            console.log(dianji3);
                     dianji3[0].click();
                    sleep(500);
-                    console.log("进行关闭网页");
+                    console.log("进行关闭网页---");
                     window.opener = null;//禁止某些浏览器的一些弹窗
                     window.open('','_self');
                     window.close()
