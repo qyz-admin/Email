@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name    FB-20.12.7
+// @name    FB-20.12.9
 // @namespace  http://tampermonkey.net/
-// @version   20.12.7
+// @version   20.12.9
 // @description try to take over the world!
 // @author   You
 // @match    https://www.facebook.com/*
@@ -100,18 +100,20 @@ function yemian(){ //正在加载网页标题内容（二）
   var wxzSearchBarNode = document.createElement('div');
      wxzSearchBarNode.setAttribute('id','header-close');
      wxzSearchBarNode.setAttribute('class','header-wxzbar header-info');
-     wxzSearchBarNode.style = "height: 40px;font-size: 15px;"
+     wxzSearchBarNode.style = "height: 50px;font-size: 15px;width: 24%;"
      wxzSearchBarNode.innerHTML =
-        ' <input class="search-query" autocomplete="off" placeholder="请输入--数值" id="wxz_input" style="text-align: center;width: 80px;">'
-           +' <input type="button" value="通知 GO" class="search-button" id="tz_onputButton" >&nbsp'
-           +' <input type="button" value=" 30 " class="search-button" id="tz_searchButton" >&nbsp'
-           +' <input type="button" value=" 30-60 " class="search-button" id="tz60_searchButton" >&nbsp'
-           +' <input type="button" value=" 60-90 " class="search-button" id="tz90_searchButton" >&nbsp'
-           +' <input type="button" value=" 90以上 " class="search-button" id="tz45_searchButton" >&nbsp&nbsp'
-           +'--- '
-       +' <input type="button" value="消息 GO" class="search-button" id="wxz_searchButton" >&nbsp'
-       +' <input type="button" value=" 40 " class="search-button" id="wxz40_searchButton" >&nbsp'
-       +' <input type="button" value=" 40以上 " class="search-button" id="wxz45_searchButton" >&nbsp'
+           ' <input type="button" value="通知 GO" class="search-button" id="tz_onputButton" title="点击查询-通知数量">&nbsp'
+           +' <input type="button" value="30" class="search-button" id="tz_searchButton" title=" 30-60 ">&nbsp'
+           +' <input type="button" value="60" class="search-button" id="tz60_searchButton" title=" 30-60 ">&nbsp'
+           +' <input type="button" value="90" class="search-button" id="tz90_searchButton" title=" 60-90 ">&nbsp'
+           +' <input type="button" value="120" class="search-button" id="tz120_searchButton" title=" 90-120 ">&nbsp'
+           +' <input type="button" value="150" class="search-button" id="tz150_searchButton" title=" 120-150 ">&nbsp'
+           +' <input type="button" value="150以上" class="search-button" id="tz45_searchButton" title=" 150以上全部打开 ">&nbsp&nbsp'
+       +' <input type="button" value="消息 GO" class="search-button" id="wxz_searchButton" title="点击查询-消息数量">&nbsp'
+       +' <input type="button" value="40" class="search-button" id="wxz40_searchButton" title=" 0-40 ">&nbsp'
+       +' <input type="button" value="80" class="search-button" id="wxz80_searchButton" title=" 40-80 ">&nbsp'
+       +' <input type="button" value="80以上" class="search-button" id="wxz45_searchButton" title=" 80以上全部打开 ">&nbsp'
+           +' <input class="search-query" autocomplete="off" placeholder="数值" id="wxz_input" style="text-align: center;width: 80px;" title="请输入要打开--数值">'
   targNode.appendChild(wxzSearchBarNode);
  //background
           //     +' <input class="search-query" autocomplete="off" placeholder="查詢--通知" id="tz_onput" style="text-align: center;width: 80px;">'
@@ -119,9 +121,9 @@ function yemian(){ //正在加载网页标题内容（二）
       wxzbgNode.setAttribute('class','wxz-bg');
       wxzbgNode.style.display = 'none';
   document.querySelector('body').appendChild(wxzbgNode);
-//-----------------------------------------------------------------------------------------公用函數--------------------------------------------------------------
+//-----------------------------------------------------------------------------------------函數--------------------------------------------------------------
 
-//-------------------------------------------------------------------第一部分
+//-------------------------------------------------------------------第一部分----------------------------------
  document.getElementById("wxz_searchButton").addEventListener("click", function fn() {//读取input数值
         var objArray= new Array();
         var index = 0;
@@ -157,8 +159,8 @@ function yemian(){ //正在加载网页标题内容（二）
       var inputValuee = document.getElementById("wxz40_searchButton").getAttribute("value");
       var inputValueee = document.getElementById("wxz45_searchButton").getAttribute("value");
 if(inputValue == null || inputValue == ""){
-  if(objArray.length<40 && objArray.length>0){
-  for(var j=0; j<objArray.length;j++){
+  if(objArray.length<=40 && objArray.length>0){
+  for(var j=0; j<=objArray.length+1;j++){
    var ev = document.createEvent("MouseEvents");
        ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
     var command=objArray[j];
@@ -174,10 +176,10 @@ if(inputValue == null || inputValue == ""){
       alert("Hello 没有最新消息哦！！！");
      // layer.msg('Hello 没有最新消息哦！！！', {icon: 6});
   }else if(objArray.length>40){
-     alert("数量 : "+objArray.length+" ; 请分别点击 40,； 45，按钮分两次打开页面 ");
+     alert("数量 : "+objArray.length+" ; 请分别点击 40,； 80,； 120,；按钮分三次打开页面 ");
   };
 }else{
-  for(var ij=0; ij<inputValue;ij++){
+  for(var ij=0; ij<=inputValue;ij++){
             var ev2 = document.createEvent("MouseEvents");
                 ev2.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
             var command0=objArray[ij];
@@ -192,57 +194,7 @@ if(inputValue == null || inputValue == ""){
      };
 },false);
  //---------------------------------------------------------------------------------------------------------------------------------------------------------
-  document.getElementById("wxz45_searchButton").addEventListener("click", function fn() {//大于45直接打开页面
-        var objArray= new Array();
-        var index = 0;
- function getElementByClassName(classnames){//查詢信息鏈接
-        var tags = document.getElementsByClassName(classnames);
-            console.log(tags.length);
-        var tip = "";
-    for(var i=0; i<tags.length;i++){
-        var tags2 = tags[i].parentNode.getAttribute("class");
-        if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
-           var dd = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.lastElementChild.firstElementChild.firstElementChild.lastElementChild.childElementCount;
-           if(dd == 1 ){
-               objArray[index] = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.lastElementChild.href;
-               index++;
-           }else{
-               console.log(99);
-           }
-        }
-   }
-       return objArray;
-};
-  console.log(getElementByClassName("qjjbsfad j83agx80"));
-        function sleep(n) {//計時函數
-    var start=new Date().getTime();
-    while (true) {
-      var time=new Date().getTime();
-      if(time - start>n) {
-        break;
-      }
-    }
-  };
-     // var inputValueee = document.getElementById("wxz45_searchButton").getAttribute("value");
-if(objArray.length>40){
-   //  if(inputValueee > 40){
-      for(var n=40; n<objArray.length+1;n++){
-         var ev = document.createEvent("MouseEvents");
-             ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
-        var conmand=objArray[n];
-        var vraa=document.createElement('a');
-        vraa.target='_blank';
-        vraa.href=conmand;
-        document.body.appendChild(vraa);
-      //  vraa.click();
-          vraa.dispatchEvent(ev);
-        sleep(100);
-        }
-      }
-  // }
- },false);
- //---------------------------------------------------------------------------------------------------------------------------------------------------------
-     document.getElementById("wxz40_searchButton").addEventListener("click", function fn() {//等于40-直接打开页面
+document.getElementById("wxz40_searchButton").addEventListener("click", function fn() {//等于40-直接打开页面
         var objArray= new Array();
         var index = 0;
  function getElementByClassName(classnames){//查詢信息鏈接
@@ -275,8 +227,7 @@ if(objArray.length>40){
   };
     //  var inputValuee = document.getElementById("wxz40_searchButton").getAttribute("value");
  if(objArray.length>40){
-    //  if(inputValuee < 41) {
-       for(var m=0; m<41;m++){
+       for(var m=0; m<=41;m++){
        var ev = document.createEvent("MouseEvents");
            ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
        var comand=objArray[m];
@@ -288,14 +239,125 @@ if(objArray.length>40){
           vraaa.dispatchEvent(ev);
        sleep(100);
            }
-         }
-    //   }
-     },false);
- //-------------------------------------------------------------------------------------第一部分-------------------------------------------------------------------
-
-
+    }
+},false);
+ //----------------------------------------------------------------------第一部分（公用函数）----------------------------------------------------------------------------------
+ function tem_wx(key,count){
+        var objArray= new Array();
+        var index = 0;
+ function getElementByClassName(classnames){//查詢信息鏈接
+        var tags = document.getElementsByClassName(classnames);
+            console.log(tags.length);
+        var tip = "";
+    for(var i=0; i<tags.length;i++){
+        var tags2 = tags[i].parentNode.getAttribute("class");
+        if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
+           var dd = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.lastElementChild.firstElementChild.firstElementChild.lastElementChild.childElementCount;
+           if(dd == 1 ){
+               objArray[index] = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.lastElementChild.href;
+               index++;
+           }else{
+               console.log(99);
+           }
+        }
+   }
+       return objArray;
+};
+  console.log(getElementByClassName("qjjbsfad j83agx80"));
+ function sleep(n) {//計時函數
+    var start=new Date().getTime();
+    while (true) {
+      var time=new Date().getTime();
+      if(time - start>n) {
+        break;
+      }
+    }
+  };
+    //  var inputValuee = document.getElementById("wxz40_searchButton").getAttribute("value");
+if(objArray.length > key && objArray.length<=count){//通知信息打開
+   for(var m2=key; m2<=objArray.length;m2++){
+       var ev2 = document.createEvent("MouseEvents");
+           ev2.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
+       var comand2=objArray[m2];
+       var vraaa2=document.createElement('a');
+           vraaa2.target='_blank';
+           vraaa2.href=comand2;
+        document.body.appendChild(vraaa2);
+      //  vraaa.click();
+          vraaa.dispatchEvent(ev2);
+       sleep(100);
+   }
+}else if(objArray.length>count){
+   for(var m=key; m<=count;m++){
+       var ev = document.createEvent("MouseEvents");
+           ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
+       var comand=objArray[m];
+       var vraaa=document.createElement('a');
+           vraaa.target='_blank';
+           vraaa.href=comand;
+        document.body.appendChild(vraaa);
+      //  vraaa.click();
+          vraaa.dispatchEvent(ev);
+       sleep(100);
+     }
+   }
+};
+//-----------------------------------------------------------------------------------------------------
+document.getElementById("wxz80_searchButton").addEventListener("click", function fn() {//等于80-直接打开页面
+     tem_wx(40,80)
+},false);
  //---------------------------------------------------------------------------------------------------------------------------------------------------------
+  document.getElementById("wxz45_searchButton").addEventListener("click", function fn() {//大于80直接打开页面
+        var objArray= new Array();
+        var index = 0;
+ function getElementByClassName(classnames){//查詢信息鏈接
+        var tags = document.getElementsByClassName(classnames);
+            console.log(tags.length);
+        var tip = "";
+    for(var i=0; i<tags.length;i++){
+        var tags2 = tags[i].parentNode.getAttribute("class");
+        if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
+           var dd = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.lastElementChild.firstElementChild.firstElementChild.lastElementChild.childElementCount;
+           if(dd == 1 ){
+               objArray[index] = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.lastElementChild.href;
+               index++;
+           }else{
+               console.log(99);
+           }
+        }
+   }
+       return objArray;
+};
+  console.log(getElementByClassName("qjjbsfad j83agx80"));
+        function sleep(n) {//計時函數
+    var start=new Date().getTime();
+    while (true) {
+      var time=new Date().getTime();
+      if(time - start>n) {
+        break;
+      }
+    }
+  };
+     // var inputValueee = document.getElementById("wxz45_searchButton").getAttribute("value");
+if(objArray.length>80){
+   //  if(inputValueee > 40){
+      for(var n=80; n<=objArray.length+1;n++){
+         var ev = document.createEvent("MouseEvents");
+             ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
+        var conmand=objArray[n];
+        var vraa=document.createElement('a');
+        vraa.target='_blank';
+        vraa.href=conmand;
+        document.body.appendChild(vraa);
+      //  vraa.click();
+          vraa.dispatchEvent(ev);
+        sleep(100);
+        }
+      }
+  // }
+ },false);
 
+ //-------------------------------------------------------------------------------------第一部分结束-------------------------------------------------------------------
 
  //-------------------------------------------------------------------------------------第二部分--------------------------------------------------------------------
      document.getElementById("tz_onputButton").addEventListener("click", function fn() {//读取onput数值
@@ -331,8 +393,8 @@ if(objArray.length>40){
   };
      var inputValue = document.getElementById("wxz_input").value;
 if(inputValue == null || inputValue == ""){
-    if(objArrayy.length<30 && objArrayy.length>0){
-      for(var jj=0; jj<objArrayy.length;jj++){
+    if(objArrayy.length<=30 && objArrayy.length>0){
+      for(var jj=0; jj<=objArrayy.length+1;jj++){
         var ev = document.createEvent("MouseEvents");
             ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
          var commandj=objArrayy[jj];
@@ -351,7 +413,7 @@ if(inputValue == null || inputValue == ""){
 }else{
    // var ev = document.createEvent("MouseEvents");
    //     ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
-  for(var ij=0; ij<inputValue;ij++){
+  for(var ij=0; ij<=inputValue;ij++){
            var ev2 = document.createEvent("MouseEvents");
                ev2.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
             var command0=objArrayy[ij];
@@ -397,7 +459,7 @@ function getElementByClassNamey(classnames){//查詢通知鏈接
       }
     }
   };
-  for(var j=0; j<30;j++){
+   for(var j=0; j<=30;j++){//通知信息30打開
    var ev = document.createEvent("MouseEvents");
        ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
     var command=objArrayy[j];
@@ -410,53 +472,8 @@ function getElementByClassNamey(classnames){//查詢通知鏈接
     sleep(100);
   }
 },false);
- //---------------------------------------------------------------------------------------------------------------------------------------------------------
-  document.getElementById("tz60_searchButton").addEventListener("click", function fn() {//通知信息30-60打開
-        var objArrayy= new Array();
-        var indexyy = 0;
-function getElementByClassNamey(classnames){//查詢通知鏈接
-        var tags = document.getElementsByClassName(classnames);
-            console.log(tags.length);
-        var tip = "";
-    for(var i=0; i<tags.length;i++){
-        var tags2 = tags[i].parentNode.getAttribute("class");
-        if (tags2 == "ki4skjgs p0x8y401 m7u2wfa4") {
-           var dd = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.firstElementChild.firstElementChild.firstElementChild.lastElementChild.childElementCount;
-           if(dd == 1 ){
-               objArrayy[indexyy] = tags[i].firstElementChild.firstElementChild.firstElementChild.lastElementChild.firstElementChild.href.replace(/\/notifications\//,"/");
-               indexyy++;
-           }else{
-               console.log(99);
-           }
-        }
-   }
-       return objArrayy;
-};
-  console.log(getElementByClassNamey("qjjbsfad j83agx80"));
- function sleep(n) {//計時函數
-    var start=new Date().getTime();
-    while (true) {
-      var time=new Date().getTime();
-      if(time - start>n) {
-        break;
-      }
-    }
-  };
-  for(var j=30; j<60;j++){
-   var ev = document.createEvent("MouseEvents");
-       ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
-    var command=objArrayy[j];
-    var vra=document.createElement('a');
-    vra.target='_blank';
-    vra.href=command;
-    document.body.appendChild(vra);
-   // vra.click();
-      vra.dispatchEvent(ev);
-    sleep(100);
-  }
-},false);
- //---------------------------------------------------------------------------------------------------------------------------------------------------------
-  document.getElementById("tz90_searchButton").addEventListener("click", function fn() {//通知信息60-90打開
+ //--------------------------------------------------------------------------------(第二部分公用函数)-------------------------------------------------------------------------
+function tem(key,count){
         var objArrayy= new Array();
         var indexyy = 0;
 function getElementByClassNamey(classnames){//查詢通知鏈接
@@ -487,21 +504,54 @@ function getElementByClassNamey(classnames){//查詢通知鏈接
       }
     }
   };
-  for(var j=60; j<90;j++){
+if(objArrayy.length > key && objArrayy.length<=count){//通知信息打開
+  for(var j2=key; j2<=objArrayy.length;j2++){
+   var ev2 = document.createEvent("MouseEvents");
+       ev2.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
+    var command2=objArrayy[j2];
+    var vra2=document.createElement('a');
+        vra2.target='_blank';
+        vra2.href=command2;
+    document.body.appendChild(vra2);
+    //vra.click();
+      vra2.dispatchEvent(ev2);
+    sleep(100);
+  }
+}else if(objArrayy.length > count){
+ for(var j=key; j<=count;j++){
    var ev = document.createEvent("MouseEvents");
        ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
     var command=objArrayy[j];
     var vra=document.createElement('a');
-    vra.target='_blank';
-    vra.href=command;
+        vra.target='_blank';
+        vra.href=command;
     document.body.appendChild(vra);
     //vra.click();
       vra.dispatchEvent(ev);
     sleep(100);
-  }
+   }
+ }else{
+     alert("数量不满足打开需要 ; 请点击 通知 查询数量 ");
+ }
+};
+ //---------------------------------------------------------------------------------------------------------------------------------------------------------
+ document.getElementById("tz60_searchButton").addEventListener("click", function fn() {//通知信息30-60打開
+        tem(30, 60);
 },false);
  //---------------------------------------------------------------------------------------------------------------------------------------------------------
-  document.getElementById("tz45_searchButton").addEventListener("click", function fn() {//通知信息90以上打開
+  document.getElementById("tz90_searchButton").addEventListener("click", function fn() {//通知信息60-90打開
+      tem(60, 90);
+},false);
+ //---------------------------------------------------------------------------------------------------------------------------------------------------------
+  document.getElementById("tz120_searchButton").addEventListener("click", function fn() {//通知信息90-120打開
+     tem(90, 120);
+},false);
+ //---------------------------------------------------------------------------------------------------------------------------------------------------------
+  document.getElementById("tz150_searchButton").addEventListener("click", function fn() {//通知信息120-150打開
+     tem(120, 150);
+},false);
+ //---------------------------------------------------------------------------------------------------------------------------------------------------------
+  document.getElementById("tz45_searchButton").addEventListener("click", function fn() {//通知信息150以上打開
         var objArrayy= new Array();
         var indexyy = 0;
 function getElementByClassNamey(classnames){//查詢通知鏈接
@@ -532,7 +582,7 @@ function getElementByClassNamey(classnames){//查詢通知鏈接
       }
     }
   };
-  for(var j=90; j<objArrayy.length;j++){
+  for(var j=150; j<=objArrayy.length+1;j++){
    var ev = document.createEvent("MouseEvents");
        ev.initMouseEvent("click", true, true, window, 1, 959, 262, 663, 158, true, false, false, false, 0, null); //点击事件参数设置 vra0.dispatchEvent(ev);
     var command=objArrayy[j];
@@ -547,7 +597,10 @@ function getElementByClassNamey(classnames){//查詢通知鏈接
 },false);
 
 };//------页面自动刷新设置-----
+
+
  //------------------------------------------------------------------------------------第三部分------页面刷新---------------------------------------------------------------
+
 
    //window.onload = function(){testTab();};
   //window.onload = function(){testTab();};
@@ -626,6 +679,7 @@ function getElementByClassNamey(classnames){//查詢通知鏈接
                     vraa0066.href=cod0066;
                     document.body.appendChild(vraa0066);
                     vraa0066.click();
+
                  var dianji = document.getElementsByClassName("oajrlxb2 tdjehn4e qu0x051f esr5mh6w e9989ue4 r7d6kgcz rq0escxv nhd2j8a9 j83agx80 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of lzcic4wl l9j0dhe7 abiwlrkh p8dawk7l bp9cbjyn s45kfl79 emlxlaya bkmhp75w spb7xbtv rt8b4zig n8ej3o3l agehan2d sk4xxmp2 taijpn5t qypqp5cg q676j6op");
                             console.log(dianji);
                      dianji[2].click();
@@ -637,6 +691,7 @@ function getElementByClassNamey(classnames){//查詢通知鏈接
                            console.log(dianji3);
                     dianji3[0].click();
                    sleep(500);
+
                     console.log("进行关闭网页---");
                     window.opener = null;//禁止某些浏览器的一些弹窗
                     window.open('','_self');
