@@ -113,7 +113,7 @@ function yemian(){ //正在加载网页标题内容（二）
        +' <input type="button" value="40" class="search-button" id="wxz40_searchButton" title=" 0-40 ">&nbsp'
        +' <input type="button" value="80" class="search-button" id="wxz80_searchButton" title=" 40-80 ">&nbsp'
        +' <input type="button" value="80以上" class="search-button" id="wxz45_searchButton" title=" 80以上全部打开 ">&nbsp'
-           +' <input class="search-query" autocomplete="off" placeholder="数值" id="wxz_input" style="text-align: center;width: 80px;" title="请输入要打开--数值">'
+           +' <input class="search-query" autocomplete="off" placeholder="请输入--" id="wxz_input" style="text-align: center;width: 80px;" title="请输入要打开--数值">'
   targNode.appendChild(wxzSearchBarNode);
  //background
           //     +' <input class="search-query" autocomplete="off" placeholder="查詢--通知" id="tz_onput" style="text-align: center;width: 80px;">'
