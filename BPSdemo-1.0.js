@@ -109,7 +109,7 @@ function showw(){
         xhr.send(strHtml);
 };
 //------------------------------------------------------------------------------------退货-------------------------------------------------------------------------
-function showw(){
+function tuihuoT(){
        var xhr;
        var strHtml ="_user=1343&_token="+ getCookie("token") +  formVal();
 
@@ -168,7 +168,7 @@ function showw(){
         xhr.send(strHtml);
 };
 //------------------------------------------------------------------------------------换货-------------------------------------------------------------------------
-function showw(){
+function huanhuoT(){
        var xhr;
        var strHtml ="_user=1343&_token="+ getCookie("token") +  formVal();
 
@@ -226,7 +226,7 @@ function showw(){
         xhr.send(strHtml);
 };
 //------------------------------------------------------------------------------------补发-------------------------------------------------------------------------
-function showw(){
+function bufaT(){
        var xhr;
        var strHtml ="_user=1343&_token="+ getCookie("token") +  formVal();
 
