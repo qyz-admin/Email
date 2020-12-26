@@ -308,7 +308,7 @@ function product(mp3Val){
 
 
 
-
+/*
 document.addEventListener("visibilitychange", function () {
     if (document.visibilityState == "hidden") {
         normal_title = document.title;
@@ -320,3 +320,4 @@ document.addEventListener("visibilitychange", function () {
         })
     }
 })
+*/
