@@ -672,7 +672,8 @@ function hh_product(mp3Val){
 	    	                                  +listVal.shipInfo.shipName+'</td><td>'
 	                                          +listVal.shipInfo.shipPhone+'</td><td>'
 	                                          +specReason(chanlist)+"</td><td>"
-	    	          + "客戶要求換貨；派送新貨的同時；需要把原貨收回；（需要收回的原貨運單號 "+listVal.wayBillNumber+" ）(原訂單編號：" +listVal.orderNumber+" )"  +"</td><td>"
+	    	                        + "客戶要求換貨；派送新貨的同時；需要把原貨收回；（需要收回的原貨運單號 "+listVal.wayBillNumber+" ）(原訂單編號：" +listVal.orderNumber+" )" 
+				                  +'</td><td width="150">'
 	    	                                  +listVal.shipInfo.shipAddress+"</td><td>"
 	    	                                  +listVal.wayBillNumber+"</td><td>"
 	    	    				  +saleReason(chanlist)+"</td><td>"
