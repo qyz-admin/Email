@@ -156,7 +156,7 @@ function tuihuoT(){
               //  console.log(mp3.data.list);
               //  console.log(mp3.data.list[0]);
           var mp3Val = mp3.data.list;
-                product(mp3Val);
+                th_product(mp3Val);
 	 var form = document.getElementsByClassName("form-control input-inline input-medium")[0];
          var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2];
              form.value ="";
@@ -212,7 +212,7 @@ function huanhuoT(){
               //  console.log(mp3.data.list);
               //  console.log(mp3.data.list[0]);
           var mp3Val = mp3.data.list;
-                product(mp3Val);
+                hh_product(mp3Val);
 	 var form = document.getElementsByClassName("form-control input-inline input-medium")[0];
          var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2];
              form.value ="";
@@ -262,7 +262,7 @@ function bufaT(){
               //  console.log(mp3.data.list);
               //  console.log(mp3.data.list[0]);
           var mp3Val = mp3.data.list;
-                product(mp3Val);
+                bf_product(mp3Val);
 	 var form = document.getElementsByClassName("form-control input-inline input-medium")[0];
          var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2];
              form.value ="";
