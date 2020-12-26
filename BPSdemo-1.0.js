@@ -171,7 +171,6 @@ function tuihuoT(){
 function huanhuoT(){
        var xhr;
        var strHtml ="_user=1343&_token="+ getCookie("token") +  formVal();
-
       // var strHtml ="_user=1343&_token=50b94b8a7357a458668946983d37ae40&" + "orderPrefix=" + form;
       // var strHtml ="orderPrefix=NR007311326091024&_user=1343&_token=50b94b8a7357a458668946983d37ae40";
        var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";
@@ -525,6 +524,17 @@ function th_product(mp3Val){
               } while (index != -1);
               return shuliang
             };
+       var dd = document.getElementById("djr").value;
+       var djTime = new Date().toLocaleString() + ' 星期'+'日一二三四五六'.charAt(new Date().getDay());
+       var thhNode_val = document.getElementById("tigong").value;
+           if(thhNode_val == "運費0"){
+                 thhNode_val ="";
+             }else if(thhNode_val == "運費一半"){
+                    thhNode_val ="";
+             } else {
+                   thhNode_val = thhNode_val;
+            };
+	var thvalue = document.getElementById("thvalue").value;
                            tableValue +="<tr><td></td><td>"         
 				             +listVal.orderNumber+"</td><td>"
 	    				     +saleReason(chanlist)+"</td><td>"
@@ -535,7 +545,7 @@ function th_product(mp3Val){
 	                                     +listVal.shipInfo.shipAddress+"</td><td>"
 	                                     +jishu(jishuliang)+"</td><td>"
 	                                     +listVal.wayBillNumber+"</td><td>"
-	                                     +"</td><td>"
+	                                     +thvalue+"</td><td>"
 	                                     +"</td><td>"
 	                                     +listVal.shipInfo.shipName+"</td><td>"
 	                                     +"</td><td>"
@@ -543,11 +553,11 @@ function th_product(mp3Val){
 	                                     +listVal.amount+"</td><td>"
 				             +listVal.addTime+"</td><td>"
 	                                     +listVal.logisticsName+"</td><td>"
-	                                     +"</td><td>"
+	                                     +dd+"</td><td>"
 				             +listVal.befrom+"</td><td>"
 	                                     +listVal.payType+"</td><td>"
-	  	                             +"</td><td>"  
-	    	                             +"</td><td>"
+	  	                             +djTime+"</td><td>"  
+	    	                             +thhNode_val+"</td><td>"
 	    	                             +listVal.collId+"</td><td>"
           console.log(listVal.addTime);
           console.log(listVal.amount);
@@ -692,6 +702,17 @@ function hh_product(mp3Val){
               } while (index != -1);
               return shuliang
             };
+       var dd = document.getElementById("djr").value;
+       var djTime = new Date().toLocaleString() + ' 星期'+'日一二三四五六'.charAt(new Date().getDay());
+       var thhNode_val = document.getElementById("tigong").value;
+           if(thhNode_val == "運費0"){
+                 thhNode_val ="";
+             }else if(thhNode_val == "運費一半"){
+                    thhNode_val ="";
+             } else {
+                   thhNode_val = thhNode_val;
+            };
+	var hh_val = document.getElementById("hhvalue").value;
                            tableValue +='<tr><td width="80&">'+saleReason(chanlist)+'</td><td>'
 	    	                                  +listVal.shipInfo.shipName+'</td><td>'
 	                                          +listVal.shipInfo.shipPhone+'</td><td>'
@@ -702,17 +723,17 @@ function hh_product(mp3Val){
 	    	                                  +listVal.wayBillNumber+"</td><td>"
 	    	    				  +saleReason(chanlist)+"</td><td>"
 	    	                                  +specReason(chanlist)+"</td><td>"
-	                                          +"</td><td>"
+	                                          +hh_val+"</td><td>"
 	                                          +"</td><td>"
 	    	                                  +"</td><td>"
 	                                          +jishu(jishuliang)+"</td><td>"
-	                                          +"</td><td>"
+	                                          +saleReason(chanlist).split("#")[1]+"</td><td>"
 	    	                                  +listVal.logisticsName+"</td><td>"
-	                                          +"</td><td>"
+	                                          +dd+"</td><td>"
 				                  +listVal.befrom+"</td><td>"
 	    				          + "換貨原單號：" +listVal.orderNumber+ "來回件"+"</td><td>"
-	    	                                  +"</td><td>"
-	                                          +"</td><td>"
+	    	                                  +djTime+"</td><td>"
+	                                          +thhNode_val+"</td><td>"
 	    	    	                          +listVal.collId+"</td><td>"
           console.log(listVal.addTime);
           console.log(listVal.amount);
@@ -857,6 +878,16 @@ function bf_product(mp3Val){
               } while (index != -1);
               return shuliang
             };
+       var dd = document.getElementById("djr").value;
+       var djTime = new Date().toLocaleString() + ' 星期'+'日一二三四五六'.charAt(new Date().getDay());
+       var thhNode_val = document.getElementById("tigong").value;
+           if(thhNode_val == "運費0"){
+                 thhNode_val ="";
+             }else if(thhNode_val == "運費一半"){
+                    thhNode_val ="";
+             } else {
+                   thhNode_val = thhNode_val;
+            };
                            tableValue +="<tr><td>"+saleReason(chanlist)+"</td><td>"
 	    	                                  +listVal.shipInfo.shipName+"</td><td>"
 	                                          +listVal.shipInfo.shipPhone+"</td><td>"
@@ -866,11 +897,11 @@ function bf_product(mp3Val){
 	    	                                  +"</td><td>"
 	                                          +"</td><td>"
 	    	                                  +jishu(jishuliang)+"</td><td>"
-	                                          +"</td><td>"
-	    	                                  +"</td><td>"
+	                                          +saleReason(chanlist).split("#")[1]+"</td><td>"
+	    	                                  +dd+"</td><td>"
 	    	                                  + "補發原單號："+listVal.orderNumber+"</td><td>"
-	    	                                  +"</td><td>"
-	    	                                  +"</td><td>"
+	    	                                  +djTime+"</td><td>"
+	    	                                  +thhNode_val+"</td><td>"
 	    	    	                          +listVal.collId+"</td><td>"
           console.log(listVal.addTime);
           console.log(listVal.amount);
