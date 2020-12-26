@@ -1,9 +1,10 @@
-﻿// ==UserScript==
-// @name         BPS-2.02
+// ==UserScript==
+// @name         BPS-2.2
 // @namespace    http://tampermonkey.net/
-// @version      2.02
+// @version      2.2
 // @description  try to take over the world!
 // @author       qyz
+// @exclude      http://gsso.giikin.com/admin/index/index.html?system=31
 // @match        http://gimp.giikin.com/front/orderToolsServiceQuery
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
 // @require      https://libs.baidu.com/jquery/1.9.0/jquery.js
@@ -13,11 +14,24 @@
 // @grant        GM_xmlhttpRequest
 // @grant        GM_download
 // @connect      *
+// @noframes    此标记使脚本在主页面上运行，但不会在iframe上运行。
 // @run-at document-end
 // ==/UserScript==https://13.229.176.203/static/admin/js/tabs.js  // @grant        none Tampermonkey
 // ==/UserScript==
 
-(function() {
+(function nv() {
+    var nv_val = document.getElementById("tab_iframe_客服查询");//換貨原因
+        console.log(nv_val);
+   // if (nv_val==0){
+     //   console.log("即将停止运行中哦");
+     //  return false;//方法停止
+   // }else{
+    //console.log("正在运行中哦");
+    //}
+   // var hrefd = window.location;
+   // if (hrefd=="http://gsso.giikin.com/admin/index/index.html?system=31"){
+   //    return false;//方法停止
+  //  }
     'use strict';
     var tittle = document.getElementsByTagName("title");
         tittle[0].innerText="天眼系统-L-admin0.0";
@@ -27,6 +41,7 @@
         document.querySelector('head').appendChild(linkNode);
     var xxbdemo1= document.getElementsByTagName("body")[0];
         xxbdemo1.innerHTML ="";
+
 //--------------------------------------------------------获取token取值-----------------------------------------------------------------------------------------
       var xhr_urlll = "http://gsso.giikin.com/admin/login/index.html?_system=18&_url=http://gimp.giikin.com/admin/index/home.html"
       GM_xmlhttpRequest({
@@ -64,7 +79,10 @@
         scriptNode.setAttribute('type','text/javascript');
         scriptNode.setAttribute('src',' https://gsso.giikin.com/static/admin/js/tabs.js');
        document.querySelector('body').appendChild(scriptNode);
-
+   var demoBPS = document.createElement('script');//demoBPS加載js
+     demoBPS.setAttribute('type','text/javascript');
+      demoBPS.setAttribute('src','https://qyz-admin.github.io/Email/BPSdemo-1.0.js');
+    document.querySelector('body').appendChild(demoBPS);
 //--------------------------------------------------分割線-----------------------------------------------------------
    // fun_nav();
    window.onload = function fun_nav() {//导航加载
@@ -123,7 +141,7 @@
 +'<script src="https://gsso.giikin.com/static/admin/js/layout.min.js" type="text/javascript"></script>'
 +'<script src="https://gsso.giikin.com/static/admin/js/demo.min.js" type="text/javascript"></script>'
 +'<script src="https://gsso.giikin.com/static/admin/js/quick-sidebar.min.js" type="text/javascript"></script>'
-+'<script src="https://qyz-admin.github.io/Email/demoBPS-1.0.js" type="text/javascript"></script>';
++'<script src="https://qyz-admin.github.io/Email/BPSdemo-1.0.js" type="text/javascript"></script>';
 
     var xxbdemo1= document.getElementsByTagName("body")[0];
     var xxbNode2 = document.createElement('div');
@@ -148,22 +166,27 @@
                 +'<!-- END PAGE BAR -->'
                 +'<!-- START ROW-->'
                 +'<div class="row">'
+                  +'<div class="container" style="width: 100%;height: 45px;background-color: #111;border-bottom: 1px solid rgba(0, 0, 0, 0.8);">'
+                  +'<div class="logo"><a href="index.html" style="float: left; color: #fff; font-size: 18px;padding-left: 20px;line-height: 50px;width: 200px;transition: background-color ease .3s;">L-admin v2.0</a></div>'
+                  +'<div class="left_open" style="float: left;height: 55px;"><i title="展开左侧栏" class="iconfont"></i></div>'
+                     +'<span style="display:inline-block;width: 50%;margin-left: 28%;margin-top: 10px;color:#fff;"><marquee behavior="scroll" direction="left" scrollamount="3" id="notice">'
+                            +'古人云：这人间袅袅炊烟 和风花雪月浪漫 痴情人多半贪恋 爱恨情仇都好看  又让你痛不欲生 又让你趁醉装疯 终有天脱胎换骨 直到哭着笑才懂 欲问青天这人生有几何  怕这去日苦多 往事讨一杯相思喝 '
+                            +'倘若这回还像曾经执着 心执念你一个 那我可能是多情了  浊酒一杯余生不悲不喜 何惧爱恨别离 一路纵马去斟酌 一曲相思入江水与山河 在油伞下走过 悠然入梦却恍若昨。</marquee></span>'
+                  +'</div>'
                     +'<div class="col-md-12">'
                         +'<div class="portlet box green">'
-                            +'<div class="portlet-title">'
+                            +'<div class="portlet-title" style="margin-top: 0px">'
                                   +'<div class="caption">'
                                        +'<i class="fa icon-settings"></i>客服查询'
                                   +'</div>'
                                   +'<div class="actions">'
                                               +'<select name="djr" id= "djr" style="height: 30px;">'
                                                    +'<option value="0">---登记人---</option>'
-					                               +'<option value="齊元章">齊元章</option>'
 					                               +'<option value="楊嘉儀">楊嘉儀</option>'
                                                    +'<option value="徐文建">徐文建</option>'
                                                    +'<option value="李若蘭">李若蘭</option>'
                                                    +'<option value="曹  可">曹  可</option>'
                                                    +'<option value="曲開拓">曲開拓</option>'
-                                                   +'<option value="李亞芳">李亞芳</option>'
                                                    +'<option value="袁焕欣">袁焕欣</option>'
                                                    +'<option value="杨  昊">杨  昊</option>'
                                                    +'<option value="客诉件">客诉件</option>'
@@ -221,20 +244,24 @@
                                                 +'<input type="text" class="form-control input-inline input-medium" name="order_number" placeholder="请输入订单号"> '
                                                 +' <input disabled="disabled" type="text" class="form-control input-inline input-medium" name="phone" placeholder="请输入电话号码"> '
                                                 +' <input type="text" class="form-control input-inline input-medium" name="waybill_number" placeholder="请输入物流单号"> '
-                                                +' <input  disabled="disabled" type="text" class="form-control input-inline input-small" name="ip" placeholder="请输入IP"> '
+                                                 +' <input  disabled="disabled" type="text" class="form-control input-inline input-small" name="ip" placeholder="请输入IP"> '
                                                 +' <button type="button" class="btn green" onclick="show()">查询</button>&nbsp'
-                         +'<button type="button" class="btn green" onclick="showw()">查询00</button>&nbsp&nbsp&nbsp&nbsp'
-                                              +'<button type="button" class="btn yellow-gold " onclick="tuohuo()">退货</button>&nbsp'
-                                      +'<button type="button" class="btn yellow-gold " onclick="huanhuo()">换货</button>&nbsp'
-                                      +'<button type="button" class="btn yellow-gold " onclick="bufa()">补发</button>&nbsp'
-                                      +'<button type="button" class="tool-action btn yellow " onclick="fuzhi()">点击复制</button>&nbsp&nbsp'
-                                      +'<button type="button" class="tool-action btn yellow " onclick="daochu()">导出</button>&nbsp&nbsp'
-                                      +'<button type="button" class="tool-action btn yellow " onclick="daochu1()">导出备用</button>&nbsp&nbsp'
+                       //   +'<button type="button" class="btn green" onclick="showw()">查询2</button>&nbsp&nbsp&nbsp&nbsp'
+                                            //  +'<button type="button" class="btn yellow-gold " onclick="tuohuo()">退货2</button>&nbsp'
+                          +'<button type="button" class="btn yellow-gold " onclick="tuihuoT()">退货</button>&nbsp'
+                                   //   +'<button type="button" class="btn yellow-gold " onclick="huanhuo()">换货2</button>&nbsp'
+                          +'<button type="button" class="btn yellow-gold " onclick="huanhuoT()">换货</button>&nbsp'
+                                   //   +'<button type="button" class="btn yellow-gold " onclick="bufa()">补发2</button>&nbsp'
+                          +'<button type="button" class="btn yellow-gold " onclick="bufaT()">补发</button>&nbsp'
+                                  //    +'<button type="button" class="tool-action btn yellow " onclick="fuzhi()">点击复制2</button>&nbsp&nbsp'
+                          +'<button type="button" class="tool-action btn yellow " onclick="fuzhii()">点击复制</button>&nbsp&nbsp'
+                                    //  +'<button type="button" class="tool-action btn yellow " onclick="daochu()">导出备用2</button>&nbsp&nbsp'
+                                      +'<button type="button" class="tool-action btn yellow " onclick="daochu1()">导出</button>&nbsp&nbsp'
                                             +'</div>'
                                         +'</form>'
                                     +'</div>'
                                 +'</div>'
-                                +'<table class="table table-striped table-bordered table-hover">'
+                                +'<table class="table table-striped table-bordered table-hover" width="100%" border="1" cellpadding="0" cellspacing="0" style="word-break: break-word;">'
                                     +'<thead>'
                                         +'<tr>'
                                             +'<th> 订单号 </th>'
@@ -309,7 +336,10 @@
           +'xhr.onreadystatechange=function(){\n'
             +'if( xhr.readyState==4 && xhr.status==200){\n'
               +'var hhNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];\n'
-                  +'hhNode.firstChild.innerHTML ="<tr>'
+           // +'var goup = document.createElement("colgroup");'
+     //    +'goup.style = "span="3" width="150";'
+    //     +'goup.insertBefore(showNode.firstChild)'
+                         +'hhNode.firstChild.innerHTML ="<tr>'
                                             +'<th> 订单号 </th>'
                                             +'<th> 订单状态 </th>'
                                             +'<th> 物流单号 </th>'
@@ -345,6 +375,10 @@
                 +'console.log(200);'
       +'var mp3Val = mp3.data.list;'
           +'product(mp3Val);'
+      +'var form = document.getElementsByClassName("form-control input-inline input-medium")[0];'
+      +'var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2];'
+          +'form.value ="";'
+	      +'form2.value ="";'
 +'function product(mp3Val){'
     +'var tableValue="";'
     +'for(var i=0;i<mp3Val.length;i++){'
@@ -502,7 +536,7 @@
        +'console.log(listVal.weight);'
              +'};'
      +'var showNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];'
-         +'showNode.lastElementChild.innerHTML = tableValue\n'
+        +'showNode.lastElementChild.innerHTML = tableValue\n'
            +'};\n'
         +'};\n'
     +'};\n'
@@ -511,19 +545,20 @@
         +'xhr.send(strHtml);\n'
  +'};\n'
    xxbdemo1.appendChild(xxbNode001);
-
 };
 
 
 document.addEventListener("visibilitychange", function () {
     if (document.visibilityState == "hidden") {
-        normal_title = document.title;
+       var normal_title = document.title;
         document.title = "✪北斗BDS：为您开启导航服务"
     } else {
         document.title = "天眼系统";
         setTimeout(function () {
-            document.title = normal_title
-        })
+          // document.title = normal_title
+            document.title = "天眼系统";
+       })
+
     }
 })
 })();
