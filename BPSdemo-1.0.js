@@ -513,6 +513,18 @@ function th_product(mp3Val){
                      }
                      return  this.clone;
                };
+	    var jishuliang = specReason(chanlist);
+	    function jishu(jishuliang){
+                    var shuliang =0
+                    var index = -1; //定义变量index控制索引值;  当查找不到a，即indexOf()的值为-1时，结束循环
+              do {
+                    index = t.indexOf("』x", index + 1); //使用第二个参数index+1，控制每一次查找都是从上一次查找到字符a的下一个索引位置开始
+                 if (index != -1) { //可以找到字符i
+                    shuliang +=  parseInt(t.substr(index+2,2))
+                  }
+              } while (index != -1);
+              return shuliang
+            };
                            tableValue +="<tr><td></td><td>"         
 				             +listVal.orderNumber+"</td><td>"
 	    				     +saleReason(chanlist)+"</td><td>"
@@ -521,7 +533,7 @@ function th_product(mp3Val){
 	                                     +specReason(chanlist)+"</td><td>"
 	                                     +listVal.amount+"</td><td>"
 	                                     +listVal.shipInfo.shipAddress+"</td><td>"
-	                                     +"</td><td>"
+	                                     +jishu(jishuliang)+"</td><td>"
 	                                     +listVal.wayBillNumber+"</td><td>"
 	                                     +"</td><td>"
 	                                     +"</td><td>"
@@ -668,6 +680,18 @@ function hh_product(mp3Val){
                      }
                      return  this.clone;
                };
+	  var jishuliang = specReason(chanlist);
+	    function jishu(jishuliang){
+                    var shuliang =0
+                    var index = -1; //定义变量index控制索引值;  当查找不到a，即indexOf()的值为-1时，结束循环
+              do {
+                    index = t.indexOf("』x", index + 1); //使用第二个参数index+1，控制每一次查找都是从上一次查找到字符a的下一个索引位置开始
+                 if (index != -1) { //可以找到字符i
+                    shuliang +=  parseInt(t.substr(index+2,2))
+                  }
+              } while (index != -1);
+              return shuliang
+            };
                            tableValue +='<tr><td width="80&">'+saleReason(chanlist)+'</td><td>'
 	    	                                  +listVal.shipInfo.shipName+'</td><td>'
 	                                          +listVal.shipInfo.shipPhone+'</td><td>'
@@ -681,7 +705,7 @@ function hh_product(mp3Val){
 	                                          +"</td><td>"
 	                                          +"</td><td>"
 	    	                                  +"</td><td>"
-	                                          +"</td><td>"
+	                                          +jishu(jishuliang)+"</td><td>"
 	                                          +"</td><td>"
 	    	                                  +listVal.logisticsName+"</td><td>"
 	                                          +"</td><td>"
@@ -821,6 +845,18 @@ function bf_product(mp3Val){
                      }
                      return  this.clone;
                };
+	   var jishuliang = specReason(chanlist);
+	    function jishu(jishuliang){
+                    var shuliang =0
+                    var index = -1; //定义变量index控制索引值;  当查找不到a，即indexOf()的值为-1时，结束循环
+              do {
+                    index = t.indexOf("』x", index + 1); //使用第二个参数index+1，控制每一次查找都是从上一次查找到字符a的下一个索引位置开始
+                 if (index != -1) { //可以找到字符i
+                    shuliang +=  parseInt(t.substr(index+2,2))
+                  }
+              } while (index != -1);
+              return shuliang
+            };
                            tableValue +="<tr><td>"+saleReason(chanlist)+"</td><td>"
 	    	                                  +listVal.shipInfo.shipName+"</td><td>"
 	                                          +listVal.shipInfo.shipPhone+"</td><td>"
@@ -829,7 +865,7 @@ function bf_product(mp3Val){
 	    	                                  +listVal.shipInfo.shipAddress+"</td><td>"
 	    	                                  +"</td><td>"
 	                                          +"</td><td>"
-	    	                                  +"</td><td>"
+	    	                                  +jishu(jishuliang)+"</td><td>"
 	                                          +"</td><td>"
 	    	                                  +"</td><td>"
 	    	                                  + "補發原單號："+listVal.orderNumber+"</td><td>"
