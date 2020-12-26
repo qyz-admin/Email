@@ -108,6 +108,181 @@ function showw(){
         xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xhr.send(strHtml);
 };
+//------------------------------------------------------------------------------------退货-------------------------------------------------------------------------
+function showw(){
+       var xhr;
+       var strHtml ="_user=1343&_token="+ getCookie("token") +  formVal();
+
+      // var strHtml ="_user=1343&_token=50b94b8a7357a458668946983d37ae40&" + "orderPrefix=" + form;
+      // var strHtml ="orderPrefix=NR007311326091024&_user=1343&_token=50b94b8a7357a458668946983d37ae40";
+       var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";
+           if( window.XMLHttpRequest ){
+              xhr=new XMLHttpRequest();
+            }else{
+              xhr = new ActiveXObject("Microsoft.XMLHTTP");
+           };
+          xhr.onreadystatechange=function(){
+            if( xhr.readyState==4 && xhr.status==200){
+              var hhNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+                  hhNode.firstChild.innerHTML = "<tr>"
+                                          + "<th> 客代 </th>"
+                                          + "<th> 原订单号 </th>"
+                                          + "<th> 出货单名称 </th>"
+                                          + "<th> 收货人 </th>"
+                                          + "<th> 联系电话 </th>"
+                                          + "<th> 規格 </th>"
+                                          + "<th> 订单金额</th>"
+                                          + "<th> 地址 </th>"
+                                          + "<th> 数量 </th>"
+                                          + "<th> 运单号 </th>"
+                                          + "<th> 原因 </th>"
+                                          + "<th> 备注原因 </th>"
+                                          + "<th> 戶名 </th>"
+                                          + "<th> 银行账号 </th>"
+                                          + "<th> 銀行/分行 </th>"
+                                          + "<th> 退款金额 </th>"
+                                          + "<th> 下单时间 </th>"
+                                          + "<th> 物流渠道 </th>"
+                                          + "<th> 登记人 </th>"
+                                          + "<th> 订单来源 </th>"
+                                          + "<th> 支付方式 </th>"
+                                          + "<th> 时间戳 </th>"
+                                          + "<th> 备注 </th>"
+                                          + "<th> 站点ID </th>"
+                                   + "</tr>";
+                console.log(xhr.responseText);
+          var mp3 = eval("("+ this.responseText +")");
+                console.log(mp3);
+              //  console.log(mp3.data.list);
+              //  console.log(mp3.data.list[0]);
+          var mp3Val = mp3.data.list;
+                product(mp3Val);
+	 var form = document.getElementsByClassName("form-control input-inline input-medium")[0];
+         var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2];
+             form.value ="";
+	     form2.value ="";
+             }
+        }
+        xhr.open("post",xhr_url,true);
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.send(strHtml);
+};
+//------------------------------------------------------------------------------------换货-------------------------------------------------------------------------
+function showw(){
+       var xhr;
+       var strHtml ="_user=1343&_token="+ getCookie("token") +  formVal();
+
+      // var strHtml ="_user=1343&_token=50b94b8a7357a458668946983d37ae40&" + "orderPrefix=" + form;
+      // var strHtml ="orderPrefix=NR007311326091024&_user=1343&_token=50b94b8a7357a458668946983d37ae40";
+       var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";
+           if( window.XMLHttpRequest ){
+              xhr=new XMLHttpRequest();
+            }else{
+              xhr = new ActiveXObject("Microsoft.XMLHTTP");
+           };
+          xhr.onreadystatechange=function(){
+            if( xhr.readyState==4 && xhr.status==200){
+              var hhNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+                  hhNode.firstChild.innerHTML ='<tr>'
+                                            +'<th> 订单号 </th>'
+                                            +'<th> 订单状态 </th>'
+                                            +'<th> 物流单号 </th>'
+                                            +'<th> 来源平台 </th>'
+                                            +'<th> 商品名称 </th>'
+                                            +'<th> 是否二次改派 </th>'
+                                            +'<th> 是否克隆 </th>'
+                                            +'<th> 规格 </th>'
+                                            +'<th> 币种 </th>'
+                                            +'<th> 金额 </th>'
+                                            +'<th> 支付类型 </th>'
+                                            +'<th> 链接地址 </th>'
+                                            +'<th> 下单时间 </th>'
+                                            +'<th> 姓名 </th>'
+                                            +'<th> 电话 </th>'
+                                            +'<th> 重量 </th>'
+                                            +'<th> 物流状态 </th>'
+                                            +'<th> 物流更新时间 </th>'
+                                            +'<th> 物流公司 </th>'
+                                            +'<th> 地址 </th>'
+                                            +'<th> IP </th>'
+                                            +'<th> 站点ID </th>'
+                                            +'<th> 审核方式 </th>'
+                                        +'</tr>'
+                console.log(xhr.responseText);
+          var mp3 = eval("("+ this.responseText +")");
+                console.log(mp3);
+              //  console.log(mp3.data.list);
+              //  console.log(mp3.data.list[0]);
+          var mp3Val = mp3.data.list;
+                product(mp3Val);
+	 var form = document.getElementsByClassName("form-control input-inline input-medium")[0];
+         var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2];
+             form.value ="";
+	     form2.value ="";
+             }
+        }
+        xhr.open("post",xhr_url,true);
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.send(strHtml);
+};
+//------------------------------------------------------------------------------------补发-------------------------------------------------------------------------
+function showw(){
+       var xhr;
+       var strHtml ="_user=1343&_token="+ getCookie("token") +  formVal();
+
+      // var strHtml ="_user=1343&_token=50b94b8a7357a458668946983d37ae40&" + "orderPrefix=" + form;
+      // var strHtml ="orderPrefix=NR007311326091024&_user=1343&_token=50b94b8a7357a458668946983d37ae40";
+       var xhr_url = "http://gimp.giikin.com/service?service=gorder.customer&action=getQueryOrder";
+           if( window.XMLHttpRequest ){
+              xhr=new XMLHttpRequest();
+            }else{
+              xhr = new ActiveXObject("Microsoft.XMLHTTP");
+           };
+          xhr.onreadystatechange=function(){
+            if( xhr.readyState==4 && xhr.status==200){
+              var hhNode = document.getElementsByClassName("table table-striped table-bordered table-hover")[0];
+                  hhNode.firstChild.innerHTML ='<tr>'
+                                            +'<th> 订单号 </th>'
+                                            +'<th> 订单状态 </th>'
+                                            +'<th> 物流单号 </th>'
+                                            +'<th> 来源平台 </th>'
+                                            +'<th> 商品名称 </th>'
+                                            +'<th> 是否二次改派 </th>'
+                                            +'<th> 是否克隆 </th>'
+                                            +'<th> 规格 </th>'
+                                            +'<th> 币种 </th>'
+                                            +'<th> 金额 </th>'
+                                            +'<th> 支付类型 </th>'
+                                            +'<th> 链接地址 </th>'
+                                            +'<th> 下单时间 </th>'
+                                            +'<th> 姓名 </th>'
+                                            +'<th> 电话 </th>'
+                                            +'<th> 重量 </th>'
+                                            +'<th> 物流状态 </th>'
+                                            +'<th> 物流更新时间 </th>'
+                                            +'<th> 物流公司 </th>'
+                                            +'<th> 地址 </th>'
+                                            +'<th> IP </th>'
+                                            +'<th> 站点ID </th>'
+                                            +'<th> 审核方式 </th>'
+                                        +'</tr>'
+                console.log(xhr.responseText);
+          var mp3 = eval("("+ this.responseText +")");
+                console.log(mp3);
+              //  console.log(mp3.data.list);
+              //  console.log(mp3.data.list[0]);
+          var mp3Val = mp3.data.list;
+                product(mp3Val);
+	 var form = document.getElementsByClassName("form-control input-inline input-medium")[0];
+         var form2 = document.getElementsByClassName("form-control input-inline input-medium")[2];
+             form.value ="";
+	     form2.value ="";
+             }
+        }
+        xhr.open("post",xhr_url,true);
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.send(strHtml);
+};
 //------------------------------------------------------------------------------------begain(公用)---------------------------------------------------------------------
     //   var arr;
      //  var reg = new RegExp("(^| )token=([^;]*)(;|$)");
