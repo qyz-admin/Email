@@ -517,9 +517,9 @@ function th_product(mp3Val){
                     var shuliang =0
                     var index = -1; //定义变量index控制索引值;  当查找不到a，即indexOf()的值为-1时，结束循环
               do {
-                    index = t.indexOf("』x", index + 1); //使用第二个参数index+1，控制每一次查找都是从上一次查找到字符a的下一个索引位置开始
+                    index = jishuliang.indexOf("』x", index + 1); //使用第二个参数index+1，控制每一次查找都是从上一次查找到字符a的下一个索引位置开始
                  if (index != -1) { //可以找到字符i
-                    shuliang +=  parseInt(t.substr(index+2,2))
+                    shuliang +=  parseInt(jishuliang.substr(index+2,2))
                   }
               } while (index != -1);
               return shuliang
@@ -695,9 +695,9 @@ function hh_product(mp3Val){
                     var shuliang =0
                     var index = -1; //定义变量index控制索引值;  当查找不到a，即indexOf()的值为-1时，结束循环
               do {
-                    index = t.indexOf("』x", index + 1); //使用第二个参数index+1，控制每一次查找都是从上一次查找到字符a的下一个索引位置开始
+                    index = jishuliang.indexOf("』x", index + 1); //使用第二个参数index+1，控制每一次查找都是从上一次查找到字符a的下一个索引位置开始
                  if (index != -1) { //可以找到字符i
-                    shuliang +=  parseInt(t.substr(index+2,2))
+                    shuliang +=  parseInt(jishuliang.substr(index+2,2))
                   }
               } while (index != -1);
               return shuliang
@@ -871,9 +871,9 @@ function bf_product(mp3Val){
                     var shuliang =0
                     var index = -1; //定义变量index控制索引值;  当查找不到a，即indexOf()的值为-1时，结束循环
               do {
-                    index = t.indexOf("』x", index + 1); //使用第二个参数index+1，控制每一次查找都是从上一次查找到字符a的下一个索引位置开始
+                    index =jishuliang.indexOf("』x", index + 1); //使用第二个参数index+1，控制每一次查找都是从上一次查找到字符a的下一个索引位置开始
                  if (index != -1) { //可以找到字符i
-                    shuliang +=  parseInt(t.substr(index+2,2))
+                    shuliang +=  parseInt(jishuliang.substr(index+2,2))
                   }
               } while (index != -1);
               return shuliang
