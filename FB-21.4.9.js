@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name    FB-21.4.9
+// @name    FB-2021.4.9
 // @namespace  http://tampermonkey.net/
-// @version  21.4.9
+// @version  2021.4.9
 // @description try to take over the world!
 // @author   You
 // @match    https://www.facebook.com/*
