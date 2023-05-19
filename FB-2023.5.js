@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name    FB-2023.05.17.3
+// @name    FB-2023.05.17.4
 // @namespace  http://tampermonkey.net/
-// @version  2023.05.17.3
+// @version  2023.05.17.4
 // @description try to take over the world!
 // @author   You
 // @match    https://www.facebook.com/*
@@ -149,13 +149,13 @@ function yemian(){ //正在加载网页标题内容（二）
      wxzSearchBarNode.setAttribute('class','header-wxzbar header-info');
      wxzSearchBarNode.style = "height: 40px;font-size: 15px;width: 35%;"
      wxzSearchBarNode.innerHTML =
-           ' <input type="button" value="消息 GO" class="search-button" id="wxz_searchButtonNew" title="点击查询-消息数量">&nbsp'
+           ' <input type="button" value="消息 GO" class="search-button" id="wxz_searchButtonNew" title="点击查询-消息数量，并等待加载完成提示！">&nbsp'
        +' <input type="button" value="50" class="search-button" id="wxz40_searchButton" title=" 0-50 ">&nbsp'
        +' <input type="button" value="100" class="search-button" id="wxz100_searchButton" title=" 50-100 ">&nbsp'
        +' <input type="button" value="150" class="search-button" id="wxz150_searchButton" title=" 100-150 ">&nbsp'
        +' <input type="button" value="150以上" class="search-button" id="wxz45_searchButton" title=" 150以上全部打开 ">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'
-    +' <input class="search-query" autocomplete="off" placeholder="请输入--" id="wxz_input" style="text-align: center;width: 80px;" title="请输入要打开--数值">'
-    +' <input type="button" value="点击加载主页" class="search-button" id="jiazai_input" style="text-align: center;width: 100px;" title="请点击显示更多主页">'
+    +' <input class="search-query" autocomplete="off" placeholder="请输入--" id="wxz_input" style="text-align: center;width: 80px;" title="请输入--数字；然后点击（消息 GO）打开">'
+    +' <input type="button" value="点击加载主页" class="search-button" id="jiazai_input" style="text-align: center;width: 100px;" title="请点击显示更多主页，并等待加载完成提示！">'
   targNode.appendChild(wxzSearchBarNode);
 
   var wxzbgNode = document.createElement('div');
@@ -261,6 +261,7 @@ if(inputValue == null || inputValue == ""){
 
 //-------------------------------------------------------------------第一部分  自动判断  test 使用----------------------------------
  document.getElementById("wxz_searchButtonNew").addEventListener("click", function fn() {//读取input数值
+
      console.log(909);
      var ct = "";
 function wxz_search(classnames) {
