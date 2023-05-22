@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name    FB-2023.05.17.4
+// @name    FB-2023.05.22.5
 // @namespace  http://tampermonkey.net/
-// @version  2023.05.17.4
+// @version  2023.05.22.5
 // @description try to take over the world!
 // @author   You
 // @match    https://www.facebook.com/*
@@ -150,6 +150,7 @@ function yemian(){ //正在加载网页标题内容（二）
      wxzSearchBarNode.style = "height: 40px;font-size: 15px;width: 35%;"
      wxzSearchBarNode.innerHTML =
            ' <input type="button" value="消息 GO" class="search-button" id="wxz_searchButtonNew" title="点击查询-消息数量，并等待加载完成提示！">&nbsp'
+             + ' <input type="hidden" value="旧版消息 GO" class="search-button" id="wxz_searchButton" title="点击查询-消息数量">&nbsp'
        +' <input type="button" value="50" class="search-button" id="wxz40_searchButton" title=" 0-50 ">&nbsp'
        +' <input type="button" value="100" class="search-button" id="wxz100_searchButton" title=" 50-100 ">&nbsp'
        +' <input type="button" value="150" class="search-button" id="wxz150_searchButton" title=" 100-150 ">&nbsp'
@@ -261,7 +262,6 @@ if(inputValue == null || inputValue == ""){
 
 //-------------------------------------------------------------------第一部分  自动判断  test 使用----------------------------------
  document.getElementById("wxz_searchButtonNew").addEventListener("click", function fn() {//读取input数值
-
      console.log(909);
      var ct = "";
 function wxz_search(classnames) {
@@ -312,7 +312,7 @@ function update_new2() {
                 }
             };
         //   var count = searchCount();
-            alert("已加载主页完毕！！！>>>数量 : " + objArray2.length + " 大于 50 ; 请分别点击 50,； 100,； 150,；按钮分三次打开页面 ");
+            alert("已加载主页完毕！！！\n >数量 : " + objArray2.length + "  ; 请分别点击 50,；100,；150,； 150以上；分批次打开页面 ");
             clearInterval(idB22);
          //   clearInterval(count);
         }else{
