@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name    FB-2023.05.22.5
+// @name    FB-2023.05.22.6 不自动关闭页面
 // @namespace  http://tampermonkey.net/
-// @version  2023.05.22.5
+// @version  2023.05.22.6
 // @description try to take over the world!
 // @author   You
 // @match    https://www.facebook.com/*
