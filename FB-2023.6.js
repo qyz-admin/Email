@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name    FB-2023.06.01.1 自动关闭页面
+// @name    FB-2023.06.05.1 自动关闭页面
 // @namespace  http://tampermonkey.net/
-// @version  2023.06.01.1
+// @version  2023.06.05.1
 // @description try to take over the world!
 // @author   You
 // @match    https://www.facebook.com/*
@@ -30,7 +30,7 @@ function SubmitWeb() { //总网址加载判断设置（一）
               if(document.readyState =="complete"){//确定是否加载完成
                    console.log(99);
                    console.log(cod99.search(/inbox/i));
-                 if(cod99.search(/selected_item_id/i) == "-1"){
+                 if(cod99.search(/inbox/i) == "-1"){
                        console.log(909);
                        console.log("正在刷新网页");
                        testCCC();
